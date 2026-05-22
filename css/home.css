@@ -123,53 +123,92 @@
 }
 .hstat-label { font-size: 0.775rem; color: rgba(255,255,255,0.38); font-weight: 500; }
 
-/* Right — device visual */
+/* Right — photo mosaic */
 .hero-right {
   display: flex; align-items: center; justify-content: center;
-  position: relative;
+  position: relative; padding: 40px 20px;
   animation: pop-in 0.8s var(--ease) 0.5s both;
 }
 
-.hero-device {
+/* Mosaic grid container */
+.hero-mosaic {
   position: relative;
+  width: 460px; height: 480px;
+}
+
+/* Main terminal photo — centre focal */
+.mosaic-main {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -52%);
+  width: 220px;
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 1px rgba(107,107,255,0.35),
+    0 32px 80px rgba(0,0,0,0.55),
+    0 0 60px rgba(107,107,255,0.25);
+  object-fit: cover;
+  aspect-ratio: 3/4;
+  z-index: 3;
   animation: float 7s ease-in-out infinite;
 }
 
-.hero-device-img {
-  width: 300px; max-width: 100%;
-  border-radius: 28px;
-  box-shadow:
-    0 0 0 1px rgba(107,107,255,0.3),
-    0 40px 100px rgba(0,0,0,0.6),
-    0 0 80px rgba(107,107,255,0.2);
+/* Hospitality photo — top left */
+.mosaic-hosp {
+  position: absolute;
+  top: 0; left: 0;
+  width: 195px; height: 235px;
+  border-radius: 20px;
   object-fit: cover;
-  aspect-ratio: 3/4;
+  object-position: center top;
+  box-shadow: 0 20px 56px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.08);
+  z-index: 2;
+  transform: rotate(-2.5deg);
+  animation: float 9s ease-in-out infinite;
+  animation-delay: -3s;
 }
 
-/* Floating UI cards */
+/* Retail photo — bottom right */
+.mosaic-retail {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 200px; height: 220px;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow: 0 20px 56px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.08);
+  z-index: 2;
+  transform: rotate(2deg);
+  animation: float 8s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+/* Floating UI chips — sit above photos */
 .fcard {
   position: absolute;
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(24px);
-  border-radius: 18px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1);
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 18px;
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.12);
+  display: flex; align-items: center; gap: 11px;
+  padding: 12px 16px;
   white-space: nowrap;
+  z-index: 10;
 }
 
 .fcard-approved {
-  bottom: 48px; left: -56px;
+  bottom: 120px; left: -8px;
   animation: float 6s ease-in-out infinite;
   animation-delay: -1s;
 }
 .fcard-routing {
-  top: 56px; right: -52px;
+  top: 40px; right: -12px;
   animation: float 8s ease-in-out infinite;
   animation-delay: -3s;
 }
 .fcard-npp {
-  bottom: 160px; right: -64px;
+  bottom: 28px; right: 60px;
   animation: float 7s ease-in-out infinite;
   animation-delay: -5s;
 }
