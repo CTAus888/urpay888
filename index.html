@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UrPay — Australia's acquirer-agnostic omni-channel payments platform. Card-present, online, NPP, pay-by-link and AI-powered merchant intelligence. 1,000+ merchants nationwide.">
+  <title>UrPay — Payments Processed Your Way</title>
+  <link rel="icon" type="image/png" href="images/urpay-icon-white.png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     NAV
+════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="images/urpay-logo-white.png" alt="UrPay" height="30">
+    </a>
+    <ul class="nav-links">
+      <li><a href="pages/solutions.html">Solutions</a></li>
+      <li><a href="pages/integrations.html">Integrations</a></li>
+      <li><a href="pages/industries.html">Industries</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/contact.html">Support</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="mailto:info@urpay.com.au" class="btn btn-glass btn-sm">Contact Sales</a>
+      <a href="pages/contact.html" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-mesh" aria-hidden="true">
+    <div class="mesh-blob mb1"></div>
+    <div class="mesh-blob mb2"></div>
+    <div class="mesh-blob mb3"></div>
+    <div class="mesh-blob mb4"></div>
+  </div>
+
+  <div class="hero-inner">
+    <!-- Left -->
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="pill pill-w">
+          <span class="dot dot-green"></span>
+          Live across Australia — 1,000+ merchants &amp; devices
+        </span>
+      </div>
+
+      <h1 class="display-xl hero-h1">
+        One platform.
+        <span class="hero-h1-line2 grad-text">Every payment.</span>
+      </h1>
+
+      <p class="hero-sub">
+        The acquirer-agnostic payments platform built for Australian hospitality and retail. Card-present, online, NPP, pay-by-link — all on your terms, never locked in.
+      </p>
+
+      <div class="hero-btns">
+        <a href="mailto:info@urpay.com.au" class="btn btn-primary">
+          Talk to us
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 10h12M10 4l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="pages/solutions.html" class="btn btn-glass">See the platform</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hstat">
+          <span class="hstat-num" data-count="1000">1,000+</span>
+          <span class="hstat-label">Active merchants</span>
+        </div>
+        <div class="hstat">
+          <span class="hstat-num" data-count="1000">1,000+</span>
+          <span class="hstat-label">Devices deployed</span>
+        </div>
+        <div class="hstat">
+          <span class="hstat-num">99.9%</span>
+          <span class="hstat-label">Platform uptime</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="hero-right">
+      <div class="orbit-ring"></div>
+
+      <div class="hero-device">
+        <img src="images/photo-01.jpg" alt="UrPay terminal payment approved" class="hero-device-img">
+
+        <!-- Floating card: approved -->
+        <div class="fcard fcard-approved">
+          <div class="fcard-icon fcard-icon-green">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="9" stroke="#00D4A0" stroke-width="2"/>
+              <path d="M6 10l3 3 5-5" stroke="#00D4A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="fcard-text">
+            <span class="fcard-main">Payment Approved</span>
+            <span class="fcard-sub">Smart routing · LCR active</span>
+          </div>
+          <span class="fcard-val">✓</span>
+        </div>
+
+        <!-- Floating card: routing -->
+        <div class="fcard fcard-routing">
+          <div class="fcard-icon fcard-icon-p">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12M14 6l4 4-4 4" stroke="#6B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="fcard-text">
+            <span class="fcard-main">Multi-switch routing</span>
+            <span class="fcard-sub">3 switches available</span>
+          </div>
+          <span class="fcard-val-p">●●●</span>
+        </div>
+
+        <!-- Floating card: NPP -->
+        <div class="fcard fcard-npp">
+          <div class="fcard-icon fcard-icon-p">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L2 7l8 4 8-4-8-5z" stroke="#6B6BFF" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M2 13l8 4 8-4" stroke="#6B6BFF" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="fcard-text">
+            <span class="fcard-main">NPP — Real-time</span>
+            <span class="fcard-sub">Settled instantly</span>
+          </div>
+          <span class="fcard-val-p">AU</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-fade"></div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SCHEME STRIP
+════════════════════════════════════════ -->
+<section class="schemes">
+  <div class="schemes-label">Accepted payment types</div>
+  <div class="strip-wrap">
+    <div class="strip-track">
+      <span class="scheme-chip">Visa</span>
+      <span class="scheme-chip">Mastercard</span>
+      <span class="scheme-chip">eftpos</span>
+      <span class="scheme-chip">Amex</span>
+      <span class="scheme-chip">Apple Pay</span>
+      <span class="scheme-chip">Google Pay</span>
+      <span class="scheme-chip">Diners Club</span>
+      <span class="scheme-chip">Alipay</span>
+      <span class="scheme-chip">UnionPay</span>
+      <span class="scheme-chip">PayID</span>
+      <!-- dupe for seamless loop -->
+      <span class="scheme-chip" aria-hidden="true">Visa</span>
+      <span class="scheme-chip" aria-hidden="true">Mastercard</span>
+      <span class="scheme-chip" aria-hidden="true">eftpos</span>
+      <span class="scheme-chip" aria-hidden="true">Amex</span>
+      <span class="scheme-chip" aria-hidden="true">Apple Pay</span>
+      <span class="scheme-chip" aria-hidden="true">Google Pay</span>
+      <span class="scheme-chip" aria-hidden="true">Diners Club</span>
+      <span class="scheme-chip" aria-hidden="true">Alipay</span>
+      <span class="scheme-chip" aria-hidden="true">UnionPay</span>
+      <span class="scheme-chip" aria-hidden="true">PayID</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PLATFORM
+════════════════════════════════════════ -->
+<section class="platform sp">
+  <div class="container">
+    <div class="s-head reveal">
+      <p class="eyebrow">The platform</p>
+      <h2 class="display-lg">Built for every way<br>your customers pay</h2>
+      <p>Four channels, one platform, zero lock-in. UrPay routes every transaction intelligently — whichever way gets approved fastest, at the lowest cost to your business.</p>
+    </div>
+
+    <div class="platform-bento">
+
+      <div class="pcard reveal d1">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="3"/>
+            <path d="M2 10h20M6 14h4"/>
+          </svg>
+        </div>
+        <div class="pcard-tag">Card Present</div>
+        <h3>In-Person Payments</h3>
+        <p>Tap, insert, swipe — on Sunmi Android terminals with full Linkly POS certification. Smart routing selects the lowest-cost network on every transaction automatically.</p>
+        <ul class="feat-list">
+          <li>Linkly POS certified</li>
+          <li>Least-cost routing (LCR)</li>
+          <li>Multi-switch redundant</li>
+          <li>Dynamic surcharging</li>
+        </ul>
+        <a href="pages/solutions.html#card-present" class="flink">
+          Explore card-present
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </a>
+      </div>
+
+      <div class="pcard reveal d2">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4M7 8h10M7 11h6"/>
+          </svg>
+        </div>
+        <div class="pcard-tag">Card Not Present</div>
+        <h3>Online &amp; eCommerce</h3>
+        <p>Accept payments on your website, over the phone, or via email — through a single API integration. Multi-gateway architecture means resilience and competitive rates.</p>
+        <ul class="feat-list">
+          <li>API integration</li>
+          <li>Hosted payment pages</li>
+          <li>Multi-gateway routing</li>
+          <li>Recurring billing</li>
+        </ul>
+        <a href="pages/solutions.html#card-not-present" class="flink">
+          Explore online payments
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </a>
+      </div>
+
+      <div class="pcard reveal d3">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="pcard-tag">Real-Time Payments</div>
+        <h3>NPP &amp; Pay by Link</h3>
+        <p>Australian real-time bank payments via the New Payments Platform. Send a payment link by SMS or email — paid in seconds, settled the same day, zero card fees.</p>
+        <ul class="feat-list">
+          <li>NPP-native (AU)</li>
+          <li>PayID support</li>
+          <li>SMS &amp; email payment links</li>
+          <li>Same-day settlement</li>
+        </ul>
+        <a href="pages/solutions.html#npp" class="flink">
+          Explore real-time payments
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </a>
+      </div>
+
+      <div class="pcard pcard-dark reveal d4">
+        <div class="ibadge ibadge-dark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
+          </svg>
+        </div>
+        <div class="pcard-tag">AI Platform</div>
+        <h3>AI-Powered Merchant Intelligence</h3>
+        <p>Your Merchant Dashboard learns from your transaction data — surfacing insights, flagging anomalies, and optimising routing decisions in real time.</p>
+        <ul class="feat-list feat-list-light">
+          <li>Smart analytics dashboard</li>
+          <li>Real-time transaction insights</li>
+          <li>Automated reconciliation</li>
+          <li>AI routing optimisation</li>
+        </ul>
+        <a href="pages/solutions.html#ai" class="flink flink-light">
+          Explore AI platform
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     WHY URPAY
+════════════════════════════════════════ -->
+<section class="why sp">
+  <div class="container">
+    <div class="s-head reveal">
+      <p class="eyebrow">Why UrPay</p>
+      <h2 class="display-lg">Infrastructure built the right way</h2>
+      <p>Most payment platforms lock you in. UrPay is built for freedom — choose your acquirer, your POS, your rates. The platform works harder so you don't have to.</p>
+    </div>
+
+    <div class="why-rows">
+
+      <!-- Row 1: Acquirer agnostic -->
+      <div class="why-row reveal">
+        <div class="why-visual">
+          <div class="acq-diagram">
+            <div class="acq-nodes">
+              <div class="acq-node"><span class="acq-node-dot"></span>Acquirer A</div>
+              <div class="acq-node"><span class="acq-node-dot"></span>Acquirer B</div>
+              <div class="acq-node"><span class="acq-node-dot"></span>Acquirer C</div>
+            </div>
+            <div class="acq-arrow">
+              ↕
+              <span>Routes for best outcome</span>
+            </div>
+            <div class="acq-center">
+              <img src="images/urpay-logo-lilac.png" alt="UrPay" style="height:22px;">
+              <span style="color:rgba(255,255,255,0.8); font-size:0.9rem; font-weight:600;">UrPay Platform</span>
+            </div>
+            <div class="acq-result">
+              <span class="pill pill-g"><span class="dot dot-green"></span>Best rate wins, every time</span>
+            </div>
+          </div>
+        </div>
+        <div class="why-content">
+          <p class="eyebrow">Acquirer-agnostic</p>
+          <h3 class="display-md">Your rates.<br>Not theirs.</h3>
+          <p>UrPay sits across multiple acquiring banks, not tied to any one. Every transaction routes to the best outcome — lowest cost, highest approval rate — automatically. You're never held hostage to one bank's pricing.</p>
+          <div class="why-pills">
+            <span class="pill pill-p">PAYFAC-licensed</span>
+            <span class="pill pill-p">Multi-acquirer</span>
+            <span class="pill pill-p">No lock-in contracts</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: Multi-switch redundant -->
+      <div class="why-row why-row-flip reveal">
+        <div class="why-visual">
+          <div class="uptime-diagram">
+            <div class="uptime-row">
+              <div class="uptime-label">
+                <span>Switch 1</span>
+                <span class="uptime-status">● Active</span>
+              </div>
+              <div class="uptime-bar"><div class="uptime-fill uptime-fill-green" style="width:100%"></div></div>
+            </div>
+            <div class="uptime-row">
+              <div class="uptime-label">
+                <span>Switch 2</span>
+                <span class="uptime-status">● Standby</span>
+              </div>
+              <div class="uptime-bar"><div class="uptime-fill" style="width:100%"></div></div>
+            </div>
+            <div class="uptime-row">
+              <div class="uptime-label">
+                <span>Switch 3</span>
+                <span class="uptime-status-dim">○ Failover ready</span>
+              </div>
+              <div class="uptime-bar"><div class="uptime-fill uptime-fill-dim" style="width:100%"></div></div>
+            </div>
+            <div class="uptime-note">
+              <span class="pill pill-g"><span class="dot dot-green"></span>No single point of failure</span>
+            </div>
+          </div>
+        </div>
+        <div class="why-content">
+          <p class="eyebrow">Multi-switch redundant</p>
+          <h3 class="display-md">Payments that<br>don't go down.</h3>
+          <p>UrPay's platform runs across multiple switches simultaneously. If one network has an issue, another takes over instantly — no downtime, no declined transactions, no frustrated customers at the counter.</p>
+          <div class="why-pills">
+            <span class="pill pill-p">Multi-switch</span>
+            <span class="pill pill-p">Automatic failover</span>
+            <span class="pill pill-g">99.9% uptime</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3: POS integration -->
+      <div class="why-row reveal">
+        <div class="why-visual">
+          <div class="why-photo">
+            <img src="images/photo-03.jpg" alt="UrPay hospitality merchant">
+          </div>
+        </div>
+        <div class="why-content">
+          <p class="eyebrow">Your POS, your way</p>
+          <h3 class="display-md">Works with the<br>tools you love.</h3>
+          <p>UrPay is Linkly-certified — giving you access to Australia's broadest POS ecosystem on Android. Split bills, settle tables, send digital receipts, and accept every payment type without changing a thing about how your team works.</p>
+          <div class="why-pills">
+            <span class="pill pill-p">Linkly certified</span>
+            <span class="pill pill-p">Android POS</span>
+            <span class="pill pill-p">Split payments</span>
+            <span class="pill pill-p">Digital receipts</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     INDUSTRIES
+════════════════════════════════════════ -->
+<section class="industries sp">
+  <div class="container">
+    <div class="s-head reveal">
+      <p class="eyebrow">Industries</p>
+      <h2 class="display-lg">We understand<br>your business</h2>
+      <p>UrPay was built in the field — with hospitality operators, retail managers, and high-volume merchants who couldn't afford for payments to be the weak link.</p>
+    </div>
+
+    <div class="ind-grid">
+
+      <div class="ind-card reveal d1">
+        <div class="ind-img">
+          <img src="images/photo-06.jpg" alt="Hospitality — restaurant">
+          <div class="ind-overlay"><span class="ind-tag">Hospitality</span></div>
+        </div>
+        <div class="ind-body">
+          <h3>Hospitality</h3>
+          <p>Restaurants, cafes, bars and venues. Table-side payments, bill splitting, digital receipts, and POS integration with leading hospitality platforms.</p>
+          <a href="pages/industries.html#hospitality" class="flink">
+            Learn more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="ind-card reveal d2">
+        <div class="ind-img">
+          <img src="images/photo-08.jpg" alt="Retail">
+          <div class="ind-overlay"><span class="ind-tag">Retail</span></div>
+        </div>
+        <div class="ind-body">
+          <h3>Retail</h3>
+          <p>Boutiques to enterprise retail. Mobile EFTPOS, eCommerce integration, inventory-aware payment flows and enterprise reporting.</p>
+          <a href="pages/industries.html#retail" class="flink">
+            Learn more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="ind-card reveal d3">
+        <div class="ind-img">
+          <img src="images/photo-09.jpg" alt="Enterprise">
+          <div class="ind-overlay"><span class="ind-tag">Enterprise</span></div>
+        </div>
+        <div class="ind-body">
+          <h3>Enterprise &amp; High-Volume</h3>
+          <p>Custom pricing, dedicated support, acquirer-agnostic routing, and real-time reconciliation built for merchants processing at scale.</p>
+          <a href="pages/industries.html#enterprise" class="flink">
+            Learn more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     INTEGRATIONS
+════════════════════════════════════════ -->
+<section class="integrations sp">
+  <div class="container">
+    <div class="int-inner">
+      <div class="int-content reveal">
+        <p class="eyebrow">Integrations</p>
+        <h2 class="display-lg">Works with everything<br>you already use</h2>
+        <p>UrPay is Linkly-certified — giving you access to Australia's broadest POS ecosystem. API-ready for custom integrations, webhooks for your back office, and multi-scheme acceptance out of the box.</p>
+        <div class="int-pills">
+          <span class="pill pill-p">Linkly certified</span>
+          <span class="pill pill-p">Android OS</span>
+          <span class="pill pill-p">REST API</span>
+          <span class="pill pill-p">Webhooks</span>
+        </div>
+        <a href="pages/integrations.html" class="btn btn-outline">View all integrations</a>
+      </div>
+      <div class="int-grid reveal d2">
+        <div class="int-tile int-tile-span">
+          <div class="int-tile-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <div>
+            <div class="int-tile-label">POS Integration</div>
+            <div class="int-tile-sub">Linkly certified — access Australia's full POS ecosystem</div>
+          </div>
+        </div>
+        <div class="int-tile">
+          <div class="int-tile-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="int-tile-label">NPP</div>
+        </div>
+        <div class="int-tile">
+          <div class="int-tile-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="int-tile-label">Live API</div>
+        </div>
+        <div class="int-tile">
+          <div class="int-tile-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+            </svg>
+          </div>
+          <div class="int-tile-label">Webhooks</div>
+        </div>
+        <div class="int-tile">
+          <div class="int-tile-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 14h4M14 14h4"/>
+            </svg>
+          </div>
+          <div class="int-tile-label">Multi-scheme</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PROOF
+════════════════════════════════════════ -->
+<section class="proof sp">
+  <div class="container">
+    <div class="proof-inner">
+      <div class="s-head reveal" style="text-align:left; max-width:100%; margin-bottom:0;">
+        <p class="eyebrow" style="color:rgba(255,255,255,0.4);">By the numbers</p>
+        <h2 class="display-lg" style="color:#fff;">Trusted by merchants<br>across Australia</h2>
+      </div>
+
+      <div class="proof-stats">
+        <div class="pstat reveal d1">
+          <div class="pstat-num"><span data-count="1000">1,000</span><sup>+</sup></div>
+          <div class="pstat-label">Active merchants</div>
+        </div>
+        <div class="pstat reveal d2">
+          <div class="pstat-num"><span data-count="1000">1,000</span><sup>+</sup></div>
+          <div class="pstat-label">Devices deployed</div>
+        </div>
+        <div class="pstat reveal d3">
+          <div class="pstat-num"><span>9</span><sup>+</sup></div>
+          <div class="pstat-label">Payment types accepted</div>
+        </div>
+        <div class="pstat reveal d4">
+          <div class="pstat-num"><span>99.9</span><sup>%</sup></div>
+          <div class="pstat-label">Platform uptime</div>
+        </div>
+      </div>
+
+      <div class="proof-quote reveal">
+        <blockquote>"UrPay gave us back control. We're not locked into one bank, not paying rates we didn't negotiate — and when something needs fixing, they actually pick up the phone."</blockquote>
+        <cite>— Hospitality operator, Melbourne</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     CTA
+════════════════════════════════════════ -->
+<section class="cta-sec sp">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-content reveal">
+        <p class="eyebrow">Ready to switch?</p>
+        <h2 class="display-lg">Tap into more.</h2>
+        <p>Talk to our team about what UrPay can do for your business. No lock-in contracts, no one-size-fits-all pricing — just payments that work the way you do.</p>
+        <div class="cta-btns">
+          <a href="mailto:info@urpay.com.au" class="btn btn-primary">
+            Get in touch
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 10h12M10 4l6 6-6 6"/>
+            </svg>
+          </a>
+          <a href="pages/solutions.html" class="btn btn-outline">Explore the platform</a>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <img src="images/photo-07.jpg" alt="UrPay merchant" class="cta-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/urpay-logo-white.png" alt="UrPay" height="26">
+        <p>Australia's acquirer-agnostic omni-channel payments platform. Card-present, online, NPP and pay-by-link — built for hospitality, retail and beyond.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="pages/solutions.html#card-present">Card Present</a></li>
+          <li><a href="pages/solutions.html#card-not-present">Card Not Present</a></li>
+          <li><a href="pages/solutions.html#npp">NPP &amp; Pay by Link</a></li>
+          <li><a href="pages/solutions.html#ai">AI Platform</a></li>
+          <li><a href="pages/integrations.html">Integrations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="pages/industries.html#hospitality">Hospitality</a></li>
+          <li><a href="pages/industries.html#retail">Retail</a></li>
+          <li><a href="pages/industries.html#enterprise">Enterprise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/contact.html">Contact &amp; Support</a></li>
+          <li><a href="mailto:info@urpay.com.au">Sales Enquiries</a></li>
+          <li><a href="http://www.urpay.com.au" target="_blank" rel="noopener">Main Website</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 UrPay Pty Ltd. All rights reserved. PAYFAC-licensed.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">PCI Compliance</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
