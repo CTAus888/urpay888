@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UrPay solutions — Card Present, Online & eCommerce, NPP & Pay by Link, and AI-powered merchant intelligence. Australia's complete payments platform.">
+  <title>Solutions — UrPay</title>
+  <link rel="icon" type="image/png" href="../images/urpay-icon-white.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvevsobg5l");
+  </script>
+  <style>
+    /* ── Page hero ── */
+    .page-hero {
+      background: var(--p-deep);
+      position: relative;
+      overflow: hidden;
+      padding: calc(var(--nav-h) + 80px) 0 100px;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 70% 40%, rgba(107,107,255,0.32) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(80,40,180,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      position: relative; z-index: 1;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .page-hero-left .eyebrow { margin-bottom: 20px; }
+    .page-hero-left h1 { color: #fff; margin-bottom: 24px; }
+    .page-hero-left p {
+      font-size: 1.125rem; color: rgba(255,255,255,0.55); line-height: 1.72;
+      max-width: 480px; margin-bottom: 44px;
+    }
+    .page-hero-left .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .page-hero-chips {
+      display: flex; flex-direction: column; gap: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(107,107,255,0.2);
+      border-radius: var(--r-lg);
+      padding: 36px;
+    }
+    .hero-chip-row {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(107,107,255,0.15);
+      border-radius: var(--r);
+    }
+    .hero-chip-row:hover {
+      background: rgba(107,107,255,0.1);
+      border-color: rgba(107,107,255,0.35);
+    }
+    .hero-chip-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(107,107,255,0.15);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .hero-chip-icon svg { width: 20px; height: 20px; color: var(--p); }
+    .hero-chip-text { display: flex; flex-direction: column; gap: 2px; }
+    .hero-chip-label { font-size: 0.875rem; font-weight: 700; color: #fff; }
+    .hero-chip-sub { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+    .hero-chip-badge {
+      margin-left: auto;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
+      background: rgba(107,107,255,0.2); color: var(--p);
+    }
+    .hero-chip-badge-g { background: var(--green-dim); color: var(--green); }
+
+    /* ── Solution sections ── */
+    .sol-section {
+      padding: 110px 0;
+      position: relative;
+    }
+    .sol-section:nth-child(even) { background: var(--cream); }
+    .sol-section:nth-child(odd)  { background: var(--white); }
+
+    .sol-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .sol-inner.flip { direction: rtl; }
+    .sol-inner.flip > * { direction: ltr; }
+
+    .sol-content .eyebrow { margin-bottom: 14px; }
+    .sol-content h2 { margin-bottom: 20px; }
+    .sol-content .lead {
+      font-size: 1.0625rem; color: var(--text-2); line-height: 1.72; margin-bottom: 32px;
+    }
+
+    .sol-feature-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 36px;
+    }
+    .sol-feat {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 16px 18px;
+      background: var(--lav);
+      border-radius: var(--r-sm);
+    }
+    .sol-feat-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--p); flex-shrink: 0; margin-top: 6px;
+    }
+    .sol-feat-text {}
+    .sol-feat-title { font-size: 0.8125rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .sol-feat-desc  { font-size: 0.75rem; color: var(--text-2); line-height: 1.5; }
+
+    /* Dark variant sol-section */
+    .sol-section-dark { background: linear-gradient(145deg, var(--p-rich) 0%, var(--p-mid) 100%) !important; }
+    .sol-section-dark .sol-content .eyebrow { color: rgba(150,150,255,0.8); }
+    .sol-section-dark .sol-content h2 { color: #fff; }
+    .sol-section-dark .sol-content .lead { color: rgba(255,255,255,0.6); }
+    .sol-section-dark .sol-feat { background: rgba(255,255,255,0.06); border: 1px solid rgba(107,107,255,0.2); }
+    .sol-section-dark .sol-feat-title { color: rgba(255,255,255,0.9); }
+    .sol-section-dark .sol-feat-desc { color: rgba(255,255,255,0.45); }
+    .sol-section-dark .sol-feat-dot { background: rgba(140,140,255,0.8); }
+
+    /* Visual panels */
+    .sol-visual {
+      position: relative;
+    }
+    .sol-terminal-showcase {
+      background: linear-gradient(145deg, var(--p-rich), var(--p-mid));
+      border: 1px solid rgba(107,107,255,0.25);
+      border-radius: var(--r-lg);
+      padding: 48px 40px;
+      min-height: 440px;
+      display: flex; align-items: center; justify-content: center; gap: 20px;
+      flex-wrap: wrap;
+      position: relative; overflow: hidden;
+    }
+    .sol-terminal-showcase::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(107,107,255,0.2) 0%, transparent 70%);
+    }
+    .terminal-img-wrap {
+      position: relative; z-index: 1; text-align: center;
+    }
+    .terminal-img-wrap img {
+      height: 260px; width: auto; object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+      transition: transform 0.4s var(--ease);
+    }
+    .terminal-img-wrap:hover img { transform: translateY(-8px) scale(1.03); }
+    .terminal-img-label {
+      margin-top: 12px; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .sol-panel {
+      border-radius: var(--r-lg); overflow: hidden;
+      background: var(--lav);
+      min-height: 440px;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 48px 40px;
+      position: relative;
+    }
+    .sol-panel-dark {
+      background: linear-gradient(145deg, var(--p-deep), var(--p-mid));
+      border: 1px solid rgba(107,107,255,0.2);
+    }
+
+    .sol-photo {
+      border-radius: var(--r-lg); overflow: hidden;
+      height: 440px;
+    }
+    .sol-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* NPP visual */
+    .npp-diagram {
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .npp-step {
+      display: flex; align-items: center; gap: 16px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(107,107,255,0.18);
+      border-radius: var(--r);
+      padding: 16px 20px;
+    }
+    .npp-step-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--p); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8125rem; font-weight: 800; flex-shrink: 0;
+    }
+    .npp-step-text { display: flex; flex-direction: column; gap: 2px; }
+    .npp-step-label { font-size: 0.875rem; font-weight: 700; color: rgba(255,255,255,0.9); }
+    .npp-step-sub   { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+    .npp-step-time  { margin-left: auto; font-size: 0.75rem; font-weight: 700; color: var(--green); }
+
+    /* AI Dashboard visual */
+    .ai-dashboard {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .ai-row {
+      display: flex; gap: 12px;
+    }
+    .ai-metric {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(107,107,255,0.18);
+      border-radius: var(--r-sm);
+      padding: 18px 16px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .ai-metric-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .ai-metric-val   { font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+    .ai-metric-delta { font-size: 0.7rem; font-weight: 700; }
+    .ai-metric-up   { color: var(--green); }
+    .ai-metric-down { color: #ff6b6b; }
+    .ai-bar-row {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(107,107,255,0.18);
+      border-radius: var(--r-sm); padding: 16px;
+    }
+    .ai-bar-label { font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+    .ai-bars { display: flex; gap: 6px; align-items: flex-end; height: 56px; }
+    .ai-bar-col { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(to top, var(--p), #9B6BFF); }
+
+    /* Enterprise section */
+    .ent-section {
+      background: var(--cream);
+      padding: 110px 0;
+    }
+    .ent-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+    }
+    .ent-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 56px;
+    }
+    .ent-card {
+      background: var(--white);
+      border: 1px solid rgba(107,107,255,0.1);
+      border-radius: var(--r-lg); padding: 40px 36px;
+      transition: box-shadow 0.35s var(--ease), transform 0.35s;
+    }
+    .ent-card:hover {
+      box-shadow: 0 16px 56px rgba(107,107,255,0.14);
+      transform: translateY(-5px);
+    }
+    .ent-card .ibadge { margin-bottom: 20px; }
+    .ent-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 12px; }
+    .ent-card p  { font-size: 0.875rem; color: var(--text-2); line-height: 1.65; }
+
+    /* Bottom CTA */
+    .sol-cta {
+      background: var(--p-deep); padding: 110px 0; text-align: center; position: relative; overflow: hidden;
+    }
+    .sol-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(107,107,255,0.22) 0%, transparent 65%);
+    }
+    .sol-cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 0 28px; }
+    .sol-cta h2 { color: #fff; margin-bottom: 20px; }
+    .sol-cta p  { font-size: 1.0625rem; color: rgba(255,255,255,0.55); line-height: 1.72; margin-bottom: 44px; }
+    .sol-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .page-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .page-hero-chips { display: none; }
+      .sol-inner { grid-template-columns: 1fr; gap: 48px; }
+      .sol-inner.flip { direction: ltr; }
+      .sol-feature-grid { grid-template-columns: 1fr; }
+      .ent-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
+      .sol-terminal-showcase { padding: 32px 24px; min-height: auto; }
+      .terminal-img-wrap img { height: 180px; }
+      .ent-grid { grid-template-columns: 1fr; }
+      .sol-cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/urpay-logo-white.png" alt="UrPay" height="30">
+    </a>
+    <ul class="nav-links">
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="integrations.html">Integrations</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-glass btn-sm">Contact Us</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-left reveal">
+      <p class="eyebrow">The Platform</p>
+      <h1 class="display-xl">Every payment.<br><span class="grad-text">One platform.</span></h1>
+      <p>Card present, online, real-time bank payments, pay-by-link, and AI-powered analytics. Everything your business needs — none of the lock-in.</p>
+      <div class="hero-btns">
+        <a href="contact.html" class="btn btn-primary">Talk to us <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10h12M10 4l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#card-present" class="btn btn-glass">Explore solutions</a>
+      </div>
+    </div>
+    <div class="page-hero-chips reveal d2">
+      <div class="page-hero-chips">
+        <div class="hero-chip-row">
+          <div class="hero-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 14h4"/></svg></div>
+          <div class="hero-chip-text"><span class="hero-chip-label">Card Present</span><span class="hero-chip-sub">Tap, insert, swipe — smart terminals</span></div>
+          <span class="hero-chip-badge">Multi-switch</span>
+        </div>
+        <div class="hero-chip-row">
+          <div class="hero-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4M7 8h10M7 11h6"/></svg></div>
+          <div class="hero-chip-text"><span class="hero-chip-label">Online &amp; eCommerce</span><span class="hero-chip-sub">API, hosted pages, recurring billing</span></div>
+          <span class="hero-chip-badge">Multi-gateway</span>
+        </div>
+        <div class="hero-chip-row">
+          <div class="hero-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="hero-chip-text"><span class="hero-chip-label">NPP &amp; Pay by Link</span><span class="hero-chip-sub">Real-time AU bank payments</span></div>
+          <span class="hero-chip-badge hero-chip-badge-g">Instant</span>
+        </div>
+        <div class="hero-chip-row">
+          <div class="hero-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <div class="hero-chip-text"><span class="hero-chip-label">AI Merchant Dashboard</span><span class="hero-chip-sub">Smart analytics, routing optimisation</span></div>
+          <span class="hero-chip-badge">AI-powered</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 1. CARD PRESENT -->
+<section class="sol-section" id="card-present">
+  <div class="sol-inner">
+    <div class="sol-content reveal">
+      <p class="eyebrow">Card Present</p>
+      <h2 class="display-lg">Terminals built<br>for the counter.</h2>
+      <p class="lead">Tap, insert, or swipe on Android smart terminals with full POS integration. Our multi-switch redundant infrastructure means no single point of failure — payments keep flowing even when one pathway has an issue.</p>
+      <div class="sol-feature-grid">
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Multi-switch redundant</div><div class="sol-feat-desc">No single point of failure. Automatic failover built in.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Least-cost routing (LCR)</div><div class="sol-feat-desc">Smart routing selects the lowest-cost network automatically.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">PAYFAC-licensed</div><div class="sol-feat-desc">Full payments facilitation — no lock-in to a single acquirer.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Dynamic surcharging</div><div class="sol-feat-desc">Compliant, card-type aware surcharging built in.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Full POS integration</div><div class="sol-feat-desc">Native integration with Australia's leading POS platforms.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">99.9% uptime SLA</div><div class="sol-feat-desc">24/7 monitoring — your counter never goes dark.</div></div>
+        </div>
+      </div>
+      <div class="why-pills">
+        <span class="pill pill-p">PAX A920</span>
+        <span class="pill pill-p">PAX A77</span>
+        <span class="pill pill-p">Ingenico DX8000</span>
+        <span class="pill pill-p">Android OS</span>
+      </div>
+    </div>
+    <div class="sol-visual reveal d2">
+      <div class="sol-terminal-showcase">
+        <div class="terminal-img-wrap">
+          <img src="../images/devices/terminal-a920.png" alt="PAX A920 terminal">
+          <div class="terminal-img-label">PAX A920</div>
+        </div>
+        <div class="terminal-img-wrap">
+          <img src="../images/devices/terminal-a77.png" alt="PAX A77 terminal">
+          <div class="terminal-img-label">PAX A77</div>
+        </div>
+        <div class="terminal-img-wrap">
+          <img src="../images/devices/terminal-dx8000.png" alt="Ingenico DX8000">
+          <div class="terminal-img-label">Ingenico DX8000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ONLINE & ECOMMERCE -->
+<section class="sol-section" id="online">
+  <div class="sol-inner flip">
+    <div class="sol-content reveal">
+      <p class="eyebrow">Online &amp; eCommerce</p>
+      <h2 class="display-lg">Accept online,<br>over phone, by email.</h2>
+      <p class="lead">A single integration that handles your website, phone orders, and email payments through a white-label multi-gateway architecture. Resilience and competitive rates, built in.</p>
+      <div class="sol-feature-grid">
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">REST API integration</div><div class="sol-feat-desc">Developer-friendly API with full sandbox and documentation.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Hosted payment pages</div><div class="sol-feat-desc">PCI-compliant hosted pages — no card data on your servers.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Multi-gateway white-label</div><div class="sol-feat-desc">Routes across multiple gateways for best approval outcome.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Recurring billing</div><div class="sol-feat-desc">Subscription and instalment payments with tokenised cards.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">MOTO payments</div><div class="sol-feat-desc">Mail order / telephone order — phone and email payments.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">3DS2 authentication</div><div class="sol-feat-desc">Latest strong customer authentication — fewer false declines.</div></div>
+        </div>
+      </div>
+      <div class="why-pills">
+        <span class="pill pill-p">Multi-gateway</span>
+        <span class="pill pill-p">PCI-DSS compliant</span>
+        <span class="pill pill-p">Recurring billing</span>
+      </div>
+    </div>
+    <div class="sol-visual reveal d2">
+      <div class="sol-photo">
+        <img src="../images/photo-02.jpg" alt="Online payments — eCommerce">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. NPP & PAY BY LINK -->
+<section class="sol-section sol-section-dark" id="npp">
+  <div class="sol-inner">
+    <div class="sol-content reveal">
+      <p class="eyebrow">Real-Time Payments</p>
+      <h2 class="display-lg">NPP &amp; Pay by Link.</h2>
+      <p class="lead">Australian real-time bank payments via the New Payments Platform. Send a payment link by SMS or email — your customer pays in seconds, funds settle the same day, zero card fees involved.</p>
+      <div class="sol-feature-grid">
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">NPP-native (AU)</div><div class="sol-feat-desc">Direct New Payments Platform rails — real Australian infrastructure.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">PayID support</div><div class="sol-feat-desc">Pay to phone number, email or ABN — no BSB/account required.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">SMS &amp; email links</div><div class="sol-feat-desc">Generate and send a payment link in seconds from your dashboard.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Same-day settlement</div><div class="sol-feat-desc">Funds in your account the same business day.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Zero card fees</div><div class="sol-feat-desc">Bank-to-bank transfers bypass card scheme fees entirely.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Branded payment pages</div><div class="sol-feat-desc">White-label payment experience with your brand on screen.</div></div>
+        </div>
+      </div>
+      <div class="why-pills">
+        <span class="pill pill-w">NPP-native</span>
+        <span class="pill pill-g">Same-day settlement</span>
+        <span class="pill pill-w">PayID</span>
+      </div>
+    </div>
+    <div class="sol-visual reveal d2">
+      <div class="sol-panel sol-panel-dark">
+        <div class="npp-diagram">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:8px;">Pay by Link — flow</div>
+          <div class="npp-step">
+            <div class="npp-step-num">1</div>
+            <div class="npp-step-text"><span class="npp-step-label">Merchant creates link</span><span class="npp-step-sub">From dashboard or API</span></div>
+            <span class="npp-step-time">0s</span>
+          </div>
+          <div class="npp-step">
+            <div class="npp-step-num">2</div>
+            <div class="npp-step-text"><span class="npp-step-label">SMS / email sent</span><span class="npp-step-sub">To customer phone or inbox</span></div>
+            <span class="npp-step-time">~3s</span>
+          </div>
+          <div class="npp-step">
+            <div class="npp-step-num">3</div>
+            <div class="npp-step-text"><span class="npp-step-label">Customer pays via NPP</span><span class="npp-step-sub">Bank app, PayID — instant</span></div>
+            <span class="npp-step-time">~10s</span>
+          </div>
+          <div class="npp-step" style="border-color:rgba(0,212,160,0.3);background:rgba(0,212,160,0.06);">
+            <div class="npp-step-num" style="background:var(--green);">4</div>
+            <div class="npp-step-text"><span class="npp-step-label" style="color:var(--green);">Funds confirmed</span><span class="npp-step-sub">Real-time notification to merchant</span></div>
+            <span class="npp-step-time" style="color:var(--green);">Same day</span>
+          </div>
+          <div style="margin-top:8px;">
+            <span class="pill pill-g"><span class="dot dot-green"></span>Zero card fees · Instant settlement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. AI MERCHANT DASHBOARD -->
+<section class="sol-section" id="ai-dashboard">
+  <div class="sol-inner flip">
+    <div class="sol-content reveal">
+      <p class="eyebrow">AI Platform</p>
+      <h2 class="display-lg">Your payments,<br>working smarter.</h2>
+      <p class="lead">The UrPay Merchant Dashboard doesn't just report — it learns. Real-time insights, anomaly detection, and routing optimisation that improves automatically as your transaction data grows.</p>
+      <div class="sol-feature-grid">
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Smart analytics</div><div class="sol-feat-desc">Revenue, transaction volumes and trends updated in real time.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">AI routing optimisation</div><div class="sol-feat-desc">Learns which routes approve faster and cost less — adjusts automatically.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Automated reconciliation</div><div class="sol-feat-desc">Daily settlement files matched and reconciled without manual work.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Anomaly alerts</div><div class="sol-feat-desc">Unusual transaction patterns flagged instantly to your team.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Multi-location management</div><div class="sol-feat-desc">Manage all sites from one dashboard — drill down to terminal level.</div></div>
+        </div>
+        <div class="sol-feat">
+          <span class="sol-feat-dot"></span>
+          <div class="sol-feat-text"><div class="sol-feat-title">Custom reporting</div><div class="sol-feat-desc">Export any date range, any terminal, any payment type.</div></div>
+        </div>
+      </div>
+      <div class="why-pills">
+        <span class="pill pill-p">Real-time insights</span>
+        <span class="pill pill-p">AI routing</span>
+        <span class="pill pill-p">Auto-reconciliation</span>
+      </div>
+    </div>
+    <div class="sol-visual reveal d2">
+      <div class="sol-panel sol-panel-dark" style="padding:32px;">
+        <div class="ai-dashboard">
+          <div class="ai-row">
+            <div class="ai-metric">
+              <div class="ai-metric-label">Today's volume</div>
+              <div class="ai-metric-val">$24,817</div>
+              <div class="ai-metric-delta ai-metric-up">▲ 12.4% vs yesterday</div>
+            </div>
+            <div class="ai-metric">
+              <div class="ai-metric-label">Approval rate</div>
+              <div class="ai-metric-val">98.7%</div>
+              <div class="ai-metric-delta ai-metric-up">▲ 0.3% this week</div>
+            </div>
+          </div>
+          <div class="ai-row">
+            <div class="ai-metric">
+              <div class="ai-metric-label">Avg. transaction</div>
+              <div class="ai-metric-val">$68.40</div>
+              <div class="ai-metric-delta ai-metric-up">▲ 4.1% this month</div>
+            </div>
+            <div class="ai-metric">
+              <div class="ai-metric-label">Declines today</div>
+              <div class="ai-metric-val">3</div>
+              <div class="ai-metric-delta ai-metric-down">▼ AI rerouted 2</div>
+            </div>
+          </div>
+          <div class="ai-bar-row">
+            <div class="ai-bar-label">Transactions — last 7 days</div>
+            <div class="ai-bars">
+              <div class="ai-bar-col" style="height:45%;opacity:0.5;"></div>
+              <div class="ai-bar-col" style="height:60%;opacity:0.6;"></div>
+              <div class="ai-bar-col" style="height:75%;opacity:0.7;"></div>
+              <div class="ai-bar-col" style="height:55%;opacity:0.65;"></div>
+              <div class="ai-bar-col" style="height:85%;opacity:0.8;"></div>
+              <div class="ai-bar-col" style="height:90%;opacity:0.9;"></div>
+              <div class="ai-bar-col" style="height:100%;"></div>
+            </div>
+          </div>
+          <div style="margin-top:4px;">
+            <span class="pill pill-g" style="font-size:0.68rem;"><span class="dot dot-green"></span>AI routing active — 99.9% uptime</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTERPRISE -->
+<section class="ent-section" id="enterprise">
+  <div class="ent-inner">
+    <div class="s-head reveal">
+      <p class="eyebrow">Enterprise</p>
+      <h2 class="display-lg">Built for scale.</h2>
+      <p>Custom pricing, dedicated account management, and real-time reconciliation for merchants processing at volume. Multi-location, multi-terminal, one dashboard.</p>
+    </div>
+    <div class="ent-grid">
+      <div class="ent-card reveal d1">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Custom Pricing</h3>
+        <p>Volume-based pricing negotiated for your business. No one-size-fits-all rates — we model your transaction mix and find the right structure for your margins.</p>
+      </div>
+      <div class="ent-card reveal d2">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Dedicated Account Management</h3>
+        <p>A named account manager who knows your business — not a call centre. Direct escalation, proactive reporting, and quarterly business reviews.</p>
+      </div>
+      <div class="ent-card reveal d3">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Real-Time Reconciliation at Scale</h3>
+        <p>Automated daily settlement matching across every terminal, every location. Exception reporting surfaced automatically — no manual spreadsheet work.</p>
+      </div>
+      <div class="ent-card reveal d1">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Multi-Location Management</h3>
+        <p>One dashboard for every site. Drill down by location, terminal, or payment type. Centralised reporting with the granularity you actually need.</p>
+      </div>
+      <div class="ent-card reveal d2">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M20.19 8.09C20.7 9.34 21 10.63 21 12s-.3 2.66-.81 3.91M3.81 15.91C3.3 14.66 3 13.37 3 12s.3-2.66.81-3.91M8.09 3.81C9.34 3.3 10.63 3 12 3s2.66.3 3.91.81M15.91 20.19C14.66 20.7 13.37 21 12 21s-2.66-.3-3.91-.81"/></svg>
+        </div>
+        <h3>Acquirer-Agnostic at Scale</h3>
+        <p>PAYFAC-licensed with multi-switch redundancy. As volumes grow, routing intelligence improves — always finding the lowest cost, highest approval path.</p>
+      </div>
+      <div class="ent-card reveal d3">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <h3>24/7 Priority Support</h3>
+        <p>Enterprise SLA with direct phone access to our technical team — any hour, any day. Incidents are escalated immediately, not queued.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sol-cta">
+  <div class="sol-cta-inner">
+    <p class="eyebrow" style="color:rgba(150,150,255,0.7);margin-bottom:20px;">Ready to get started?</p>
+    <h2 class="display-lg">Payments that work<br>the way you do.</h2>
+    <p>Talk to our team about the right solution for your business. No lock-in contracts, custom pricing available, local support.</p>
+    <div class="sol-cta-btns">
+      <a href="contact.html" class="btn btn-primary">Get in touch <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10h12M10 4l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="integrations.html" class="btn btn-glass">View integrations</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../images/urpay-logo-white.png" alt="UrPay" height="26">
+        <p>Australia's acquirer-agnostic omni-channel payments platform.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul>
+        <li><a href="solutions.html">Card Present</a></li>
+        <li><a href="solutions.html">Online &amp; eCommerce</a></li>
+        <li><a href="solutions.html">NPP &amp; Pay by Link</a></li>
+        <li><a href="integrations.html">Integrations</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="https://www.urpay.com.au" target="_blank" rel="noopener">Main Website</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 UrPay Technologies Pty Ltd. All rights reserved. PAYFAC-licensed.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">PCI Compliance</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

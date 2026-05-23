@@ -279,6 +279,17 @@
   border-color: rgba(107,107,255,0.4);
   box-shadow: 0 4px 16px rgba(107,107,255,0.1);
 }
+.scheme-logo-chip {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.scheme-logo-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+.scheme-logo-chip svg { display: block; }
 
 /* ══════════════════════════════════════════════════════════
    PLATFORM SECTION

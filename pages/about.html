@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About UrPay — built in Brisbane for Australian merchants. Acquirer-agnostic, multi-switch redundant, PAYFAC-licensed. On the merchant's side, not the bank's.">
+  <title>About UrPay — Built in Australia, for Australia</title>
+  <link rel="icon" type="image/png" href="../images/urpay-icon-white.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvevsobg5l");
+  </script>
+  <style>
+    /* ── Hero ── */
+    .about-hero {
+      background: var(--p-deep);
+      position: relative; overflow: hidden;
+      padding: calc(var(--nav-h) + 90px) 0 120px;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 65% 65% at 80% 30%, rgba(107,107,255,0.3) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 40% at 15% 75%, rgba(80,40,180,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .about-hero-inner {
+      position: relative; z-index: 1;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+    }
+    .about-hero .eyebrow { margin-bottom: 24px; }
+    .about-hero h1 { color: #fff; margin-bottom: 30px; max-width: 760px; }
+    .about-hero-sub {
+      font-size: 1.2rem; color: rgba(255,255,255,0.55); line-height: 1.75;
+      max-width: 580px;
+    }
+
+    /* ── Story section ── */
+    .story-section {
+      background: var(--white); padding: 110px 0;
+    }
+    .story-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center;
+    }
+    .story-content .eyebrow { margin-bottom: 18px; }
+    .story-content h2 { margin-bottom: 24px; }
+    .story-content p {
+      font-size: 1.0625rem; color: var(--text-2); line-height: 1.8; margin-bottom: 20px;
+    }
+    .story-content p:last-child { margin-bottom: 0; }
+    .story-photo {
+      border-radius: var(--r-lg); overflow: hidden; height: 520px;
+    }
+    .story-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── Stats strip ── */
+    .stats-strip {
+      background: var(--p-deep); padding: 0;
+    }
+    .stats-strip-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      border-top: 1px solid rgba(107,107,255,0.15);
+      border-bottom: 1px solid rgba(107,107,255,0.1);
+    }
+    .strip-stat {
+      padding: 56px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(107,107,255,0.1);
+      position: relative;
+    }
+    .strip-stat:last-child { border-right: none; }
+    .strip-stat:hover { background: rgba(107,107,255,0.05); }
+    .strip-stat-num {
+      font-size: 2.4rem; font-weight: 800; color: #fff;
+      letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px;
+    }
+    .strip-stat-num sup { font-size: 1.2rem; color: var(--p); font-weight: 800; }
+    .strip-stat-label { font-size: 0.775rem; color: rgba(255,255,255,0.38); font-weight: 500; line-height: 1.4; }
+
+    /* ── Difference section ── */
+    .diff-section {
+      background: var(--cream); padding: 110px 0;
+    }
+    .diff-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 64px;
+    }
+    .diff-card {
+      background: var(--white);
+      border: 1px solid rgba(107,107,255,0.1);
+      border-radius: var(--r-lg); padding: 44px 40px;
+      transition: box-shadow 0.35s var(--ease), transform 0.35s, border-color 0.35s;
+      position: relative; overflow: hidden;
+    }
+    .diff-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(145deg, rgba(107,107,255,0.04) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .diff-card:hover {
+      box-shadow: 0 16px 56px rgba(107,107,255,0.14);
+      transform: translateY(-5px);
+      border-color: rgba(107,107,255,0.25);
+    }
+    .diff-card .ibadge { margin-bottom: 24px; }
+    .diff-card-tag {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--p); margin-bottom: 12px;
+    }
+    .diff-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.01em; }
+    .diff-card p  { font-size: 0.9375rem; color: var(--text-2); line-height: 1.7; margin-bottom: 24px; }
+    .diff-card-points {
+      list-style: none; display: flex; flex-direction: column; gap: 10px;
+    }
+    .diff-card-points li {
+      font-size: 0.875rem; color: var(--text-2); padding-left: 22px; position: relative;
+    }
+    .diff-card-points li::before {
+      content: '';
+      position: absolute; left: 0; top: 9px;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--p);
+    }
+
+    /* ── Mission section ── */
+    .mission-section {
+      background: linear-gradient(145deg, var(--p-rich) 0%, var(--p-mid) 100%);
+      padding: 110px 0;
+      position: relative; overflow: hidden;
+    }
+    .mission-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 70% 30%, rgba(107,107,255,0.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .mission-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .mission-content .eyebrow { margin-bottom: 18px; }
+    .mission-content h2 { color: #fff; margin-bottom: 24px; }
+    .mission-content p  { font-size: 1.0625rem; color: rgba(255,255,255,0.6); line-height: 1.78; margin-bottom: 20px; }
+    .mission-content p strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+    .mission-values {
+      display: flex; flex-direction: column; gap: 18px;
+    }
+    .mission-value {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 20px 22px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(107,107,255,0.2);
+      border-radius: var(--r);
+    }
+    .mission-value-num {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--p);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.875rem; font-weight: 800; color: #fff; flex-shrink: 0;
+    }
+    .mission-value-text {}
+    .mission-value-title { font-size: 0.9375rem; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 4px; }
+    .mission-value-desc  { font-size: 0.8125rem; color: rgba(255,255,255,0.45); line-height: 1.55; }
+
+    /* ── Contact CTA ── */
+    .about-cta {
+      background: var(--lav); padding: 110px 0; text-align: center;
+    }
+    .about-cta-inner { max-width: 640px; margin: 0 auto; padding: 0 28px; }
+    .about-cta .eyebrow { margin-bottom: 20px; }
+    .about-cta h2 { margin-bottom: 20px; }
+    .about-cta p  { font-size: 1.0625rem; color: var(--text-2); line-height: 1.72; margin-bottom: 44px; }
+    .about-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .story-inner { grid-template-columns: 1fr; gap: 48px; }
+      .stats-strip-inner { grid-template-columns: repeat(3, 1fr); }
+      .strip-stat:nth-child(3) { border-right: none; }
+      .diff-grid { grid-template-columns: 1fr 1fr; }
+      .mission-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .stats-strip-inner { grid-template-columns: 1fr 1fr; }
+      .strip-stat:nth-child(2) { border-right: none; }
+      .strip-stat:nth-child(3) { border-right: 1px solid rgba(107,107,255,0.1); }
+      .strip-stat:nth-child(4) { border-right: none; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .story-photo { height: 320px; }
+      .about-cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/urpay-logo-white.png" alt="UrPay" height="30">
+    </a>
+    <ul class="nav-links">
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="integrations.html">Integrations</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-glass btn-sm">Contact Us</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="about-hero-inner">
+    <p class="eyebrow reveal">About UrPay</p>
+    <h1 class="display-xl reveal d1">We built the payments<br>platform we always<br><span class="grad-text">wished existed.</span></h1>
+    <p class="about-hero-sub reveal d2">Built in Brisbane. For Australian merchants who deserved better — and had been told to just accept it.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-inner">
+    <div class="story-content reveal">
+      <p class="eyebrow">Our story</p>
+      <h2 class="display-lg">On the merchant's side.<br>Not the bank's.</h2>
+      <p>UrPay was founded in Brisbane with a simple belief: Australian merchants deserve payment infrastructure that works for them — not for the banks.</p>
+      <p>We watched business owners locked into one acquirer, paying rates they didn't negotiate, with no visibility into what was happening to their money between the terminal and their bank account. Support calls that went nowhere. Terminals that went down at dinner service.</p>
+      <p>So we set out to build a platform that's genuinely acquirer-agnostic, genuinely multi-switch redundant, and genuinely on the merchant's side. PAYFAC-licensed, with real routing intelligence — not a wrapper on someone else's product.</p>
+      <p>Today, UrPay serves over 1,000 merchants across Australia, with 1,000+ devices deployed and payments flowing through 9+ payment types. The platform is still growing. The belief hasn't changed.</p>
+      <div class="why-pills" style="margin-top:32px;">
+        <span class="pill pill-p">Founded in Brisbane</span>
+        <span class="pill pill-p">PAYFAC-licensed</span>
+        <span class="pill pill-p">Australian-built</span>
+      </div>
+    </div>
+    <div class="story-photo reveal d2">
+      <img src="../images/photo-01.jpg" alt="UrPay — built for Australian merchants">
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats-strip">
+  <div class="stats-strip-inner">
+    <div class="strip-stat reveal">
+      <div class="strip-stat-num"><span data-count="1000">1,000</span><sup>+</sup></div>
+      <div class="strip-stat-label">Active merchants</div>
+    </div>
+    <div class="strip-stat reveal d1">
+      <div class="strip-stat-num"><span data-count="1000">1,000</span><sup>+</sup></div>
+      <div class="strip-stat-label">Devices deployed</div>
+    </div>
+    <div class="strip-stat reveal d2">
+      <div class="strip-stat-num"><span>9</span><sup>+</sup></div>
+      <div class="strip-stat-label">Payment types accepted</div>
+    </div>
+    <div class="strip-stat reveal d3">
+      <div class="strip-stat-num"><span>99.9</span><sup>%</sup></div>
+      <div class="strip-stat-label">Platform uptime</div>
+    </div>
+    <div class="strip-stat reveal d4">
+      <div class="strip-stat-num">24/7</div>
+      <div class="strip-stat-label">Local support</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT MAKES US DIFFERENT -->
+<section class="diff-section">
+  <div class="container">
+    <div class="s-head reveal">
+      <p class="eyebrow">What makes us different</p>
+      <h2 class="display-lg">Three things we refuse<br>to compromise on.</h2>
+      <p>Any payment provider can say they're "flexible." Here's what ours actually means in practice.</p>
+    </div>
+    <div class="diff-grid">
+
+      <div class="diff-card reveal d1">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M20.19 8.09C20.7 9.34 21 10.63 21 12s-.3 2.66-.81 3.91M3.81 15.91C3.3 14.66 3 13.37 3 12s.3-2.66.81-3.91M8.09 3.81C9.34 3.3 10.63 3 12 3s2.66.3 3.91.81M15.91 20.19C14.66 20.7 13.37 21 12 21s-2.66-.3-3.91-.81"/></svg>
+        </div>
+        <div class="diff-card-tag">Acquirer-agnostic</div>
+        <h3>Your rates. Not theirs.</h3>
+        <p>PAYFAC-licensed and not beholden to any single acquiring bank. Every transaction routes to the best outcome — lowest cost, highest approval rate — automatically. You're never held hostage to one institution's pricing.</p>
+        <ul class="diff-card-points">
+          <li>Multi-acquirer routing built in</li>
+          <li>Least-cost routing on every transaction</li>
+          <li>No lock-in contracts — ever</li>
+          <li>Full transparency on where money routes</li>
+        </ul>
+      </div>
+
+      <div class="diff-card reveal d2">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="diff-card-tag">Multi-switch redundant</div>
+        <h3>Payments that don't go down.</h3>
+        <p>Our platform runs across multiple payment switches and applications. If one pathway has an issue, routing shifts automatically — with no downtime, no declined transactions, and no frustrated customers at your counter.</p>
+        <ul class="diff-card-points">
+          <li>Multiple CP switches in a single stack</li>
+          <li>Automatic failover — no manual intervention</li>
+          <li>No single point of failure by design</li>
+          <li>99.9% uptime SLA</li>
+        </ul>
+      </div>
+
+      <div class="diff-card reveal d3">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="diff-card-tag">Australian-built</div>
+        <h3>Local team. Local support.</h3>
+        <p>UrPay is headquartered in Brisbane with a local team that understands the Australian market — the POS platforms, the card schemes, the regulations, and the trading hours. When you call, you talk to someone who gets it.</p>
+        <ul class="diff-card-points">
+          <li>1800 number — 24/7 local support</li>
+          <li>Dedicated account management</li>
+          <li>Built for AU hospitality and retail</li>
+          <li>Compliant with AU payment regulations</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission-section">
+  <div class="mission-inner">
+    <div class="mission-content reveal">
+      <p class="eyebrow" style="color:rgba(150,150,255,0.75);">Our mission</p>
+      <h2 class="display-lg">Infrastructure built<br>for merchants.</h2>
+      <p>Most payment infrastructure is built for the bank. The acquirer. The scheme. The company in the middle taking a cut. UrPay is built for the business on the other side of the counter — the one with a queue forming and a terminal that needs to work.</p>
+      <p><strong>We believe merchants should have the same sophistication of routing, the same redundancy, and the same visibility into their payments as the large banks have always had.</strong></p>
+      <p>That's not radical. It's just fair. And it's what we built.</p>
+    </div>
+    <div class="mission-values reveal d2">
+      <div class="mission-value">
+        <div class="mission-value-num">01</div>
+        <div class="mission-value-text">
+          <div class="mission-value-title">Merchant-first, always</div>
+          <div class="mission-value-desc">Every product decision starts with: does this make life better for the merchant? Not the acquirer. Not the scheme.</div>
+        </div>
+      </div>
+      <div class="mission-value">
+        <div class="mission-value-num">02</div>
+        <div class="mission-value-text">
+          <div class="mission-value-title">Transparency over opacity</div>
+          <div class="mission-value-desc">You should know exactly how your transactions are routed, what you're paying, and why. No hidden complexity.</div>
+        </div>
+      </div>
+      <div class="mission-value">
+        <div class="mission-value-num">03</div>
+        <div class="mission-value-text">
+          <div class="mission-value-title">Reliability above all else</div>
+          <div class="mission-value-desc">A payment platform that goes down is worse than useless. Redundancy isn't a feature — it's a baseline requirement.</div>
+        </div>
+      </div>
+      <div class="mission-value">
+        <div class="mission-value-num">04</div>
+        <div class="mission-value-text">
+          <div class="mission-value-title">Local expertise, genuine support</div>
+          <div class="mission-value-desc">Australian merchants deserve support from people who understand their market. Not a ticket queue in a timezone twelve hours away.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="about-cta">
+  <div class="about-cta-inner">
+    <p class="eyebrow reveal">Let's talk</p>
+    <h2 class="display-lg reveal d1">Work with a platform<br>that works for you.</h2>
+    <p class="reveal d2">No lock-in contracts. No one-size-fits-all pricing. No call centre. Just a local team who picks up the phone and gets it sorted.</p>
+    <div class="about-cta-btns reveal d3">
+      <a href="contact.html" class="btn btn-primary">Get in touch <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10h12M10 4l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="solutions.html" class="btn btn-outline">Explore the platform</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../images/urpay-logo-white.png" alt="UrPay" height="26">
+        <p>Australia's acquirer-agnostic omni-channel payments platform.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul>
+        <li><a href="solutions.html">Card Present</a></li>
+        <li><a href="solutions.html">Online &amp; eCommerce</a></li>
+        <li><a href="solutions.html">NPP &amp; Pay by Link</a></li>
+        <li><a href="integrations.html">Integrations</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="https://www.urpay.com.au" target="_blank" rel="noopener">Main Website</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 UrPay Technologies Pty Ltd. All rights reserved. PAYFAC-licensed.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">PCI Compliance</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

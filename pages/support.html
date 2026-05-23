@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UrPay support — 24/7 help on 1800 008 772. Terminal support, gateway support, accounts and settlements, sales enquiries. FAQ and self-help guides.">
+  <title>Support — UrPay</title>
+  <link rel="icon" type="image/png" href="../images/urpay-icon-white.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvevsobg5l");
+  </script>
+  <style>
+    /* ── Emergency banner ── */
+    .emergency-banner {
+      background: linear-gradient(90deg, #0f0a2a 0%, #1a0f3d 50%, #0f0a2a 100%);
+      border-bottom: 1px solid rgba(107,107,255,0.3);
+      padding: 0;
+      position: relative; z-index: 199;
+      margin-top: var(--nav-h);
+    }
+    .emergency-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      min-height: 64px;
+    }
+    .emergency-left {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .emergency-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(107,107,255,0.2);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .emergency-icon svg { width: 20px; height: 20px; color: #9999ff; }
+    .emergency-text {}
+    .emergency-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(107,107,255,0.7); margin-bottom: 2px;
+    }
+    .emergency-number {
+      font-size: 1.125rem; font-weight: 800; color: #fff; letter-spacing: -0.01em;
+    }
+    .emergency-sub {
+      font-size: 0.8125rem; color: rgba(255,255,255,0.45); margin-left: 4px;
+    }
+    .emergency-badge {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 18px; border-radius: 100px;
+      background: rgba(107,107,255,0.15); border: 1px solid rgba(107,107,255,0.3);
+      font-size: 0.8125rem; font-weight: 700; color: rgba(255,255,255,0.9);
+    }
+
+    /* ── Page hero ── */
+    .support-hero {
+      background: var(--p-deep);
+      position: relative; overflow: hidden;
+      padding: 80px 0 100px;
+    }
+    .support-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 65% 60% at 20% 40%, rgba(107,107,255,0.25) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 45% at 85% 60%, rgba(80,40,180,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .support-hero-inner {
+      position: relative; z-index: 1;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .support-hero-left .eyebrow { margin-bottom: 18px; }
+    .support-hero-left h1 { color: #fff; margin-bottom: 20px; }
+    .support-hero-left p  { font-size: 1.0625rem; color: rgba(255,255,255,0.55); line-height: 1.72; }
+
+    .support-channels {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .support-channel {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(107,107,255,0.18);
+      border-radius: var(--r); padding: 16px 20px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .support-channel:hover {
+      background: rgba(107,107,255,0.12);
+      border-color: rgba(107,107,255,0.4);
+      transform: translateX(4px);
+    }
+    .support-channel-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(107,107,255,0.15);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .support-channel-icon svg { width: 20px; height: 20px; color: #a0a0ff; }
+    .support-channel-text { flex: 1; }
+    .support-channel-label { font-size: 0.875rem; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 2px; }
+    .support-channel-email { font-size: 0.775rem; color: var(--p); font-weight: 600; }
+    .support-channel-arrow { font-size: 1rem; color: rgba(107,107,255,0.5); margin-left: auto; flex-shrink: 0; }
+
+    /* ── Support channels full section ── */
+    .channels-section {
+      background: var(--cream); padding: 110px 0;
+    }
+    .channels-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 64px;
+    }
+    .channel-card {
+      background: var(--white);
+      border: 1px solid rgba(107,107,255,0.1);
+      border-radius: var(--r-lg); padding: 40px 36px;
+      transition: box-shadow 0.35s var(--ease), transform 0.35s, border-color 0.35s;
+    }
+    .channel-card:hover {
+      box-shadow: 0 16px 56px rgba(107,107,255,0.14);
+      transform: translateY(-4px);
+      border-color: rgba(107,107,255,0.25);
+    }
+    .channel-card .ibadge { margin-bottom: 22px; }
+    .channel-card h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 8px; }
+    .channel-card p  { font-size: 0.875rem; color: var(--text-2); line-height: 1.65; margin-bottom: 20px; }
+    .channel-card-email {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.875rem; font-weight: 700; color: var(--p);
+      padding: 10px 18px; border-radius: 100px;
+      background: rgba(107,107,255,0.08);
+      border: 1px solid rgba(107,107,255,0.15);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .channel-card-email:hover {
+      background: rgba(107,107,255,0.15);
+      border-color: rgba(107,107,255,0.35);
+    }
+    .channel-card-email svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    /* Phone card — spans full width */
+    .channel-card-phone {
+      grid-column: span 3;
+      background: linear-gradient(145deg, var(--p-rich) 0%, var(--p-mid) 100%);
+      border-color: rgba(107,107,255,0.3);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .channel-card-phone .ibadge { background: rgba(107,107,255,0.2); }
+    .channel-card-phone .ibadge svg { color: #a0a0ff; }
+    .channel-card-phone h3 { color: #fff; font-size: 1.25rem; }
+    .channel-card-phone p  { color: rgba(255,255,255,0.55); }
+    .phone-number {
+      font-size: 3rem; font-weight: 800; color: #fff;
+      letter-spacing: -0.04em; line-height: 1; margin-bottom: 12px;
+    }
+    .phone-availability {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.875rem; color: var(--green); font-weight: 600;
+    }
+
+    /* ── FAQ section ── */
+    .faq-section {
+      background: var(--white); padding: 110px 0;
+    }
+    .faq-list {
+      max-width: 800px; margin: 64px auto 0;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .faq-item {
+      border: 1px solid rgba(107,107,255,0.1);
+      border-radius: var(--r);
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .faq-item:hover { border-color: rgba(107,107,255,0.3); }
+    .faq-item.open { border-color: rgba(107,107,255,0.35); }
+
+    .faq-question {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 22px 28px; cursor: pointer;
+      font-size: 0.9375rem; font-weight: 700; color: var(--text);
+      background: var(--white);
+      list-style: none; user-select: none;
+      transition: background 0.2s;
+    }
+    .faq-question:hover { background: var(--cream); }
+    .faq-item.open .faq-question { background: var(--cream); color: var(--p); }
+    .faq-chevron {
+      width: 28px; height: 28px; flex-shrink: 0;
+      border-radius: 8px; background: rgba(107,107,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s var(--ease), background 0.2s;
+    }
+    .faq-chevron svg { width: 14px; height: 14px; color: var(--p); }
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+      background: rgba(107,107,255,0.15);
+    }
+
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s var(--ease), padding 0.3s;
+      padding: 0 28px;
+      font-size: 0.9375rem; color: var(--text-2); line-height: 1.7;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 28px 24px;
+    }
+
+    /* ── Contact CTA ── */
+    .support-cta {
+      background: var(--lav); padding: 90px 0;
+    }
+    .support-cta-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .support-cta-content .eyebrow { margin-bottom: 16px; }
+    .support-cta-content h2 { margin-bottom: 18px; }
+    .support-cta-content p  { font-size: 1rem; color: var(--text-2); line-height: 1.72; margin-bottom: 32px; }
+    .support-cta-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .support-cta-info { display: flex; flex-direction: column; gap: 16px; }
+    .support-info-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 22px;
+      background: var(--white);
+      border-radius: var(--r);
+      border: 1px solid rgba(107,107,255,0.1);
+    }
+    .support-info-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--lav);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .support-info-icon svg { width: 20px; height: 20px; color: var(--p); }
+    .support-info-text {}
+    .support-info-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-bottom: 3px; }
+    .support-info-val   { font-size: 0.9375rem; font-weight: 700; color: var(--text); }
+    .support-info-val a { color: var(--p); }
+    .support-info-val a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .support-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .channels-grid { grid-template-columns: repeat(2, 1fr); }
+      .channel-card-phone { grid-column: span 2; grid-template-columns: 1fr; gap: 32px; }
+      .support-cta-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .emergency-inner { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 28px; }
+      .channels-grid { grid-template-columns: 1fr; }
+      .channel-card-phone { grid-column: span 1; }
+      .phone-number { font-size: 2.2rem; }
+      .support-cta-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/urpay-logo-white.png" alt="UrPay" height="30">
+    </a>
+    <ul class="nav-links">
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="integrations.html">Integrations</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-glass btn-sm">Contact Us</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- EMERGENCY BANNER -->
+<div class="emergency-banner">
+  <div class="emergency-inner">
+    <div class="emergency-left">
+      <div class="emergency-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91A16 16 0 0 0 15 15.91l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div class="emergency-text">
+        <div class="emergency-label">Need help now?</div>
+        <div>
+          <a href="tel:1800008772" style="color:#fff;text-decoration:none;">
+            <span class="emergency-number">1800 008 772</span>
+          </a>
+          <span class="emergency-sub">24 hours a day, 7 days a week</span>
+        </div>
+      </div>
+    </div>
+    <div class="emergency-badge">
+      <span class="dot dot-green"></span>
+      Lines open now
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="support-hero">
+  <div class="support-hero-inner">
+    <div class="support-hero-left reveal">
+      <p class="eyebrow">Support</p>
+      <h1 class="display-lg">We're here<br>when you need us.</h1>
+      <p>Local support team, real humans, real answers. Whether it's a terminal question at 6am before service or a gateway issue on a Friday night — we pick up.</p>
+    </div>
+    <div class="support-channels reveal d2">
+      <a href="tel:1800008772" class="support-channel">
+        <div class="support-channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91A16 16 0 0 0 15 15.91l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="support-channel-text"><div class="support-channel-label">24/7 Phone Support</div><div class="support-channel-email">1800 008 772</div></div>
+        <span class="support-channel-arrow">→</span>
+      </a>
+      <a href="mailto:sales@urpay.com.au" class="support-channel">
+        <div class="support-channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div class="support-channel-text"><div class="support-channel-label">Sales Enquiries</div><div class="support-channel-email">sales@urpay.com.au</div></div>
+        <span class="support-channel-arrow">→</span>
+      </a>
+      <a href="mailto:terminalsupport@urpay.com.au" class="support-channel">
+        <div class="support-channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 14h4"/></svg></div>
+        <div class="support-channel-text"><div class="support-channel-label">Terminal Support</div><div class="support-channel-email">terminalsupport@urpay.com.au</div></div>
+        <span class="support-channel-arrow">→</span>
+      </a>
+      <a href="mailto:gatewaysupport@urpay.com.au" class="support-channel">
+        <div class="support-channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="support-channel-text"><div class="support-channel-label">Gateway Support</div><div class="support-channel-email">gatewaysupport@urpay.com.au</div></div>
+        <span class="support-channel-arrow">→</span>
+      </a>
+      <a href="mailto:settlements@urpay.com.au" class="support-channel">
+        <div class="support-channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="support-channel-text"><div class="support-channel-label">Accounts &amp; Settlements</div><div class="support-channel-email">settlements@urpay.com.au</div></div>
+        <span class="support-channel-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT CHANNELS DETAIL -->
+<section class="channels-section">
+  <div class="container">
+    <div class="s-head reveal">
+      <p class="eyebrow">Contact channels</p>
+      <h2 class="display-lg">Right team, right time.</h2>
+      <p>Every support channel routes to specialists — not a generic queue. Pick the team that matches your issue and get directly to someone who can fix it.</p>
+    </div>
+    <div class="channels-grid">
+
+      <!-- Phone — featured full width -->
+      <div class="channel-card channel-card-phone reveal">
+        <div>
+          <div class="ibadge" style="background:rgba(107,107,255,0.2);margin-bottom:22px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a0a0ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91A16 16 0 0 0 15 15.91l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3>24/7 Phone Support</h3>
+          <p>For urgent issues — terminal outages, connectivity problems, anything that can't wait. Our phone team handles all issue types and escalates to the right specialist immediately.</p>
+        </div>
+        <div>
+          <div class="phone-number"><a href="tel:1800008772" style="color:#fff;text-decoration:none;">1800 008 772</a></div>
+          <div class="phone-availability"><span class="dot dot-green" style="animation:none;"></span> Available 24 hours, 7 days a week</div>
+          <div style="margin-top:20px;font-size:0.8125rem;color:rgba(255,255,255,0.4);">Average answer time under 90 seconds during business hours.</div>
+        </div>
+      </div>
+
+      <!-- Sales -->
+      <div class="channel-card reveal d1">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Sales</h3>
+        <p>New merchant enquiries, pricing discussions, platform demos, and onboarding. Talk to someone who can help you understand whether UrPay is the right fit — no pressure, no scripts.</p>
+        <a href="mailto:sales@urpay.com.au" class="channel-card-email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          sales@urpay.com.au
+        </a>
+      </div>
+
+      <!-- Terminal Support -->
+      <div class="channel-card reveal d2">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 14h4"/></svg>
+        </div>
+        <h3>Terminal Support</h3>
+        <p>Physical terminal issues — connectivity, printing, firmware, hardware faults, and replacements. If your terminal isn't behaving, this is the team to contact first.</p>
+        <a href="mailto:terminalsupport@urpay.com.au" class="channel-card-email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          terminalsupport@urpay.com.au
+        </a>
+      </div>
+
+      <!-- Gateway Support -->
+      <div class="channel-card reveal d3">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Gateway Support</h3>
+        <p>Online payment issues, API integration help, declined transaction investigation, hosted payment page configuration, and webhook troubleshooting for your online store.</p>
+        <a href="mailto:gatewaysupport@urpay.com.au" class="channel-card-email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          gatewaysupport@urpay.com.au
+        </a>
+      </div>
+
+      <!-- Accounts & Settlements -->
+      <div class="channel-card reveal d1">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Accounts &amp; Settlements</h3>
+        <p>Settlement queries, reconciliation discrepancies, billing and invoicing, and payment disputes. If money isn't appearing where you expect it, this team investigates and resolves.</p>
+        <a href="mailto:settlements@urpay.com.au" class="channel-card-email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          settlements@urpay.com.au
+        </a>
+      </div>
+
+      <!-- General Support -->
+      <div class="channel-card reveal d2">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+        </div>
+        <h3>General Enquiries</h3>
+        <p>Everything else — dashboard access, user management, account changes, and anything that doesn't fit neatly into another category. We'll get it to the right person fast.</p>
+        <a href="mailto:support@urpay.com.au" class="channel-card-email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          support@urpay.com.au
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="container">
+    <div class="s-head reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="display-lg">Common questions,<br>straight answers.</h2>
+      <p>The most common things merchants ask us. If yours isn't here, call 1800 008 772 or email support@urpay.com.au.</p>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I find my merchant ID?
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </div>
+        <div class="faq-answer">Log into the Merchant Dashboard and navigate to Settings &gt; Account Details. Your merchant ID is displayed at the top of that page. You can also find it printed on your settlement statements.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I reset my terminal?
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </div>
+        <div class="faq-answer">Hold the power button for 10 seconds, then release. The terminal will power down and reboot automatically. This takes approximately 30–60 seconds. If the terminal doesn't respond, contact terminal support on terminalsupport@urpay.com.au or call 1800 008 772.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I reprint a receipt?
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </div>
+        <div class="faq-answer">From the terminal home screen, tap Transactions &gt; Last Transaction &gt; Print Receipt. For transactions older than the last one, tap Transactions &gt; Transaction History, locate the transaction, and select Print Receipt from the transaction detail screen.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What do I do if my terminal can't connect?
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </div>
+        <div class="faq-answer">First, check your WiFi or 4G signal strength. Then press the green button twice to force a new connection attempt — this clears the current session and initiates a fresh connection. If the issue persists after two attempts, call 1800 008 772 immediately. Our terminal team can remotely diagnose most connectivity issues within minutes.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I add a new user to the merchant dashboard?
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </div>
+        <div class="faq-answer">Go to Settings &gt; Users &gt; Invite User in the Merchant Dashboard. Enter the new user's email address and select their permission level (Admin, Manager, or View Only). They'll receive an email invitation to set up their account. New users can be managed or removed at any time from the same page.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What if my terminal is lost or stolen?
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </div>
+        <div class="faq-answer"><strong>Call 1800 008 772 immediately.</strong> We will remotely disable the device within minutes of your call, preventing any further transactions. Do not wait — call us first, then file a police report if required. We'll arrange a replacement terminal and ensure your merchant account remains secure throughout.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="support-cta">
+  <div class="support-cta-inner">
+    <div class="support-cta-content reveal">
+      <p class="eyebrow">Still need help?</p>
+      <h2 class="display-lg">We're one call away.</h2>
+      <p>Can't find what you're looking for? Our support team is available around the clock. Call us, email us, or send a message through the contact page — we'll get back to you fast.</p>
+      <div class="support-cta-btns">
+        <a href="tel:1800008772" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91A16 16 0 0 0 15 15.91l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call 1800 008 772</a>
+        <a href="contact.html" class="btn btn-outline">Send a message</a>
+      </div>
+    </div>
+    <div class="support-cta-info reveal d2">
+      <div class="support-info-row">
+        <div class="support-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91A16 16 0 0 0 15 15.91l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="support-info-text">
+          <div class="support-info-label">Phone</div>
+          <div class="support-info-val"><a href="tel:1800008772">1800 008 772</a> — 24/7</div>
+        </div>
+      </div>
+      <div class="support-info-row">
+        <div class="support-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="support-info-text">
+          <div class="support-info-label">Email</div>
+          <div class="support-info-val"><a href="mailto:support@urpay.com.au">support@urpay.com.au</a></div>
+        </div>
+      </div>
+      <div class="support-info-row">
+        <div class="support-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="support-info-text">
+          <div class="support-info-label">Address</div>
+          <div class="support-info-val">Level 1/73 James St, Fortitude Valley QLD 4006</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../images/urpay-logo-white.png" alt="UrPay" height="26">
+        <p>Australia's acquirer-agnostic omni-channel payments platform.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul>
+        <li><a href="solutions.html">Card Present</a></li>
+        <li><a href="solutions.html">Online &amp; eCommerce</a></li>
+        <li><a href="solutions.html">NPP &amp; Pay by Link</a></li>
+        <li><a href="integrations.html">Integrations</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="https://www.urpay.com.au" target="_blank" rel="noopener">Main Website</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 UrPay Technologies Pty Ltd. All rights reserved. PAYFAC-licensed.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">PCI Compliance</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
