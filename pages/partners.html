@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UrPay Partners — white-label PAYFAC infrastructure for software platforms, POS vendors, and enterprise groups. Own the payments experience without building it.">
+  <title>Partners & White-Label — UrPay</title>
+  <link rel="icon" type="image/png" href="../images/urpay-icon-white.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvevsobg5l");
+  </script>
+  <style>
+    /* ── Hero ── */
+    .partners-hero {
+      background: var(--p-deep);
+      position: relative; overflow: hidden;
+      padding: calc(var(--nav-h) + 90px) 0 120px;
+    }
+    .partners-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 75% 35%, rgba(107,107,255,0.28) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 40% at 15% 80%, rgba(80,40,180,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .partners-hero-inner {
+      position: relative; z-index: 1;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .partners-hero-left .eyebrow { margin-bottom: 20px; }
+    .partners-hero-left h1 { color: #fff; margin-bottom: 24px; font-size: clamp(2rem, 4vw, 3rem); }
+    .partners-hero-left p { font-size: 1.1rem; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 40px; max-width: 480px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Hero right — stat cards */
+    .partners-hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .ph-stat {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(107,107,255,0.2);
+      border-radius: 14px; padding: 28px 24px;
+    }
+    .ph-stat-val { font-size: 1.8rem; font-weight: 800; color: #fff; display: block; }
+    .ph-stat-lbl { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 4px; display: block; line-height: 1.4; }
+    .ph-stat.accent { background: rgba(107,107,255,0.15); border-color: rgba(107,107,255,0.4); }
+    .ph-stat.accent .ph-stat-val { color: #a5a6ff; }
+
+    /* ── Why partner ── */
+    .why-partner { padding: 100px 0; background: #fff; }
+    .why-partner-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+    .why-head { text-align: center; margin-bottom: 64px; }
+    .why-head .eyebrow { margin-bottom: 16px; }
+    .why-head h2 { margin-bottom: 20px; }
+    .why-head p { color: #6b7280; max-width: 580px; margin: 0 auto; line-height: 1.7; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .why-card {
+      background: #f8f9ff; border: 1px solid #e8e9ff;
+      border-radius: 16px; padding: 32px 28px;
+    }
+    .why-icon {
+      width: 48px; height: 48px; background: #6b6bff;
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin-bottom: 20px;
+    }
+    .why-card h3 { font-size: 1.05rem; font-weight: 700; color: #060b14; margin-bottom: 10px; }
+    .why-card p { font-size: 0.9rem; color: #6b7280; line-height: 1.65; }
+
+    /* ── How it works ── */
+    .how-it-works { padding: 100px 0; background: var(--p-deep); }
+    .how-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+    .how-head { text-align: center; margin-bottom: 72px; }
+    .how-head .eyebrow { margin-bottom: 16px; }
+    .how-head h2 { color: #fff; margin-bottom: 20px; }
+    .how-head p { color: rgba(255,255,255,0.5); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+    .how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; position: relative; }
+    .how-steps::before {
+      content: '';
+      position: absolute; top: 28px; left: 12.5%; right: 12.5%;
+      height: 1px; background: rgba(107,107,255,0.3);
+    }
+    .how-step { text-align: center; padding: 0 16px; }
+    .step-num {
+      width: 56px; height: 56px;
+      background: rgba(107,107,255,0.15); border: 1px solid rgba(107,107,255,0.4);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 700; color: #a5a6ff;
+      margin: 0 auto 24px;
+      position: relative; z-index: 1;
+    }
+    .how-step h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .how-step p { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* ── What you get ── */
+    .what-you-get { padding: 100px 0; background: #fff; }
+    .wyg-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+    .wyg-head { text-align: center; margin-bottom: 64px; }
+    .wyg-head .eyebrow { margin-bottom: 16px; }
+    .wyg-head h2 { margin-bottom: 20px; }
+    .wyg-head p { color: #6b7280; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+    .wyg-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .wyg-col h3 { font-size: 1.1rem; font-weight: 700; color: #060b14; margin-bottom: 24px; }
+    .wyg-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .wyg-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.925rem; color: #374151; line-height: 1.6;
+    }
+    .wyg-check {
+      width: 22px; height: 22px; flex-shrink: 0;
+      background: #6b6bff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: #fff; font-weight: 700; margin-top: 1px;
+    }
+
+    /* ── Partner types ── */
+    .partner-types { padding: 100px 0; background: var(--p-deep); }
+    .pt-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+    .pt-head { text-align: center; margin-bottom: 64px; }
+    .pt-head .eyebrow { margin-bottom: 16px; }
+    .pt-head h2 { color: #fff; margin-bottom: 20px; }
+    .pt-head p { color: rgba(255,255,255,0.5); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+    .pt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .pt-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(107,107,255,0.18);
+      border-radius: 16px; padding: 32px 28px;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .pt-card:hover { border-color: rgba(107,107,255,0.45); background: rgba(107,107,255,0.06); }
+    .pt-badge {
+      display: inline-block; padding: 4px 12px;
+      background: rgba(107,107,255,0.2); border-radius: 20px;
+      font-size: 0.75rem; font-weight: 600; color: #a5a6ff; letter-spacing: 0.04em;
+      margin-bottom: 18px;
+    }
+    .pt-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .pt-card p { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* ── API / Developer ── */
+    .api-dev { padding: 100px 0; background: #fff; }
+    .api-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+    .api-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .api-left .eyebrow { margin-bottom: 16px; }
+    .api-left h2 { margin-bottom: 20px; }
+    .api-left p { color: #6b7280; line-height: 1.75; margin-bottom: 32px; }
+    .api-features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+    .api-feature {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px; background: #f8f9ff; border: 1px solid #e8e9ff;
+      border-radius: 12px;
+    }
+    .api-feature-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: #6b6bff; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .api-feature-text h4 { font-size: 0.9rem; font-weight: 600; color: #111827; margin-bottom: 3px; }
+    .api-feature-text p { font-size: 0.825rem; color: #6b7280; line-height: 1.5; }
+    .api-code-panel {
+      background: #0d1526; border-radius: 16px; padding: 28px 24px;
+      font-family: 'Fira Code', 'Consolas', monospace; font-size: 0.82rem;
+      border: 1px solid rgba(107,107,255,0.2);
+      overflow-x: auto;
+    }
+    .api-code-header {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 20px;
+    }
+    .api-code-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .code-line { line-height: 1.8; }
+    .code-key { color: #7dd3fc; }
+    .code-val { color: #86efac; }
+    .code-str { color: #fca5a5; }
+    .code-comment { color: rgba(255,255,255,0.3); }
+    .code-method { color: #a5b4fc; font-weight: 600; }
+    .code-url { color: #6ee7b7; }
+
+    /* ── Enquire CTA ── */
+    .partner-cta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #060b14 0%, #0d1526 50%, #060b14 100%);
+      position: relative; overflow: hidden;
+    }
+    .partner-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(107,107,255,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative; z-index: 1;
+      max-width: 760px; margin: 0 auto; padding: 0 28px; text-align: center;
+    }
+    .cta-inner .eyebrow { margin-bottom: 20px; }
+    .cta-inner h2 { color: #fff; margin-bottom: 20px; font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+    .cta-inner p { color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 40px; font-size: 1.05rem; }
+    .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .cta-note { margin-top: 28px; font-size: 0.85rem; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 1024px) {
+      .partners-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .how-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .how-steps::before { display: none; }
+      .wyg-cols { grid-template-columns: 1fr; }
+      .pt-grid { grid-template-columns: 1fr 1fr; }
+      .api-layout { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .partners-hero-stats { grid-template-columns: 1fr 1fr; }
+      .pt-grid { grid-template-columns: 1fr; }
+      .how-steps { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/urpay-logo-white.png" alt="UrPay" height="30">
+    </a>
+    <ul class="nav-links">
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="integrations.html">Integrations</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="login.html" class="nav-login-link">Login</a>
+      <a href="contact.html" class="btn btn-glass btn-sm">Contact Us</a>
+      <a href="enquire.html" class="btn btn-primary btn-sm">Partner Enquiry</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════
+     HERO
+════════════════ -->
+<section class="partners-hero">
+  <div class="partners-hero-inner">
+    <div class="partners-hero-left">
+      <p class="eyebrow">Partner Program</p>
+      <h1>Own the payments layer. We build and run it.</h1>
+      <p>UrPay's white-label PAYFAC infrastructure lets software platforms, POS vendors, and enterprise groups offer a fully branded payments experience to their clients — without regulatory complexity, without building a payments team, and without losing the revenue.</p>
+      <div class="hero-btns">
+        <a href="enquire.html" class="btn btn-primary">Enquire Now</a>
+        <a href="enquire.html#sandbox" class="btn btn-glass">API &amp; Sandbox Access</a>
+      </div>
+    </div>
+    <div class="partners-hero-stats">
+      <div class="ph-stat">
+        <span class="ph-stat-val">PAYFAC</span>
+        <span class="ph-stat-lbl">Licensed infrastructure — no regulatory burden for you</span>
+      </div>
+      <div class="ph-stat accent">
+        <span class="ph-stat-val">9+</span>
+        <span class="ph-stat-lbl">Payment types across CP, CNP, NPP, and digital wallets</span>
+      </div>
+      <div class="ph-stat">
+        <span class="ph-stat-val">White-Label</span>
+        <span class="ph-stat-lbl">Fully branded portal, app, and merchant comms</span>
+      </div>
+      <div class="ph-stat accent">
+        <span class="ph-stat-val">Single API</span>
+        <span class="ph-stat-lbl">One integration. Every payment type. Real-time data.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════
+     WHY PARTNER
+════════════════ -->
+<section class="why-partner">
+  <div class="why-partner-inner">
+    <div class="why-head">
+      <p class="eyebrow">Why Partner with UrPay</p>
+      <h2>Payments infrastructure is hard to build.<br>It doesn't have to be hard to offer.</h2>
+      <p>UrPay provides everything you need to monetise payments across your customer base — acquirer relationships, compliance, settlement, and reporting — under your brand.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Revenue share from day one</h3>
+        <p>Earn a meaningful share of every transaction processed through your platform. No setup fees. Revenue scales directly with your merchant base volume.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏷️</div>
+        <h3>Fully white-labelled</h3>
+        <p>Your brand, your portal, your merchant communications. UrPay operates invisibly in the background — from onboarding to settlement to dispute management.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Fast time to market</h3>
+        <p>API-first architecture. Go from sandbox to live in weeks, not months. Pre-built merchant onboarding flows, KYB, and compliance checks — all handled.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔄</div>
+        <h3>Acquirer-agnostic by design</h3>
+        <p>Multi-switch redundant infrastructure means your merchants get the best routing, best uptime, and best rates — without you needing to manage acquirer relationships.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📊</div>
+        <h3>Unified settlement & reporting</h3>
+        <p>One settlement file. One reconciliation report. Card present, card not present, and NPP all consolidated — broken down by scheme, merchant, and period.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🇦🇺</div>
+        <h3>Built for Australia</h3>
+        <p>Native NPP/PayID, dynamic surcharging, eftpos acceptance, and RBA-compliant processing. UrPay understands the Australian market because it was built here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════
+     HOW IT WORKS
+════════════════ -->
+<section class="how-it-works">
+  <div class="how-inner">
+    <div class="how-head">
+      <p class="eyebrow">How It Works</p>
+      <h2>From enquiry to live in weeks</h2>
+      <p>UrPay's partner onboarding is designed to move fast. A single integration covers every payment type your merchants need — now and in the future.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">01</div>
+        <h3>Commercial Agreement</h3>
+        <p>Agree on revenue share, branding requirements, and the scope of your partner integration. NDA and commercial terms within days.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">02</div>
+        <h3>Sandbox &amp; API Access</h3>
+        <p>Full sandbox environment with test credentials. Comprehensive REST API documentation and a dedicated integration engineer during build.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">03</div>
+        <h3>White-Label Setup</h3>
+        <p>Portal branded to your specifications. Merchant-facing flows, email templates, and reporting all configured to match your brand identity.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">04</div>
+        <h3>Go Live</h3>
+        <p>Compliance sign-off, acquirer approval, and live merchant onboarding. UrPay handles all back-office operations from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════
+     WHAT YOU GET
+════════════════ -->
+<section class="what-you-get">
+  <div class="wyg-inner">
+    <div class="wyg-head">
+      <p class="eyebrow">What's Included</p>
+      <h2>The full stack. Under your brand.</h2>
+      <p>Every UrPay partner gets access to the complete payments infrastructure — not a subset of features or a gateway-only integration.</p>
+    </div>
+    <div class="wyg-cols">
+      <div class="wyg-col">
+        <h3>Payment Capabilities</h3>
+        <ul class="wyg-list">
+          <li><span class="wyg-check">✓</span>Card present — multi-switch, acquirer-agnostic, white-label payment app</li>
+          <li><span class="wyg-check">✓</span>Card not present — multi-gateway orchestration with failover</li>
+          <li><span class="wyg-check">✓</span>NPP/PayID — owned infrastructure, real-time settlement</li>
+          <li><span class="wyg-check">✓</span>Pay by Link — instant payment requests via SMS or email</li>
+          <li><span class="wyg-check">✓</span>SoftPOS — accept payments on any NFC-capable Android device</li>
+          <li><span class="wyg-check">✓</span>Digital wallets — Apple Pay, Google Pay, Alipay, WeChat Pay</li>
+          <li><span class="wyg-check">✓</span>Dynamic surcharging — RBA-compliant, scheme-level precision</li>
+          <li><span class="wyg-check">✓</span>MOTO — mail order / telephone order processing</li>
+        </ul>
+      </div>
+      <div class="wyg-col">
+        <h3>Platform &amp; Operations</h3>
+        <ul class="wyg-list">
+          <li><span class="wyg-check">✓</span>PAYFAC licensing — UrPay holds all regulatory obligations</li>
+          <li><span class="wyg-check">✓</span>KYB/KYC — automated merchant onboarding and identity verification</li>
+          <li><span class="wyg-check">✓</span>Single settlement — one file per merchant per period, all channels</li>
+          <li><span class="wyg-check">✓</span>Scheme-level reconciliation — Visa, Mastercard, eftpos, Amex broken out</li>
+          <li><span class="wyg-check">✓</span>White-label merchant portal — your brand, UrPay's engine</li>
+          <li><span class="wyg-check">✓</span>AI reporting dashboard — spend analytics, anomaly detection, benchmarks</li>
+          <li><span class="wyg-check">✓</span>Chargeback &amp; dispute management — UrPay manages the back-office</li>
+          <li><span class="wyg-check">✓</span>24/7 terminal &amp; gateway support — your merchants, our team</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════
+     PARTNER TYPES
+════════════════ -->
+<section class="partner-types">
+  <div class="pt-inner">
+    <div class="pt-head">
+      <p class="eyebrow">Who We Work With</p>
+      <h2>Built for platforms, not just merchants</h2>
+      <p>UrPay's partner program is designed for organisations that want to embed payments as a revenue stream — not just offer it as a feature.</p>
+    </div>
+    <div class="pt-grid">
+      <div class="pt-card">
+        <span class="pt-badge">POS & Software</span>
+        <h3>Vertical SaaS &amp; POS Vendors</h3>
+        <p>Embed acquirer-agnostic payments directly into your software. Replace third-party payment integrations with a white-label stack your customers see as your product.</p>
+      </div>
+      <div class="pt-card">
+        <span class="pt-badge">Enterprise</span>
+        <h3>Franchise &amp; Enterprise Groups</h3>
+        <p>Centralise payment operations across your entire network. Single reporting, unified settlement, consistent surcharging — regardless of how many locations or brands you operate.</p>
+      </div>
+      <div class="pt-card">
+        <span class="pt-badge">Financial Services</span>
+        <h3>Banks, Fintechs &amp; Lenders</h3>
+        <p>Add a payments revenue stream to your existing financial services offering. UrPay's PAYFAC licence and infrastructure handles the complexity — you own the relationship.</p>
+      </div>
+      <div class="pt-card">
+        <span class="pt-badge">Aggregators</span>
+        <h3>ISOs &amp; Merchant Aggregators</h3>
+        <p>Move your merchant base to a modern, profitable payment infrastructure. Better economics, better technology, and a partner that invests in your growth.</p>
+      </div>
+      <div class="pt-card">
+        <span class="pt-badge">Marketplace</span>
+        <h3>Marketplace &amp; Platform Businesses</h3>
+        <p>Split payments, hold funds, and settle to multiple parties — all from a single integration. NPP-native real-time settlement makes you faster than the competition.</p>
+      </div>
+      <div class="pt-card">
+        <span class="pt-badge">Government &amp; NFP</span>
+        <h3>Government &amp; Not-for-Profit</h3>
+        <p>Compliant payment acceptance across all channels, with the reporting and accountability frameworks that government and regulated entities require.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════
+     API / DEVELOPER
+════════════════ -->
+<section class="api-dev" id="api">
+  <div class="api-inner">
+    <div class="api-layout">
+      <div class="api-left">
+        <p class="eyebrow">Developer &amp; API</p>
+        <h2>One API. Every payment channel.</h2>
+        <p>UrPay's REST API gives you a single integration point for card present, card not present, NPP, Pay by Link, and digital wallets. Webhook-driven, real-time, and built for modern software architectures.</p>
+        <div class="api-features">
+          <div class="api-feature">
+            <div class="api-feature-icon">📄</div>
+            <div class="api-feature-text">
+              <h4>Full API documentation</h4>
+              <p>Comprehensive REST API docs with code samples in Python, Node, PHP, and Ruby.</p>
+            </div>
+          </div>
+          <div class="api-feature">
+            <div class="api-feature-icon">🧪</div>
+            <div class="api-feature-text">
+              <h4>Sandbox environment</h4>
+              <p>Full test environment with simulated terminals, webhooks, and settlement flows. No live funds required.</p>
+            </div>
+          </div>
+          <div class="api-feature">
+            <div class="api-feature-icon">🔔</div>
+            <div class="api-feature-text">
+              <h4>Real-time webhooks</h4>
+              <p>Transaction events, settlement notifications, and dispute alerts delivered instantly to your endpoint.</p>
+            </div>
+          </div>
+        </div>
+        <a href="enquire.html#sandbox" class="btn btn-primary">Request Sandbox Access</a>
+      </div>
+      <div class="api-code-panel">
+        <div class="api-code-header">
+          <div class="api-code-dot" style="background:#ff5f57"></div>
+          <div class="api-code-dot" style="background:#febc2e"></div>
+          <div class="api-code-dot" style="background:#28c840"></div>
+          <span style="color:rgba(255,255,255,0.3); font-size:0.75rem; margin-left:8px;">POST /v1/payments</span>
+        </div>
+        <div class="code-line"><span class="code-comment">// Initiate a payment request</span></div>
+        <div class="code-line"><span class="code-method">POST</span> <span class="code-url">https://api.urpay.com.au/v1/payments</span></div>
+        <div class="code-line">&nbsp;</div>
+        <div class="code-line">{</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">"amount"</span>: <span class="code-val">4950</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">"currency"</span>: <span class="code-str">"AUD"</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">"channel"</span>: <span class="code-str">"card_present"</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">"terminal_id"</span>: <span class="code-str">"TRM_4a82f9"</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">"merchant_ref"</span>: <span class="code-str">"INV-20240523"</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">"surcharge"</span>: <span class="code-str">"dynamic"</span></div>
+        <div class="code-line">}</div>
+        <div class="code-line">&nbsp;</div>
+        <div class="code-line"><span class="code-comment">// 200 OK</span></div>
+        <div class="code-line">{</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">"payment_id"</span>: <span class="code-str">"pay_9xKr2mT"</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">"status"</span>: <span class="code-str">"approved"</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">"scheme"</span>: <span class="code-str">"visa"</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">"settled_at"</span>: <span class="code-str">"T+1"</span></div>
+        <div class="code-line">}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════
+     ENQUIRE CTA
+════════════════ -->
+<section class="partner-cta">
+  <div class="cta-inner">
+    <p class="eyebrow">Ready to Partner</p>
+    <h2>Let's build something together</h2>
+    <p>Whether you're exploring white-label payments for the first time or ready to migrate an existing portfolio, our partnerships team will walk you through the commercial and technical path from day one.</p>
+    <div class="cta-btns">
+      <a href="enquire.html" class="btn btn-primary">Partnership Enquiry</a>
+      <a href="enquire.html#sandbox" class="btn btn-glass">API &amp; Sandbox Access</a>
+    </div>
+    <p class="cta-note">Or call our partnerships team directly — <strong style="color:rgba(255,255,255,0.6)">1800 008 772</strong></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-col">
+        <a href="../index.html" class="footer-logo">
+          <img src="../images/urpay-logo-white.png" alt="UrPay" height="28">
+        </a>
+        <p class="footer-tagline">Australia's acquirer-agnostic omni-channel payments platform. PAYFAC-licensed. Built in Brisbane.</p>
+      </div>
+      <div class="footer-col"><h4>Solutions</h4><ul>
+        <li><a href="solutions.html">Card Present</a></li>
+        <li><a href="solutions.html">Online &amp; eCommerce</a></li>
+        <li><a href="solutions.html">NPP &amp; Pay by Link</a></li>
+        <li><a href="solutions.html">AI Dashboard</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Partners</h4><ul>
+        <li><a href="partners.html">White-Label PAYFAC</a></li>
+        <li><a href="enquire.html">Partner Enquiry</a></li>
+        <li><a href="enquire.html#sandbox">API &amp; Sandbox</a></li>
+        <li><a href="integrations.html">Integrations</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="mailto:info@urpay.com.au">Sales Enquiries</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 UrPay Technologies Pty Ltd. All rights reserved. PAYFAC-licensed.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

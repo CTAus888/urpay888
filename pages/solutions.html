@@ -270,6 +270,152 @@
     .sol-cta p  { font-size: 1.0625rem; color: rgba(255,255,255,0.55); line-height: 1.72; margin-bottom: 44px; }
     .sol-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
+    /* SoftPOS coming soon banner */
+    .softpos-section {
+      background: var(--p-deep);
+      padding: 72px 0;
+      position: relative; overflow: hidden;
+    }
+    .softpos-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 60% 50%, rgba(107,107,255,0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .softpos-inner {
+      position: relative; z-index: 1;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .softpos-content .eyebrow { color: rgba(150,150,255,0.75); margin-bottom: 12px; }
+    .softpos-content h2 { color: #fff; margin-bottom: 18px; }
+    .softpos-content .lead { color: rgba(255,255,255,0.55); font-size: 1.0625rem; line-height: 1.72; margin-bottom: 28px; }
+    .softpos-badge-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+    .badge-coming {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 18px; border-radius: 100px;
+      background: rgba(107,107,255,0.15);
+      border: 1px solid rgba(107,107,255,0.35);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--p);
+    }
+    .badge-coming-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--p); animation: pulse 1.8s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+    .softpos-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .softpos-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.55;
+    }
+    .softpos-list li::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--p); flex-shrink: 0; margin-top: 7px;
+    }
+    .softpos-visual {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(107,107,255,0.2);
+      border-radius: var(--r-lg);
+      padding: 48px 40px;
+      display: flex; flex-direction: column; gap: 20px;
+      position: relative; overflow: hidden;
+    }
+    .softpos-device-row {
+      display: flex; align-items: center; gap: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(107,107,255,0.15);
+      border-radius: var(--r);
+      padding: 16px 20px;
+    }
+    .softpos-device-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(107,107,255,0.15);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .softpos-device-icon svg { width: 22px; height: 22px; color: var(--p); }
+    .softpos-device-text { flex: 1; }
+    .softpos-device-name  { font-size: 0.875rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .softpos-device-desc  { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+    .softpos-device-status {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px;
+    }
+    .status-live  { background: rgba(0,212,160,0.15); color: var(--green); }
+    .status-soon  { background: rgba(107,107,255,0.15); color: var(--p); }
+
+    /* Single settlement section */
+    .settle-section {
+      background: var(--cream);
+      padding: 110px 0;
+    }
+    .settle-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .settle-content .eyebrow { margin-bottom: 14px; }
+    .settle-content h2 { margin-bottom: 20px; }
+    .settle-content .lead { font-size: 1.0625rem; color: var(--text-2); line-height: 1.72; margin-bottom: 32px; }
+    .settle-benefits { display: flex; flex-direction: column; gap: 14px; }
+    .settle-benefit {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 18px 20px;
+      background: var(--white);
+      border: 1px solid rgba(107,107,255,0.1);
+      border-radius: var(--r);
+    }
+    .settle-benefit-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--lav);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .settle-benefit-icon svg { width: 18px; height: 18px; color: var(--p); }
+    .settle-benefit-title { font-size: 0.875rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .settle-benefit-desc  { font-size: 0.8125rem; color: var(--text-2); line-height: 1.5; }
+
+    /* Settlement report mockup */
+    .settle-report {
+      background: var(--white);
+      border: 1px solid rgba(107,107,255,0.12);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 16px 56px rgba(8,8,15,0.08);
+    }
+    .settle-report-header {
+      background: var(--p-deep);
+      padding: 18px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .settle-report-title { font-size: 0.875rem; font-weight: 700; color: #fff; }
+    .settle-report-date  { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+    .settle-report-body { padding: 0; }
+    .settle-table { width: 100%; border-collapse: collapse; }
+    .settle-table th {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-3); background: var(--cream);
+      padding: 12px 20px; text-align: left;
+    }
+    .settle-table th:last-child { text-align: right; }
+    .settle-table td { padding: 14px 20px; font-size: 0.8125rem; color: var(--text); border-top: 1px solid rgba(107,107,255,0.06); }
+    .settle-table td:last-child { text-align: right; font-weight: 700; }
+    .settle-table .settle-type { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+    .settle-type-cp  { color: var(--p); }
+    .settle-type-cnp { color: #a855f7; }
+    .settle-type-npp { color: var(--green); }
+    .settle-table-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 20px;
+      background: var(--p-deep);
+    }
+    .settle-table-footer-label { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.55); }
+    .settle-table-footer-val   { font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+    .settle-report-note {
+      padding: 14px 20px;
+      background: rgba(0,212,160,0.06);
+      border-top: 1px solid rgba(0,212,160,0.15);
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.775rem; color: var(--green); font-weight: 600;
+    }
+    .settle-report-note svg { width: 14px; height: 14px; flex-shrink: 0; }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .page-hero-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -278,6 +424,8 @@
       .sol-inner.flip { direction: ltr; }
       .sol-feature-grid { grid-template-columns: 1fr; }
       .ent-grid { grid-template-columns: repeat(2,1fr); }
+      .softpos-inner { grid-template-columns: 1fr; gap: 48px; }
+      .settle-inner { grid-template-columns: 1fr; gap: 48px; }
     }
     @media (max-width: 768px) {
       .sol-terminal-showcase { padding: 32px 24px; min-height: auto; }
@@ -298,10 +446,12 @@
     <ul class="nav-links">
       <li><a href="solutions.html">Solutions</a></li>
       <li><a href="integrations.html">Integrations</a></li>
+      <li><a href="partners.html">Partners</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="support.html">Support</a></li>
     </ul>
     <div class="nav-cta">
+      <a href="login.html" class="nav-login-link">Login</a>
       <a href="contact.html" class="btn btn-glass btn-sm">Contact Us</a>
       <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
     </div>
@@ -409,6 +559,57 @@
   </div>
 </section>
 
+<!-- SOFTPOS — COMING SOON -->
+<section class="softpos-section">
+  <div class="softpos-inner">
+    <div class="softpos-content reveal">
+      <p class="eyebrow">Hardware &amp; SoftPOS</p>
+      <h2 class="display-lg">More ways to<br>take a payment.</h2>
+      <p class="lead">Our hardware range already covers the counter — and we're expanding. SoftPOS will turn any NFC-enabled Android device into a fully certified payment terminal, with no additional hardware required.</p>
+      <div class="softpos-badge-row">
+        <span class="badge-coming"><span class="badge-coming-dot"></span>SoftPOS — Coming June 2026</span>
+      </div>
+      <ul class="softpos-list">
+        <li>Accept Tap &amp; Pay directly on any compatible Android device</li>
+        <li>No dedicated terminal hardware required</li>
+        <li>PCI CPoC certified — meets all card scheme standards</li>
+        <li>Ideal for pop-ups, delivery drivers, and mobile staff</li>
+        <li>More new hardware options arriving throughout 2026</li>
+      </ul>
+    </div>
+    <div class="softpos-visual reveal d2">
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px;">Hardware lineup</div>
+      <div class="softpos-device-row">
+        <div class="softpos-device-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 14h4"/></svg></div>
+        <div class="softpos-device-text">
+          <div class="softpos-device-name">PAX A920 &amp; A77</div>
+          <div class="softpos-device-desc">Android smart terminals — counter &amp; portable</div>
+        </div>
+        <span class="softpos-device-status status-live">Live</span>
+      </div>
+      <div class="softpos-device-row">
+        <div class="softpos-device-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg></div>
+        <div class="softpos-device-text">
+          <div class="softpos-device-name">Ingenico DX8000</div>
+          <div class="softpos-device-desc">Enterprise countertop — high volume retail</div>
+        </div>
+        <span class="softpos-device-status status-live">Live</span>
+      </div>
+      <div class="softpos-device-row" style="border-color:rgba(107,107,255,0.3);background:rgba(107,107,255,0.07);">
+        <div class="softpos-device-icon" style="background:rgba(107,107,255,0.25);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M9 10h6M10 18h4"/></svg></div>
+        <div class="softpos-device-text">
+          <div class="softpos-device-name">SoftPOS — Any Android</div>
+          <div class="softpos-device-desc">Turn your device into a payment terminal</div>
+        </div>
+        <span class="softpos-device-status status-soon">Jun 2026</span>
+      </div>
+      <div style="margin-top:8px;font-size:0.775rem;color:rgba(255,255,255,0.3);line-height:1.55;">
+        More hardware options on the roadmap — ask your account manager about upcoming additions.
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 2. ONLINE & ECOMMERCE -->
 <section class="sol-section" id="online">
   <div class="sol-inner flip">
@@ -462,7 +663,7 @@
     <div class="sol-content reveal">
       <p class="eyebrow">Real-Time Payments</p>
       <h2 class="display-lg">NPP &amp; Pay by Link.</h2>
-      <p class="lead">Australian real-time bank payments via the New Payments Platform. Send a payment link by SMS or email — your customer pays in seconds, funds settle the same day, zero card fees involved.</p>
+      <p class="lead">Australian real-time bank payments via the New Payments Platform. Send a payment link by SMS or email — your customer pays in seconds, funds settle the same day, via bank-to-bank rails that avoid card scheme and interchange costs entirely.</p>
       <div class="sol-feature-grid">
         <div class="sol-feat">
           <span class="sol-feat-dot"></span>
@@ -482,7 +683,7 @@
         </div>
         <div class="sol-feat">
           <span class="sol-feat-dot"></span>
-          <div class="sol-feat-text"><div class="sol-feat-title">Zero card fees</div><div class="sol-feat-desc">Bank-to-bank transfers bypass card scheme fees entirely.</div></div>
+          <div class="sol-feat-text"><div class="sol-feat-title">No scheme or interchange fees</div><div class="sol-feat-desc">Bank-to-bank rails bypass card network costs — keeps more margin with you.</div></div>
         </div>
         <div class="sol-feat">
           <span class="sol-feat-dot"></span>
@@ -520,7 +721,7 @@
             <span class="npp-step-time" style="color:var(--green);">Same day</span>
           </div>
           <div style="margin-top:8px;">
-            <span class="pill pill-g"><span class="dot dot-green"></span>Zero card fees · Instant settlement</span>
+            <span class="pill pill-g"><span class="dot dot-green"></span>No scheme fees · Same-day settlement</span>
           </div>
         </div>
       </div>
@@ -665,6 +866,100 @@
         </div>
         <h3>24/7 Priority Support</h3>
         <p>Enterprise SLA with direct phone access to our technical team — any hour, any day. Incidents are escalated immediately, not queued.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SINGLE SETTLEMENT -->
+<section class="settle-section" id="settlement">
+  <div class="settle-inner">
+    <div class="settle-content reveal">
+      <p class="eyebrow">Settlement &amp; Reconciliation</p>
+      <h2 class="display-lg">One report.<br>One settlement.</h2>
+      <p class="lead">Card present, online, and NPP payments all land in a single daily settlement — broken down by scheme, channel, and location. No juggling multiple acquirer reports or reconciling across platforms.</p>
+      <div class="settle-benefits">
+        <div class="settle-benefit">
+          <div class="settle-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div>
+            <div class="settle-benefit-title">Single daily settlement file</div>
+            <div class="settle-benefit-desc">All payment types consolidated into one report — Visa, Mastercard, Amex, eftpos, and NPP in one place.</div>
+          </div>
+        </div>
+        <div class="settle-benefit">
+          <div class="settle-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div>
+            <div class="settle-benefit-title">Automated reconciliation</div>
+            <div class="settle-benefit-desc">Settlement matched to your transactions automatically — exceptions flagged, not buried in spreadsheets.</div>
+          </div>
+        </div>
+        <div class="settle-benefit">
+          <div class="settle-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div>
+            <div class="settle-benefit-title">T+1 standard across all channels</div>
+            <div class="settle-benefit-desc">Card present, card-not-present, and NPP payments all settle on the same T+1 cycle — one transfer, one day.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sol-visual reveal d2">
+      <div class="settle-report">
+        <div class="settle-report-header">
+          <span class="settle-report-title">Daily Settlement Summary</span>
+          <span class="settle-report-date">23 May 2026 — T+1</span>
+        </div>
+        <div class="settle-report-body">
+          <table class="settle-table">
+            <thead>
+              <tr>
+                <th>Channel</th>
+                <th>Scheme</th>
+                <th>Txns</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="settle-type settle-type-cp">Card Present</span></td>
+                <td>Visa</td>
+                <td>142</td>
+                <td>$8,431.20</td>
+              </tr>
+              <tr>
+                <td><span class="settle-type settle-type-cp">Card Present</span></td>
+                <td>Mastercard</td>
+                <td>89</td>
+                <td>$5,217.80</td>
+              </tr>
+              <tr>
+                <td><span class="settle-type settle-type-cp">Card Present</span></td>
+                <td>Amex</td>
+                <td>23</td>
+                <td>$1,940.50</td>
+              </tr>
+              <tr>
+                <td><span class="settle-type settle-type-cnp">Online / CNP</span></td>
+                <td>Visa / MC</td>
+                <td>67</td>
+                <td>$4,882.00</td>
+              </tr>
+              <tr>
+                <td><span class="settle-type settle-type-npp">NPP / PayID</span></td>
+                <td>Bank transfer</td>
+                <td>31</td>
+                <td>$3,620.00</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="settle-table-footer">
+            <span class="settle-table-footer-label">Total settled today</span>
+            <span class="settle-table-footer-val">$24,091.50</span>
+          </div>
+          <div class="settle-report-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Funds arriving in your account today — all channels combined
+          </div>
+        </div>
       </div>
     </div>
   </div>

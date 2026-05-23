@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Partner with UrPay — white-label PAYFAC, reseller programs, API & sandbox access. Enquire now to explore how we can power your payments.">
+  <title>Partner &amp; Developer Enquiry — UrPay</title>
+  <link rel="icon" type="image/png" href="../images/urpay-icon-white.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvevsobg5l");
+  </script>
+  <style>
+
+    /* ── Hero ── */
+    .enq-hero {
+      background: var(--p-deep);
+      position: relative; overflow: hidden;
+      padding: calc(var(--nav-h) + 72px) 0 80px;
+    }
+    .enq-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 65% 55% at 70% 30%, rgba(107,107,255,0.28) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 45% at 15% 80%, rgba(80,40,180,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .enq-hero-inner {
+      position: relative; z-index: 1;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      text-align: center;
+    }
+    .enq-hero .eyebrow { margin-bottom: 22px; }
+    .enq-hero h1 { color: #fff; margin-bottom: 22px; }
+    .enq-hero-sub {
+      font-size: 1.1rem; color: rgba(255,255,255,0.55); line-height: 1.72;
+      max-width: 560px; margin: 0 auto 44px;
+    }
+
+    /* Tab switcher */
+    .enq-tabs {
+      display: inline-flex;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .enq-tab {
+      padding: 10px 26px;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .enq-tab:hover { color: #fff; }
+    .enq-tab.active {
+      background: var(--p);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(107,107,255,0.4);
+    }
+
+    /* ── Shared form layout ── */
+    .enq-section {
+      background: var(--cream);
+      padding: 90px 0;
+    }
+    .enq-section.dark {
+      background: var(--p-deep);
+      padding: 96px 0;
+    }
+    .enq-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px;
+    }
+
+    /* ── Form card ── */
+    .enq-form-wrap {
+      background: var(--white);
+      border: 1px solid rgba(107,107,255,0.1);
+      border-radius: var(--r-lg); padding: 52px 48px;
+    }
+    .enq-form-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+    .enq-form-desc  { font-size: 0.9375rem; color: var(--text-2); line-height: 1.65; margin-bottom: 36px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+    .form-group label {
+      font-size: 0.8125rem; font-weight: 700; color: var(--text); letter-spacing: 0.01em;
+    }
+    .form-group label span { color: var(--p); margin-left: 2px; }
+    .form-input, .form-select, .form-textarea {
+      width: 100%; padding: 13px 18px;
+      border: 1.5px solid rgba(107,107,255,0.15);
+      border-radius: var(--r-sm);
+      font-family: var(--font-body); font-size: 0.9375rem; color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none; appearance: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-3); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--p);
+      box-shadow: 0 0 0 3px rgba(107,107,255,0.12);
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%2346466A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; background-size: 18px;
+      padding-right: 44px; cursor: pointer;
+    }
+    .form-textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+    .form-submit {
+      width: 100%; padding: 16px 28px; border-radius: 100px;
+      font-weight: 700; font-size: 1rem; color: #fff;
+      background: var(--p); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(107,107,255,0.4);
+      margin-top: 8px;
+    }
+    .form-submit:hover {
+      background: var(--p-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(107,107,255,0.5);
+    }
+    .form-submit svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .form-note {
+      font-size: 0.775rem; color: var(--text-3); text-align: center; margin-top: 14px; line-height: 1.5;
+    }
+
+    /* ── Right side panel ── */
+    .enq-right { display: flex; flex-direction: column; gap: 20px; }
+
+    .enq-info-card {
+      background: var(--white);
+      border: 1px solid rgba(107,107,255,0.1);
+      border-radius: var(--r-lg); padding: 32px;
+    }
+    .enq-info-card.dark-card {
+      background: rgba(107,107,255,0.08);
+      border-color: rgba(107,107,255,0.2);
+    }
+    .enq-info-card h3 {
+      font-size: 1rem; font-weight: 700; margin-bottom: 18px;
+      padding-bottom: 14px; border-bottom: 1px solid rgba(107,107,255,0.08);
+      color: var(--text);
+    }
+    .enq-info-card.dark-card h3 { color: #fff; border-color: rgba(255,255,255,0.1); }
+
+    .enq-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .enq-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.875rem; color: var(--text-2); line-height: 1.55;
+    }
+    .enq-list li .check {
+      width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+      background: var(--lav); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .enq-list li .check svg { width: 10px; height: 10px; color: var(--p); }
+    .enq-list.light li { color: rgba(255,255,255,0.7); }
+    .enq-list.light li .check { background: rgba(107,107,255,0.2); }
+    .enq-list.light li .check svg { color: #a0a0ff; }
+
+    .enq-contact-strip {
+      background: var(--lav);
+      border-radius: var(--r);
+      padding: 22px 26px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .enq-contact-strip-title { font-size: 0.875rem; font-weight: 700; color: var(--text); }
+    .enq-contact-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.8125rem; color: var(--text-2);
+    }
+    .enq-contact-item svg { width: 14px; height: 14px; color: var(--p); flex-shrink: 0; }
+    .enq-contact-item a { color: var(--p); font-weight: 600; text-decoration: none; }
+    .enq-contact-item a:hover { text-decoration: underline; }
+
+    /* Timeline steps for API onboarding */
+    .enq-steps { display: flex; flex-direction: column; gap: 0; }
+    .enq-step {
+      display: flex; gap: 16px; padding: 0 0 24px;
+      position: relative;
+    }
+    .enq-step:last-child { padding-bottom: 0; }
+    .enq-step-line {
+      display: flex; flex-direction: column; align-items: center; flex-shrink: 0;
+    }
+    .enq-step-dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--lav); border: 2px solid var(--p);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; color: var(--p);
+      flex-shrink: 0;
+    }
+    .enq-step-connector {
+      width: 2px; flex: 1; margin-top: 6px;
+      background: linear-gradient(to bottom, rgba(107,107,255,0.3), transparent);
+      min-height: 24px;
+    }
+    .enq-step:last-child .enq-step-connector { display: none; }
+    .enq-step-text { padding-top: 5px; }
+    .enq-step-title { font-size: 0.875rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .enq-step-desc  { font-size: 0.8125rem; color: var(--text-2); line-height: 1.55; }
+
+    /* Dark section right panel */
+    .enq-dark-card {
+      background: rgba(107,107,255,0.07);
+      border: 1px solid rgba(107,107,255,0.2);
+      border-radius: var(--r-lg); padding: 32px;
+    }
+    .enq-dark-card h3 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 18px; }
+    .enq-dark-card .enq-step-dot { background: rgba(107,107,255,0.2); border-color: rgba(107,107,255,0.5); color: rgba(255,255,255,0.8); }
+    .enq-dark-card .enq-step-title { color: rgba(255,255,255,0.9); }
+    .enq-dark-card .enq-step-desc  { color: rgba(255,255,255,0.5); }
+
+    /* API badge strip */
+    .api-badges {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;
+    }
+    .api-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 100px;
+      background: rgba(107,107,255,0.12); border: 1px solid rgba(107,107,255,0.25);
+      font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7);
+    }
+    .api-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--p); }
+
+    /* Section anchor label */
+    .section-anchor-label {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 48px;
+    }
+    .section-anchor-label-tag {
+      padding: 5px 16px; border-radius: 100px;
+      background: rgba(107,107,255,0.15);
+      border: 1px solid rgba(107,107,255,0.3);
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+    .section-anchor-label-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
+
+    /* Divider between sections */
+    .enq-divider {
+      background: var(--p-deep); padding: 60px 28px; text-align: center;
+    }
+    .enq-divider-inner {
+      max-width: 640px; margin: 0 auto;
+    }
+    .enq-divider h2 { color: #fff; font-size: 1.75rem; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.01em; }
+    .enq-divider p  { color: rgba(255,255,255,0.5); font-size: 0.975rem; line-height: 1.7; margin-bottom: 28px; }
+    .enq-divider-actions { display: flex; align-items: center; justify-content: center; gap: 16px; }
+
+    /* Success message (hidden by default) */
+    .form-success {
+      display: none;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: var(--r);
+      padding: 20px 24px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .form-success p { font-size: 0.9375rem; color: #166534; font-weight: 500; line-height: 1.6; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .enq-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .enq-form-wrap { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .enq-tabs { flex-direction: column; border-radius: var(--r); }
+      .enq-tab  { border-radius: var(--r-sm); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/urpay-logo-white.png" alt="UrPay" height="30">
+    </a>
+    <ul class="nav-links">
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="integrations.html">Integrations</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="login.html" class="nav-login-link">Login</a>
+      <a href="contact.html" class="btn btn-glass btn-sm">Contact Us</a>
+      <a href="enquire.html" class="btn btn-primary btn-sm">Partner Enquiry</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="enq-hero">
+  <div class="enq-hero-inner">
+    <p class="eyebrow reveal">Work with UrPay</p>
+    <h1 class="display-lg reveal d1">Partner &amp; Developer Enquiry</h1>
+    <p class="enq-hero-sub reveal d2">Whether you're exploring a white-label or reseller partnership, or you need API and sandbox access to build on top of our infrastructure — start here.</p>
+    <div class="enq-tabs reveal d3">
+      <a href="#partnership" class="enq-tab active" id="tab-partner" onclick="switchTab(event,'partner')">Partnership Enquiry</a>
+      <a href="#sandbox" class="enq-tab" id="tab-dev" onclick="switchTab(event,'dev')">API &amp; Sandbox Access</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 1: PARTNERSHIP ENQUIRY
+════════════════════════════════════════ -->
+<section class="enq-section" id="partnership">
+  <div class="enq-inner">
+
+    <!-- LEFT: FORM -->
+    <div class="enq-form-wrap reveal">
+      <h2 class="enq-form-title">Partnership Enquiry</h2>
+      <p class="enq-form-desc">Tell us about your business and the type of partnership you're exploring. Our team will be in touch within one business day.</p>
+
+      <form id="partnerForm" action="#" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="UrPay Partnership Enquiry">
+        <input type="hidden" name="_next" value="enquire.html?thanks=partner">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="p-first">First name <span>*</span></label>
+            <input type="text" id="p-first" name="first_name" class="form-input" placeholder="Jane" required autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label for="p-last">Last name <span>*</span></label>
+            <input type="text" id="p-last" name="last_name" class="form-input" placeholder="Smith" required autocomplete="family-name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="p-company">Company <span>*</span></label>
+            <input type="text" id="p-company" name="company" class="form-input" placeholder="Acme Financial Services" required autocomplete="organization">
+          </div>
+          <div class="form-group">
+            <label for="p-role">Your role <span>*</span></label>
+            <input type="text" id="p-role" name="role" class="form-input" placeholder="Head of Payments" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="p-email">Email address <span>*</span></label>
+            <input type="email" id="p-email" name="email" class="form-input" placeholder="jane@yourcompany.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="p-phone">Phone</label>
+            <input type="tel" id="p-phone" name="phone" class="form-input" placeholder="04XX XXX XXX" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="p-type">Partnership type <span>*</span></label>
+          <select id="p-type" name="partnership_type" class="form-select" required>
+            <option value="" disabled selected>Select partnership type…</option>
+            <option value="white-label">White-label PAYFAC — full branded payments platform</option>
+            <option value="reseller">Reseller — introduce merchants, earn referral income</option>
+            <option value="iso">ISO / Agent — revenue share on placed merchants</option>
+            <option value="platform">Platform / SaaS — embed payments into your software</option>
+            <option value="enterprise">Enterprise / BYO — custom commercial arrangement</option>
+            <option value="other">Other — tell us below</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="p-merchants">Estimated merchant volume</label>
+          <select id="p-merchants" name="merchant_volume" class="form-select">
+            <option value="" disabled selected>How many merchants could you bring?</option>
+            <option value="1-10">1–10 merchants</option>
+            <option value="11-50">11–50 merchants</option>
+            <option value="51-200">51–200 merchants</option>
+            <option value="200+">200+ merchants</option>
+            <option value="unsure">Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="p-message">Tell us about the opportunity <span>*</span></label>
+          <textarea id="p-message" name="message" class="form-textarea" placeholder="Briefly describe your business, what you're building or selling, and how UrPay fits into the picture." required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">
+          Submit partnership enquiry
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M10 4l6 6-6 6"/></svg>
+        </button>
+        <p class="form-note">We respond to partnership enquiries within one business day. Call <a href="tel:1800008772" style="color:var(--p);font-weight:700;">1800 008 772</a> for urgent matters.</p>
+        <div class="form-success" id="partnerSuccess">
+          <p>Thanks — your enquiry has been received. Our partnerships team will be in touch within one business day.</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- RIGHT: WHY PARTNER + CONTACT -->
+    <div class="enq-right">
+
+      <div class="enq-info-card reveal d1">
+        <h3>What partners get</h3>
+        <ul class="enq-list">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Full-stack acquiring and gateway under your own brand
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            PAYFAC-licensed infrastructure — no acquiring licence required
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Card-present (EFTPOS/Tap) + CNP (online) + NPP (PayID) in one platform
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            T+1 settlement with single consolidated reconciliation report
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Revenue share and commercial terms set to your model
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            24/7 merchant support backed by our Australian team
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Dedicated partner manager and technical onboarding
+          </li>
+        </ul>
+      </div>
+
+      <div class="enq-contact-strip reveal d2">
+        <div class="enq-contact-strip-title">Prefer to talk first?</div>
+        <div class="enq-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91A16 16 0 0 0 15 15.91l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Call us: <a href="tel:1800008772">1800 008 772</a></span>
+        </div>
+        <div class="enq-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Email: <a href="mailto:partnerships@urpay.com.au">partnerships@urpay.com.au</a></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- DIVIDER -->
+<div class="enq-divider">
+  <div class="enq-divider-inner">
+    <h2>Building something on UrPay?</h2>
+    <p>Access our sandbox environment and REST API to test card-present, online, and NPP payment flows before going live.</p>
+    <div class="enq-divider-actions">
+      <a href="#sandbox" class="btn btn-primary">Request API Access</a>
+      <a href="partners.html#api" class="btn btn-glass">View API Docs Overview</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 2: API & SANDBOX ACCESS
+════════════════════════════════════════ -->
+<section class="enq-section dark" id="sandbox">
+  <div class="enq-inner" style="max-width: var(--max-w); margin: 0 auto; padding: 0 28px;">
+
+    <!-- Label -->
+    <div style="grid-column: 1/-1; margin-bottom: -20px;">
+      <div class="section-anchor-label">
+        <span class="section-anchor-label-tag">API &amp; Sandbox</span>
+        <div class="section-anchor-label-line"></div>
+      </div>
+    </div>
+
+    <!-- LEFT: FORM -->
+    <div class="enq-form-wrap reveal" style="background: rgba(255,255,255,0.04); border-color: rgba(107,107,255,0.25);">
+      <h2 class="enq-form-title" style="color:#fff;">API &amp; Sandbox Access Request</h2>
+      <p class="enq-form-desc" style="color:rgba(255,255,255,0.55);">Request access to the UrPay sandbox environment and REST API. Tell us what you're building — we'll set up credentials and get you started.</p>
+
+      <form id="devForm" action="#" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="UrPay API & Sandbox Access Request">
+        <input type="hidden" name="_next" value="enquire.html?thanks=dev">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="d-first" style="color:rgba(255,255,255,0.8);">First name <span>*</span></label>
+            <input type="text" id="d-first" name="first_name" class="form-input" placeholder="Alex" required autocomplete="given-name" style="background:rgba(255,255,255,0.07); border-color:rgba(107,107,255,0.25); color:#fff;">
+          </div>
+          <div class="form-group">
+            <label for="d-last" style="color:rgba(255,255,255,0.8);">Last name <span>*</span></label>
+            <input type="text" id="d-last" name="last_name" class="form-input" placeholder="Chen" required autocomplete="family-name" style="background:rgba(255,255,255,0.07); border-color:rgba(107,107,255,0.25); color:#fff;">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="d-company" style="color:rgba(255,255,255,0.8);">Company / Project <span>*</span></label>
+            <input type="text" id="d-company" name="company" class="form-input" placeholder="My POS Startup" required autocomplete="organization" style="background:rgba(255,255,255,0.07); border-color:rgba(107,107,255,0.25); color:#fff;">
+          </div>
+          <div class="form-group">
+            <label for="d-role" style="color:rgba(255,255,255,0.8);">Your role</label>
+            <input type="text" id="d-role" name="role" class="form-input" placeholder="Lead Developer" style="background:rgba(255,255,255,0.07); border-color:rgba(107,107,255,0.25); color:#fff;">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="d-email" style="color:rgba(255,255,255,0.8);">Email address <span>*</span></label>
+          <input type="email" id="d-email" name="email" class="form-input" placeholder="dev@yourcompany.com" required autocomplete="email" style="background:rgba(255,255,255,0.07); border-color:rgba(107,107,255,0.25); color:#fff;">
+        </div>
+
+        <div class="form-group">
+          <label for="d-usecase" style="color:rgba(255,255,255,0.8);">What are you building? <span>*</span></label>
+          <select id="d-usecase" name="use_case" class="form-select" required style="background:rgba(255,255,255,0.07); border-color:rgba(107,107,255,0.25); color:rgba(255,255,255,0.8);">
+            <option value="" disabled selected>Select your use case…</option>
+            <option value="pos">POS / Point-of-sale integration</option>
+            <option value="ecommerce">E-commerce / checkout plugin</option>
+            <option value="platform">SaaS platform embedding payments</option>
+            <option value="reporting">Reporting / data / analytics tool</option>
+            <option value="hardware">Hardware / terminal application</option>
+            <option value="other">Other — describe below</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="d-stack" style="color:rgba(255,255,255,0.8);">Tech stack / language</label>
+          <input type="text" id="d-stack" name="tech_stack" class="form-input" placeholder="e.g. Node.js, Python, PHP, .NET" style="background:rgba(255,255,255,0.07); border-color:rgba(107,107,255,0.25); color:#fff;">
+        </div>
+
+        <div class="form-group">
+          <label for="d-message" style="color:rgba(255,255,255,0.8);">Tell us more about the integration <span>*</span></label>
+          <textarea id="d-message" name="message" class="form-textarea" placeholder="Describe what you're building, the payment flows you need, and any specific requirements (webhooks, refunds, settlements, etc.)." required style="background:rgba(255,255,255,0.07); border-color:rgba(107,107,255,0.25); color:#fff; min-height:110px;"></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">
+          Request sandbox access
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M10 4l6 6-6 6"/></svg>
+        </button>
+        <p class="form-note" style="color:rgba(255,255,255,0.35);">Sandbox credentials are typically provisioned within one business day. Call <a href="tel:1800008772" style="color:var(--p);font-weight:700;">1800 008 772</a> for urgent needs.</p>
+        <div class="form-success" id="devSuccess">
+          <p>Thanks — your sandbox request has been received. We'll provision your credentials and be in touch within one business day.</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- RIGHT: WHAT YOU GET + ONBOARDING STEPS -->
+    <div class="enq-right">
+
+      <div class="enq-dark-card reveal d1">
+        <h3>What's included in the sandbox</h3>
+        <ul class="enq-list light">
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Full REST API access — payments, refunds, settlements, webhooks
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Card-present, card-not-present, and NPP test flows
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Simulated approval, decline, and timeout scenarios
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Webhook event delivery to your endpoint
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Developer documentation and Postman collection
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Technical support from our integrations team
+          </li>
+        </ul>
+        <div class="api-badges">
+          <span class="api-badge"><span class="api-badge-dot"></span>REST / JSON</span>
+          <span class="api-badge"><span class="api-badge-dot"></span>Webhooks</span>
+          <span class="api-badge"><span class="api-badge-dot"></span>OAuth 2.0</span>
+          <span class="api-badge"><span class="api-badge-dot"></span>Sandbox env</span>
+          <span class="api-badge"><span class="api-badge-dot"></span>Postman</span>
+        </div>
+      </div>
+
+      <div class="enq-dark-card reveal d2">
+        <h3>Onboarding in 4 steps</h3>
+        <div class="enq-steps">
+          <div class="enq-step">
+            <div class="enq-step-line">
+              <div class="enq-step-dot">1</div>
+              <div class="enq-step-connector"></div>
+            </div>
+            <div class="enq-step-text">
+              <div class="enq-step-title">Submit this form</div>
+              <div class="enq-step-desc">Tell us what you're building and your preferred contact.</div>
+            </div>
+          </div>
+          <div class="enq-step">
+            <div class="enq-step-line">
+              <div class="enq-step-dot">2</div>
+              <div class="enq-step-connector"></div>
+            </div>
+            <div class="enq-step-text">
+              <div class="enq-step-title">Credentials provisioned</div>
+              <div class="enq-step-desc">We create your sandbox API key and send documentation — typically within one business day.</div>
+            </div>
+          </div>
+          <div class="enq-step">
+            <div class="enq-step-line">
+              <div class="enq-step-dot">3</div>
+              <div class="enq-step-connector"></div>
+            </div>
+            <div class="enq-step-text">
+              <div class="enq-step-title">Build &amp; test</div>
+              <div class="enq-step-desc">Integrate against the sandbox, run test transactions, validate your flows.</div>
+            </div>
+          </div>
+          <div class="enq-step">
+            <div class="enq-step-line">
+              <div class="enq-step-dot">4</div>
+              <div class="enq-step-connector"></div>
+            </div>
+            <div class="enq-step-text">
+              <div class="enq-step-title">Go live</div>
+              <div class="enq-step-desc">We migrate to production credentials and support your launch.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <a href="../index.html">
+        <img src="../images/urpay-logo-white.png" alt="UrPay" height="28">
+      </a>
+      <p>Australia's omni-channel payments platform. Card-present, online, and NPP — all under one roof.</p>
+      <div class="footer-contact">
+        <a href="tel:1800008772">1800 008 772</a>
+        <span>·</span>
+        <a href="mailto:support@urpay.com.au">support@urpay.com.au</a>
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="solutions.html">Solutions</a>
+        <a href="integrations.html">Integrations</a>
+        <a href="partners.html">Partners</a>
+        <a href="enquire.html#sandbox">API Access</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="support.html">Support</a>
+        <a href="login.html">Merchant Login</a>
+      </div>
+      <div class="footer-col">
+        <h4>Partner</h4>
+        <a href="enquire.html">Partnership Enquiry</a>
+        <a href="enquire.html#sandbox">Sandbox Access</a>
+        <a href="partners.html">Partner Program</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 UrPay Pty Ltd. ABN 62 676 203 097. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Tab switcher — smooth scroll + visual state */
+  function switchTab(e, tab) {
+    e.preventDefault();
+    document.querySelectorAll('.enq-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    const target = tab === 'partner' ? '#partnership' : '#sandbox';
+    document.querySelector(target).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* Update active tab on scroll */
+  const partnerSection = document.getElementById('partnership');
+  const sandboxSection = document.getElementById('sandbox');
+  window.addEventListener('scroll', () => {
+    const sandboxTop = sandboxSection.getBoundingClientRect().top;
+    if (sandboxTop < window.innerHeight * 0.4) {
+      document.getElementById('tab-dev').classList.add('active');
+      document.getElementById('tab-partner').classList.remove('active');
+    } else {
+      document.getElementById('tab-partner').classList.add('active');
+      document.getElementById('tab-dev').classList.remove('active');
+    }
+  });
+
+  /* Nav scroll behaviour */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* Hamburger */
+  const hamburger = document.getElementById('hamburger');
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('nav-open');
+    hamburger.classList.toggle('open');
+  });
+
+  /* Reveal on scroll */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  /* Form submissions — placeholder handler */
+  document.getElementById('partnerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('partnerSuccess').style.display = 'block';
+    this.reset();
+    this.querySelector('.form-submit').textContent = 'Enquiry sent ✓';
+    this.querySelector('.form-submit').disabled = true;
+  });
+
+  document.getElementById('devForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('devSuccess').style.display = 'block';
+    this.reset();
+    this.querySelector('.form-submit').textContent = 'Request sent ✓';
+    this.querySelector('.form-submit').disabled = true;
+  });
+
+  /* Scroll to section if URL has hash on load */
+  if (window.location.hash === '#sandbox') {
+    setTimeout(() => {
+      document.getElementById('sandbox').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 400);
+  }
+</script>
+
+</body>
+</html>
