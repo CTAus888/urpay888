@@ -343,6 +343,11 @@
         <div class="support-channel-text"><div class="support-channel-label">Accounts &amp; Settlements</div><div class="support-channel-email">settlements@urpay.com.au</div></div>
         <span class="support-channel-arrow">→</span>
       </a>
+      <a href="#" onclick="event.preventDefault(); document.getElementById('chat-trigger').click();" class="support-channel">
+        <div class="support-channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="support-channel-text"><div class="support-channel-label">Live Chat</div><div class="support-channel-email">Instant — start chatting now</div></div>
+        <span class="support-channel-arrow">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -436,6 +441,19 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           support@urpay.com.au
         </a>
+      </div>
+
+      <!-- Live Chat -->
+      <div class="channel-card reveal d3">
+        <div class="ibadge ibadge-lav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Live Chat</h3>
+        <p>Get instant answers via our AI-powered chat assistant — available 24/7 on every page of this site. Great for quick questions about pricing, setup, and getting started.</p>
+        <button onclick="document.getElementById('chat-trigger').click();" class="channel-card-email" style="cursor:pointer;background:rgba(107,107,255,0.08);border:1px solid rgba(107,107,255,0.15);font-family:inherit;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Start a chat
+        </button>
       </div>
 
     </div>
@@ -536,6 +554,13 @@
         <div class="support-info-text">
           <div class="support-info-label">Address</div>
           <div class="support-info-val">Level 1/73 James St, Fortitude Valley QLD 4006</div>
+        </div>
+      </div>
+      <div class="support-info-row" style="cursor:pointer;" onclick="document.getElementById('chat-trigger').click();">
+        <div class="support-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="support-info-text">
+          <div class="support-info-label">Live Chat</div>
+          <div class="support-info-val" style="color:var(--p);">Start a chat — instant, 24/7</div>
         </div>
       </div>
     </div>
