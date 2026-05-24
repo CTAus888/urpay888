@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UrPay Complaints & Dispute Resolution — how to make a complaint, what to expect, and your rights as a customer.">
+  <title>Complaints &amp; Dispute Resolution — UrPay</title>
+  <link rel="icon" type="image/png" href="../images/urpay-icon-white.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wvevsobg5l");
+  </script>
+  <style>
+    .policy-hero {
+      background: var(--p-deep);
+      padding: calc(var(--nav-h) + 80px) 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .policy-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 55% 60% at 75% 25%, rgba(107,107,255,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .policy-hero-inner {
+      position: relative; z-index: 1;
+      max-width: 800px; margin: 0 auto; padding: 0 28px;
+    }
+    .policy-hero .eyebrow { margin-bottom: 18px; }
+    .policy-hero h1 { color: #fff; margin-bottom: 16px; font-size: clamp(2rem, 4vw, 2.8rem); }
+    .policy-hero-meta {
+      font-size: 0.9rem; color: rgba(255,255,255,0.45); margin-top: 8px;
+    }
+
+    .policy-body {
+      background: var(--white);
+      padding: 80px 0 100px;
+    }
+    .policy-inner {
+      max-width: 800px; margin: 0 auto; padding: 0 28px;
+    }
+
+    /* Commitment banner */
+    .commitment-banner {
+      background: linear-gradient(135deg, #6B6BFF 0%, #4f46e5 100%);
+      border-radius: 14px;
+      padding: 36px 40px;
+      margin-bottom: 56px;
+      color: #fff;
+    }
+    .commitment-banner h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .commitment-banner p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 28px 0 48px;
+    }
+    .step-card {
+      border: 1px solid #e8e6f0;
+      border-radius: 12px;
+      padding: 24px 26px;
+      position: relative;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      background: #f0ecff;
+      color: var(--p);
+      border-radius: 50%;
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .step-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    /* Section headings */
+    .policy-section {
+      margin-bottom: 52px;
+      scroll-margin-top: 100px;
+    }
+    .policy-section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1.5px solid rgba(107,107,255,0.15);
+    }
+    .policy-section h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-1);
+      margin: 28px 0 10px;
+    }
+    .policy-section p {
+      font-size: 1rem;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section ul, .policy-section ol {
+      padding-left: 22px;
+      margin: 10px 0 14px;
+    }
+    .policy-section li {
+      font-size: 1rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 6px;
+    }
+
+    /* Highlight boxes */
+    .policy-note {
+      background: #f7f5ff;
+      border-left: 3px solid var(--p);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 18px 0;
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+    .policy-note strong { color: var(--text-1); }
+
+    .policy-note.amber {
+      background: #fffbeb;
+      border-color: #f59e0b;
+    }
+
+    /* Contact options */
+    .contact-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .contact-opt {
+      border: 1px solid #e8e6f0;
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+    .contact-opt-label {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--p);
+      margin-bottom: 8px;
+    }
+    .contact-opt-value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-1);
+    }
+    .contact-opt-value a {
+      color: var(--p);
+      text-decoration: none;
+    }
+    .contact-opt-value a:hover { text-decoration: underline; }
+    .contact-opt-note {
+      font-size: 0.875rem;
+      color: var(--text-2);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* Serious complaint badges */
+    .serious-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+    .serious-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0eeff;
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+    .serious-list li:last-child { border-bottom: none; }
+    .serious-icon {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: #fef2f2;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+    }
+
+    /* Timeframe strip */
+    .timeframe-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid #e8e6f0;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 24px 0;
+    }
+    .tf-item {
+      padding: 20px 22px;
+      border-right: 1px solid #e8e6f0;
+      text-align: center;
+    }
+    .tf-item:last-child { border-right: none; }
+    .tf-num {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--p);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .tf-label {
+      font-size: 0.875rem;
+      color: var(--text-2);
+      line-height: 1.45;
+    }
+
+    /* Contact block */
+    .policy-contact {
+      background: var(--p-deep);
+      border-radius: 14px;
+      padding: 36px 40px;
+      margin-top: 40px;
+      color: #fff;
+    }
+    .policy-contact h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .policy-contact p {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+    .policy-contact a {
+      color: #a5a5ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .policy-contact a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .steps-grid, .contact-options { grid-template-columns: 1fr; }
+      .timeframe-strip { grid-template-columns: 1fr; }
+      .tf-item { border-right: none; border-bottom: 1px solid #e8e6f0; }
+      .tf-item:last-child { border-bottom: none; }
+      .commitment-banner { padding: 28px 24px; }
+      .policy-contact { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/urpay-logo-white.png" alt="UrPay" height="30">
+    </a>
+    <ul class="nav-links">
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="integrations.html">Integrations</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="login.html" class="nav-login-link">Login</a>
+      <a href="contact.html" class="btn btn-glass btn-sm">Contact Us</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="policy-hero">
+  <div class="policy-hero-inner">
+    <p class="eyebrow">Legal</p>
+    <h1>Complaints &amp; Dispute Resolution</h1>
+    <p class="policy-hero-meta">UrPay Technologies Pty Ltd &nbsp;·&nbsp; ACN 654 788 575 &nbsp;·&nbsp; Effective: May 2026</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<section class="policy-body">
+  <div class="policy-inner">
+
+    <!-- Commitment banner -->
+    <div class="commitment-banner">
+      <h2>Our commitment to you</h2>
+      <p>We are committed to resolving complaints fairly, promptly, and in a way that is transparent to you. Every complaint we receive is recorded, assessed, and treated as an opportunity to improve. Our target is to resolve all complaints within 30 days of receipt.</p>
+    </div>
+
+    <!-- How to make a complaint -->
+    <div class="policy-section" id="how">
+      <h2>How to make a complaint</h2>
+      <p>If you are dissatisfied with any aspect of our products, services, or the way we have handled a matter, we want to hear from you. You can contact us through any of the following channels:</p>
+
+      <div class="contact-options">
+        <div class="contact-opt">
+          <div class="contact-opt-label">Email</div>
+          <div class="contact-opt-value"><a href="mailto:support@urpay.com.au">support@urpay.com.au</a></div>
+          <div class="contact-opt-note">Our preferred channel — allows us to respond in writing with a full record of the matter.</div>
+        </div>
+        <div class="contact-opt">
+          <div class="contact-opt-label">Post</div>
+          <div class="contact-opt-value">UrPay Technologies Pty Ltd</div>
+          <div class="contact-opt-note">Level 1, 73 James Street<br>Fortitude Valley QLD 4006</div>
+        </div>
+      </div>
+
+      <p>When making a complaint, please include as much detail as possible: your name, contact information, a description of the issue, when it occurred, and any supporting documentation. This helps us investigate and respond more quickly.</p>
+    </div>
+
+    <!-- Who can complain -->
+    <div class="policy-section" id="who">
+      <h2>Who can make a complaint?</h2>
+      <p>Any person, business, or authorised representative of a business who is a user of UrPay's services may make a complaint.</p>
+      <p>If you are acting on behalf of another individual, we will need to verify that you have their explicit authorisation to do so. This is a requirement of the <em>Privacy Act 1988</em> (Cth).</p>
+    </div>
+
+    <!-- What to expect -->
+    <div class="policy-section" id="process">
+      <h2>What to expect</h2>
+
+      <div class="timeframe-strip">
+        <div class="tf-item">
+          <div class="tf-num">24h</div>
+          <div class="tf-label">Acknowledgement of receipt</div>
+        </div>
+        <div class="tf-item">
+          <div class="tf-num">30</div>
+          <div class="tf-label">Days target to resolve</div>
+        </div>
+        <div class="tf-item">
+          <div class="tf-num">3</div>
+          <div class="tf-label">Months before closure if no response</div>
+        </div>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-title">We acknowledge your complaint</div>
+          <div class="step-desc">You will receive a written acknowledgement confirming we have received your complaint and the name of the person handling it.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-title">We assess and investigate</div>
+          <div class="step-desc">We review the details of your complaint, gather any relevant information, and assess what occurred and what the appropriate resolution may be.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-title">We provide a response</div>
+          <div class="step-desc">We will contact you with our findings and a proposed resolution, or explain why we are unable to resolve the matter in the way you have requested.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-title">We close the complaint</div>
+          <div class="step-desc">A complaint is closed once you have accepted the resolution and any agreed actions are complete, or if there is no further response from you after three months.</div>
+        </div>
+      </div>
+
+      <div class="policy-note">
+        <strong>Serious complaints</strong> — complaints involving service unavailability, data or privacy breaches, financial loss, or potential fraud are treated as a priority and escalated immediately to senior management. If you believe your complaint is of this nature, please indicate this clearly when you contact us.
+      </div>
+    </div>
+
+    <!-- Serious complaints -->
+    <div class="policy-section" id="serious">
+      <h2>Serious complaints</h2>
+      <p>Certain types of complaints are treated as serious and escalated immediately. These include:</p>
+      <ul class="serious-list">
+        <li>
+          <div class="serious-icon">!</div>
+          Service unavailability — a significant or extended outage affecting your ability to process payments
+        </li>
+        <li>
+          <div class="serious-icon">!</div>
+          Data or privacy breaches — any suspected exposure of your personal or payment information
+        </li>
+        <li>
+          <div class="serious-icon">!</div>
+          Financial losses — losses resulting directly from an action or inaction by UrPay
+        </li>
+        <li>
+          <div class="serious-icon">!</div>
+          Incorrect, unauthorised, or invalid payment processing
+        </li>
+        <li>
+          <div class="serious-icon">!</div>
+          Fraud — either perpetrated against you through the platform, or by any person involved in the delivery of our services
+        </li>
+      </ul>
+      <p>If you are unsure whether your complaint is serious, treat it as serious — we would rather investigate and find otherwise than delay a matter that requires urgent attention.</p>
+    </div>
+
+    <!-- If you're not satisfied -->
+    <div class="policy-section" id="escalation">
+      <h2>If you are not satisfied with our response</h2>
+      <p>If we are unable to resolve your complaint to your satisfaction, or if you believe our process has been inadequate, you have the right to seek external resolution.</p>
+
+      <h3>Payment disputes</h3>
+      <p>If your complaint relates to a specific payment transaction and you believe it was unauthorised or that goods or services were not supplied, you may also contact your bank or financial institution directly to initiate a dispute process.</p>
+
+      <h3>Privacy complaints</h3>
+      <p>If your complaint relates to how we have handled your personal information, you may contact the Office of the Australian Information Commissioner (OAIC):</p>
+      <div class="policy-note">
+        <strong>Office of the Australian Information Commissioner (OAIC)</strong><br>
+        Website: <a href="https://www.oaic.gov.au/privacy/privacy-complaints/" target="_blank" rel="noopener">oaic.gov.au/privacy/privacy-complaints</a><br>
+        Phone: 1300 363 992
+      </div>
+
+      <div class="policy-note amber">
+        <strong>Please note:</strong> We encourage you to contact us directly in the first instance. Most complaints can be resolved quickly and informally. External processes typically take considerably longer.
+      </div>
+    </div>
+
+    <!-- Variations -->
+    <div class="policy-section" id="variations">
+      <h2>Variations to this Policy</h2>
+      <p>We review and update this policy annually. Any changes will be published on this page. This policy was last updated in May 2026.</p>
+    </div>
+
+    <!-- Contact block -->
+    <div class="policy-contact">
+      <h3>Ready to make a complaint or have a question?</h3>
+      <p>Contact our support team — we aim to acknowledge all complaints within 24 hours and resolve them within 30 days.</p>
+      <p>
+        <strong style="color:#fff;">Email:</strong> <a href="mailto:support@urpay.com.au">support@urpay.com.au</a><br>
+        <strong style="color:#fff;">Post:</strong> Level 1, 73 James Street, Fortitude Valley QLD 4006
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../images/urpay-logo-white.png" alt="UrPay" height="26">
+        <p>Australia &amp; New Zealand's acquirer-agnostic omni-channel payments platform.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul>
+        <li><a href="solutions.html#card-present">Card Present</a></li>
+        <li><a href="solutions.html#online">Online &amp; eCommerce</a></li>
+        <li><a href="solutions.html#npp">NPP &amp; Pay by Link</a></li>
+        <li><a href="integrations.html">Integrations</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 UrPay Technologies Pty Ltd. All rights reserved. PAYFAC-licensed.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">PCI Compliance</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
