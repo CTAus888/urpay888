@@ -226,7 +226,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex; align-items: center; justify-content: space-between;
   width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
 }
-.nav-logo img { height: 30px; width: auto; }
+.nav-logo { flex-shrink: 0; }
+.nav-logo img { height: 30px; width: auto; display: block; max-width: none; }
 .nav-links {
   display: flex; align-items: center; gap: 36px; list-style: none;
 }
@@ -365,7 +366,7 @@ section { position: relative; }
   .sp { padding: 72px 0; }
   .sp-sm { padding: 48px 0; }
   .s-head { margin-bottom: 48px; }
-  .nav-links, .nav-cta .btn:not(.btn-sm) { display: none; }
+  .nav-links, .nav-cta .btn { display: none; }
   .nav-hamburger { display: flex; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
