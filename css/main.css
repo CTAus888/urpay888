@@ -2,43 +2,27 @@
    UrPay — Project 888 — Global Stylesheet v2
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300;1,9..40,400;1,9..40,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=Geist:wght@300;400;500;600;700&display=swap');
 
-@font-face {
-  font-family: 'GalaxieCopernicus';
-  src: url('../fonts/GalaxieCopernicus-BoldItalic.otf') format('opentype');
-  font-weight: 700; font-style: italic; font-display: swap;
-}
-@font-face {
-  font-family: 'GalaxieCopernicus';
-  src: url('../fonts/GalaxieCopernicus-SemiboldItalic.otf') format('opentype');
-  font-weight: 600; font-style: italic; font-display: swap;
-}
-@font-face {
-  font-family: 'Roobert';
-  src: url('../fonts/Roobert-RegularItalic.otf') format('opentype');
-  font-weight: 400; font-style: italic; font-display: swap;
-}
-
-/* ── Design Tokens ── */
+/* ── Design Tokens — v2.0 ── */
 :root {
-  --p:          #6B6BFF;
-  --p-dark:     #4444DD;
-  --p-deep:     #0A071A;
+  --p:          #8D8DFF;
+  --p-dark:     #7E7EE0;
+  --p-deep:     #0B1029;
   --p-mid:      #141030;
   --p-rich:     #1C1650;
-  --lav:        #EDE8F5;
+  --lav:        #F1ECFC;
   --lav-mid:    #C4B8E8;
   --white:      #FFFFFF;
   --cream:      #F8F7FF;
-  --text:       #08080F;
-  --text-2:     #46466A;
-  --text-3:     #888AAA;
-  --green:      #00D4A0;
-  --green-dim:  rgba(0,212,160,0.15);
+  --text:       #081220;
+  --text-2:     #5A6573;
+  --text-3:     #9099A6;
+  --green:      #1ED69A;
+  --green-dim:  rgba(30,214,154,0.15);
 
-  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'GalaxieCopernicus', 'Playfair Display', Georgia, serif;
+  --font-body:    'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
 
   --max-w:   1200px;
   --nav-h:   72px;
@@ -46,7 +30,7 @@
   --r-sm:    10px;
   --r-lg:    24px;
 
-  --glow:   0 0 80px rgba(107,107,255,0.25);
+  --glow:   0 0 80px rgba(141,141,255,0.25);
   --shadow: 0 8px 40px rgba(8,8,15,0.12);
   --shadow-lg: 0 24px 80px rgba(8,8,15,0.20);
 
@@ -130,19 +114,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ── Typography ── */
 .display-xl {
   font-family: var(--font-display);
-  font-weight: 700; font-style: italic;
+  font-weight: 900; font-style: italic;
   font-size: clamp(3.2rem, 6.5vw, 6rem);
   line-height: 1.02; letter-spacing: -0.025em;
 }
 .display-lg {
   font-family: var(--font-display);
-  font-weight: 700; font-style: italic;
+  font-weight: 900; font-style: italic;
   font-size: clamp(2.2rem, 4vw, 3.8rem);
   line-height: 1.08; letter-spacing: -0.02em;
 }
 .display-md {
   font-family: var(--font-display);
-  font-weight: 600; font-style: italic;
+  font-weight: 700; font-style: italic;
   font-size: clamp(1.6rem, 2.8vw, 2.4rem);
   line-height: 1.12;
 }
@@ -156,7 +140,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ── Gradient text ── */
 .grad-text {
-  background: linear-gradient(135deg, #a78fff 0%, #6B6BFF 40%, #c4b0ff 80%, #fff 100%);
+  background: linear-gradient(135deg, #CABEFF 0%, #8D8DFF 40%, #BDA8FF 80%, #fff 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -176,12 +160,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .btn-primary {
   background: var(--p); color: #fff;
-  box-shadow: 0 4px 20px rgba(107,107,255,0.4);
+  box-shadow: 0 4px 20px rgba(141,141,255,0.4);
 }
 .btn-primary:hover {
   background: var(--p-dark);
   transform: translateY(-2px);
-  box-shadow: 0 10px 32px rgba(107,107,255,0.5);
+  box-shadow: 0 10px 32px rgba(141,141,255,0.5);
 }
 
 .btn-glass {
@@ -198,13 +182,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .btn-outline {
   background: transparent; color: var(--p);
-  border: 1.5px solid rgba(107,107,255,0.4);
+  border: 1.5px solid rgba(141,141,255,0.4);
 }
 .btn-outline:hover {
   background: var(--p); color: #fff;
   border-color: var(--p);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(107,107,255,0.35);
+  box-shadow: 0 8px 24px rgba(141,141,255,0.35);
 }
 
 .btn-sm { padding: 10px 22px; font-size: 0.875rem; }
@@ -220,7 +204,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: rgba(10,7,26,0.88);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(107,107,255,0.15);
+  border-bottom: 1px solid rgba(141,141,255,0.15);
 }
 .nav-inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -267,10 +251,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 5px 14px; border-radius: 100px;
   font-size: 0.775rem; font-weight: 600; letter-spacing: 0.01em;
 }
-.pill-p   { background: rgba(107,107,255,0.12); color: var(--p); }
+.pill-p   { background: rgba(141,141,255,0.12); color: var(--p); }
 .pill-g   { background: var(--green-dim); color: var(--green); }
 .pill-w   { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.88); border: 1px solid rgba(255,255,255,0.16); }
-.pill-lav { background: rgba(107,107,255,0.08); color: var(--p); border: 1px solid rgba(107,107,255,0.15); }
+.pill-lav { background: rgba(141,141,255,0.08); color: var(--p); border: 1px solid rgba(141,141,255,0.15); }
 
 .dot {
   width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
@@ -285,7 +269,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-shrink: 0; margin-bottom: 24px;
 }
 .ibadge-lav  { background: var(--lav); }
-.ibadge-dark { background: rgba(107,107,255,0.15); }
+.ibadge-dark { background: rgba(141,141,255,0.15); }
 .ibadge svg  { width: 26px; height: 26px; }
 .ibadge-lav svg  { color: var(--p); }
 .ibadge-dark svg { color: #9494FF; }
@@ -295,7 +279,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   border-radius: var(--r-lg);
   padding: 1px;
-  background: linear-gradient(145deg, rgba(107,107,255,0.5) 0%, rgba(107,107,255,0.05) 50%, rgba(107,107,255,0.2) 100%);
+  background: linear-gradient(145deg, rgba(141,141,255,0.5) 0%, rgba(141,141,255,0.05) 50%, rgba(141,141,255,0.2) 100%);
 }
 .gcard-inner {
   background: var(--cream);
@@ -386,13 +370,13 @@ section { position: relative; }
   background: var(--p);
   border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 8px 32px rgba(107,107,255,0.45), 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 32px rgba(141,141,255,0.45), 0 2px 8px rgba(0,0,0,0.2);
   z-index: 9000;
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.2s;
 }
 .chat-trigger:hover {
   transform: scale(1.08) translateY(-2px);
-  box-shadow: 0 14px 44px rgba(107,107,255,0.55), 0 4px 12px rgba(0,0,0,0.25);
+  box-shadow: 0 14px 44px rgba(141,141,255,0.55), 0 4px 12px rgba(0,0,0,0.25);
 }
 .chat-trigger svg { width: 26px; height: 26px; color: #fff; transition: opacity 0.2s, transform 0.2s; }
 .chat-trigger .icon-chat  { position: absolute; }
@@ -425,7 +409,7 @@ section { position: relative; }
   max-height: 560px;
   border-radius: 20px;
   background: var(--white);
-  box-shadow: 0 24px 80px rgba(8,8,15,0.22), 0 2px 12px rgba(0,0,0,0.1), 0 0 0 1px rgba(107,107,255,0.1);
+  box-shadow: 0 24px 80px rgba(8,8,15,0.22), 0 2px 12px rgba(0,0,0,0.1), 0 0 0 1px rgba(141,141,255,0.1);
   z-index: 8999;
   display: flex; flex-direction: column;
   overflow: hidden;
@@ -449,8 +433,8 @@ section { position: relative; }
 }
 .chat-header-avatar {
   width: 40px; height: 40px; border-radius: 50%;
-  background: rgba(107,107,255,0.25);
-  border: 2px solid rgba(107,107,255,0.4);
+  background: rgba(141,141,255,0.25);
+  border: 2px solid rgba(141,141,255,0.4);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .chat-header-avatar svg { width: 20px; height: 20px; color: var(--p); }
@@ -479,7 +463,7 @@ section { position: relative; }
 }
 .chat-messages::-webkit-scrollbar { width: 4px; }
 .chat-messages::-webkit-scrollbar-track { background: transparent; }
-.chat-messages::-webkit-scrollbar-thumb { background: rgba(107,107,255,0.2); border-radius: 2px; }
+.chat-messages::-webkit-scrollbar-thumb { background: rgba(141,141,255,0.2); border-radius: 2px; }
 
 /* Message bubbles */
 .chat-msg {
@@ -493,7 +477,7 @@ section { position: relative; }
 .chat-msg.user { flex-direction: row-reverse; }
 .chat-msg-avatar {
   width: 28px; height: 28px; border-radius: 50%;
-  background: rgba(107,107,255,0.12);
+  background: rgba(141,141,255,0.12);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .chat-msg-avatar svg { width: 14px; height: 14px; color: var(--p); }
@@ -532,7 +516,7 @@ section { position: relative; }
   box-shadow: 0 2px 8px rgba(8,8,15,0.06);
 }
 .chat-typing-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: rgba(107,107,255,0.4);
+  width: 6px; height: 6px; border-radius: 50%; background: rgba(141,141,255,0.4);
   animation: typing-bounce 1.2s ease-in-out infinite;
 }
 .chat-typing-dot:nth-child(2) { animation-delay: 0.2s; }
@@ -550,7 +534,7 @@ section { position: relative; }
 }
 .chat-qr {
   padding: 6px 14px; border-radius: 100px;
-  border: 1px solid rgba(107,107,255,0.25);
+  border: 1px solid rgba(141,141,255,0.25);
   background: var(--white);
   font-size: 0.78rem; font-weight: 500; color: var(--p);
   cursor: pointer; font-family: var(--font-body);
@@ -565,12 +549,12 @@ section { position: relative; }
 .chat-input-area {
   padding: 12px 14px;
   background: var(--white);
-  border-top: 1px solid rgba(107,107,255,0.08);
+  border-top: 1px solid rgba(141,141,255,0.08);
   display: flex; gap: 8px; align-items: flex-end;
   flex-shrink: 0;
 }
 .chat-input {
-  flex: 1; border: 1.5px solid rgba(107,107,255,0.18);
+  flex: 1; border: 1.5px solid rgba(141,141,255,0.18);
   border-radius: 12px; padding: 10px 14px;
   font-family: var(--font-body); font-size: 0.875rem; color: var(--text);
   background: #f8f7ff; resize: none; outline: none;
@@ -579,7 +563,7 @@ section { position: relative; }
 }
 .chat-input:focus {
   border-color: var(--p);
-  box-shadow: 0 0 0 3px rgba(107,107,255,0.1);
+  box-shadow: 0 0 0 3px rgba(141,141,255,0.1);
 }
 .chat-input::placeholder { color: var(--text-3); }
 .chat-send {
@@ -598,7 +582,7 @@ section { position: relative; }
   padding: 6px 0 10px;
   font-size: 0.65rem; color: var(--text-3);
   background: var(--white);
-  border-top: 1px solid rgba(107,107,255,0.06);
+  border-top: 1px solid rgba(141,141,255,0.06);
   flex-shrink: 0;
 }
 .chat-powered a { color: var(--p); text-decoration: none; }

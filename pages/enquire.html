@@ -27,7 +27,7 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 65% 55% at 70% 30%, rgba(107,107,255,0.28) 0%, transparent 65%),
+        radial-gradient(ellipse 65% 55% at 70% 30%, rgba(141,141,255,0.28) 0%, transparent 65%),
         radial-gradient(ellipse 45% 45% at 15% 80%, rgba(80,40,180,0.18) 0%, transparent 65%);
       pointer-events: none;
     }
@@ -65,7 +65,7 @@
     .enq-tab.active {
       background: var(--p);
       color: #fff;
-      box-shadow: 0 4px 16px rgba(107,107,255,0.4);
+      box-shadow: 0 4px 16px rgba(141,141,255,0.4);
     }
 
     /* ── Shared form layout ── */
@@ -85,7 +85,7 @@
     /* ── Form card ── */
     .enq-form-wrap {
       background: var(--white);
-      border: 1px solid rgba(107,107,255,0.1);
+      border: 1px solid rgba(141,141,255,0.1);
       border-radius: var(--r-lg); padding: 52px 48px;
     }
     .enq-form-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
@@ -99,7 +99,7 @@
     .form-group label span { color: var(--p); margin-left: 2px; }
     .form-input, .form-select, .form-textarea {
       width: 100%; padding: 13px 18px;
-      border: 1.5px solid rgba(107,107,255,0.15);
+      border: 1.5px solid rgba(141,141,255,0.15);
       border-radius: var(--r-sm);
       font-family: var(--font-body); font-size: 0.9375rem; color: var(--text);
       background: var(--white);
@@ -109,7 +109,7 @@
     .form-input::placeholder, .form-textarea::placeholder { color: var(--text-3); }
     .form-input:focus, .form-select:focus, .form-textarea:focus {
       border-color: var(--p);
-      box-shadow: 0 0 0 3px rgba(107,107,255,0.12);
+      box-shadow: 0 0 0 3px rgba(141,141,255,0.12);
     }
     .form-select {
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%2346466A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -124,13 +124,13 @@
       background: var(--p); border: none; cursor: pointer;
       display: flex; align-items: center; justify-content: center; gap: 10px;
       transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 4px 20px rgba(107,107,255,0.4);
+      box-shadow: 0 4px 20px rgba(141,141,255,0.4);
       margin-top: 8px;
     }
     .form-submit:hover {
       background: var(--p-dark);
       transform: translateY(-2px);
-      box-shadow: 0 10px 32px rgba(107,107,255,0.5);
+      box-shadow: 0 10px 32px rgba(141,141,255,0.5);
     }
     .form-submit svg { width: 18px; height: 18px; flex-shrink: 0; }
     .form-note {
@@ -142,16 +142,16 @@
 
     .enq-info-card {
       background: var(--white);
-      border: 1px solid rgba(107,107,255,0.1);
+      border: 1px solid rgba(141,141,255,0.1);
       border-radius: var(--r-lg); padding: 32px;
     }
     .enq-info-card.dark-card {
-      background: rgba(107,107,255,0.08);
-      border-color: rgba(107,107,255,0.2);
+      background: rgba(141,141,255,0.08);
+      border-color: rgba(141,141,255,0.2);
     }
     .enq-info-card h3 {
       font-size: 1rem; font-weight: 700; margin-bottom: 18px;
-      padding-bottom: 14px; border-bottom: 1px solid rgba(107,107,255,0.08);
+      padding-bottom: 14px; border-bottom: 1px solid rgba(141,141,255,0.08);
       color: var(--text);
     }
     .enq-info-card.dark-card h3 { color: #fff; border-color: rgba(255,255,255,0.1); }
@@ -168,7 +168,7 @@
     }
     .enq-list li .check svg { width: 10px; height: 10px; color: var(--p); }
     .enq-list.light li { color: rgba(255,255,255,0.7); }
-    .enq-list.light li .check { background: rgba(107,107,255,0.2); }
+    .enq-list.light li .check { background: rgba(141,141,255,0.2); }
     .enq-list.light li .check svg { color: #a0a0ff; }
 
     .enq-contact-strip {
@@ -205,7 +205,7 @@
     }
     .enq-step-connector {
       width: 2px; flex: 1; margin-top: 6px;
-      background: linear-gradient(to bottom, rgba(107,107,255,0.3), transparent);
+      background: linear-gradient(to bottom, rgba(141,141,255,0.3), transparent);
       min-height: 24px;
     }
     .enq-step:last-child .enq-step-connector { display: none; }
@@ -215,12 +215,12 @@
 
     /* Dark section right panel */
     .enq-dark-card {
-      background: rgba(107,107,255,0.07);
-      border: 1px solid rgba(107,107,255,0.2);
+      background: rgba(141,141,255,0.07);
+      border: 1px solid rgba(141,141,255,0.2);
       border-radius: var(--r-lg); padding: 32px;
     }
     .enq-dark-card h3 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 18px; }
-    .enq-dark-card .enq-step-dot { background: rgba(107,107,255,0.2); border-color: rgba(107,107,255,0.5); color: rgba(255,255,255,0.8); }
+    .enq-dark-card .enq-step-dot { background: rgba(141,141,255,0.2); border-color: rgba(141,141,255,0.5); color: rgba(255,255,255,0.8); }
     .enq-dark-card .enq-step-title { color: rgba(255,255,255,0.9); }
     .enq-dark-card .enq-step-desc  { color: rgba(255,255,255,0.5); }
 
@@ -231,7 +231,7 @@
     .api-badge {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 6px 14px; border-radius: 100px;
-      background: rgba(107,107,255,0.12); border: 1px solid rgba(107,107,255,0.25);
+      background: rgba(141,141,255,0.12); border: 1px solid rgba(141,141,255,0.25);
       font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7);
     }
     .api-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--p); }
@@ -242,8 +242,8 @@
     }
     .section-anchor-label-tag {
       padding: 5px 16px; border-radius: 100px;
-      background: rgba(107,107,255,0.15);
-      border: 1px solid rgba(107,107,255,0.3);
+      background: rgba(141,141,255,0.15);
+      border: 1px solid rgba(141,141,255,0.3);
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
       color: rgba(255,255,255,0.7);
     }

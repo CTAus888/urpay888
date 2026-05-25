@@ -26,7 +26,7 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 65% 65% at 80% 30%, rgba(107,107,255,0.3) 0%, transparent 65%),
+        radial-gradient(ellipse 65% 65% at 80% 30%, rgba(141,141,255,0.3) 0%, transparent 65%),
         radial-gradient(ellipse 45% 40% at 15% 75%, rgba(80,40,180,0.2) 0%, transparent 65%);
       pointer-events: none;
     }
@@ -67,17 +67,17 @@
     .stats-strip-inner {
       max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
       display: grid; grid-template-columns: repeat(5, 1fr);
-      border-top: 1px solid rgba(107,107,255,0.15);
-      border-bottom: 1px solid rgba(107,107,255,0.1);
+      border-top: 1px solid rgba(141,141,255,0.15);
+      border-bottom: 1px solid rgba(141,141,255,0.1);
     }
     .strip-stat {
       padding: 56px 24px;
       text-align: center;
-      border-right: 1px solid rgba(107,107,255,0.1);
+      border-right: 1px solid rgba(141,141,255,0.1);
       position: relative;
     }
     .strip-stat:last-child { border-right: none; }
-    .strip-stat:hover { background: rgba(107,107,255,0.05); }
+    .strip-stat:hover { background: rgba(141,141,255,0.05); }
     .strip-stat-num {
       font-size: 2.4rem; font-weight: 800; color: #fff;
       letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px;
@@ -94,7 +94,7 @@
     }
     .diff-card {
       background: var(--white);
-      border: 1px solid rgba(107,107,255,0.1);
+      border: 1px solid rgba(141,141,255,0.1);
       border-radius: var(--r-lg); padding: 44px 40px;
       transition: box-shadow 0.35s var(--ease), transform 0.35s, border-color 0.35s;
       position: relative; overflow: hidden;
@@ -102,13 +102,13 @@
     .diff-card::before {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(145deg, rgba(107,107,255,0.04) 0%, transparent 55%);
+      background: linear-gradient(145deg, rgba(141,141,255,0.04) 0%, transparent 55%);
       pointer-events: none;
     }
     .diff-card:hover {
-      box-shadow: 0 16px 56px rgba(107,107,255,0.14);
+      box-shadow: 0 16px 56px rgba(141,141,255,0.14);
       transform: translateY(-5px);
-      border-color: rgba(107,107,255,0.25);
+      border-color: rgba(141,141,255,0.25);
     }
     .diff-card .ibadge { margin-bottom: 24px; }
     .diff-card-tag {
@@ -138,7 +138,7 @@
     .mission-section::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 70% 30%, rgba(107,107,255,0.25) 0%, transparent 65%);
+      background: radial-gradient(ellipse 60% 50% at 70% 30%, rgba(141,141,255,0.25) 0%, transparent 65%);
       pointer-events: none;
     }
     .mission-inner {
@@ -157,7 +157,7 @@
       display: flex; align-items: flex-start; gap: 16px;
       padding: 20px 22px;
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(107,107,255,0.2);
+      border: 1px solid rgba(141,141,255,0.2);
       border-radius: var(--r);
     }
     .mission-value-num {
@@ -191,7 +191,7 @@
     @media (max-width: 768px) {
       .stats-strip-inner { grid-template-columns: 1fr 1fr; }
       .strip-stat:nth-child(2) { border-right: none; }
-      .strip-stat:nth-child(3) { border-right: 1px solid rgba(107,107,255,0.1); }
+      .strip-stat:nth-child(3) { border-right: 1px solid rgba(141,141,255,0.1); }
       .strip-stat:nth-child(4) { border-right: none; }
       .diff-grid { grid-template-columns: 1fr; }
       .story-photo { height: 320px; }
