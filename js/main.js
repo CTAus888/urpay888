@@ -147,16 +147,22 @@ if (strip) {
   document.body.appendChild(trigger);
   document.body.appendChild(panel);
 
-  // ── State ──────────────────────────────
-  const history = [];  // { role, content }
-  let isOpen = false;
-  let isTyping = false;
+  // ── State — persisted across page navigations via sessionStorage ──────────
+  const STORAGE_KEY  = 'urpay_chat_history';
+  const OPEN_KEY     = 'urpay_chat_open';
+  const history      = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
+  let isOpen         = false;
+  let isTyping       = false;
   const QUICK_REPLIES_DEFAULT = [
     'How does UrPay work?',
     'What terminals do you support?',
     'Tell me about NPP / Pay by Link',
     'Partner program',
   ];
+
+  function saveHistory() {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  }
 
   // ── Helpers ────────────────────────────
   const messagesEl   = document.getElementById('chatMessages');
@@ -168,20 +174,25 @@ if (strip) {
     return new Date().toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' });
   }
 
-  function addMessage(role, text, animate = true) {
+  function renderMessage(role, text, time, animate = true) {
     const wrap = document.createElement('div');
     wrap.className = `chat-msg ${role}`;
     wrap.innerHTML = `
       ${role === 'assistant' ? `<div class="chat-msg-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>` : ''}
       <div>
         <div class="chat-msg-bubble">${text}</div>
-        <div class="chat-msg-time">${now()}</div>
+        <div class="chat-msg-time">${time}</div>
       </div>
     `;
     if (!animate) wrap.style.animation = 'none';
     messagesEl.appendChild(wrap);
     messagesEl.scrollTop = messagesEl.scrollHeight;
     return wrap;
+  }
+
+  function addMessage(role, text, animate = true) {
+    const t = now();
+    return renderMessage(role, text, t, animate);
   }
 
   function showTyping() {
@@ -243,18 +254,22 @@ if (strip) {
     inputEl.style.height = '';
     setQuickReplies([]);
 
+    const userTime = now();
     addMessage('user', text);
-    history.push({ role: 'user', content: text });
+    history.push({ role: 'user', content: text, time: userTime });
+    saveHistory();
 
     const typingEl = showTyping();
 
     // Simulate realistic thinking delay (600–1400ms)
     await new Promise(r => setTimeout(r, 600 + Math.random() * 800));
 
-    const reply = await callAgent(history);
+    const reply = await callAgent(history.map(m => ({ role: m.role, content: m.content })));
     removeTyping();
+    const replyTime = now();
     addMessage('assistant', reply);
-    history.push({ role: 'assistant', content: reply });
+    history.push({ role: 'assistant', content: reply, time: replyTime });
+    saveHistory();
 
     isTyping = false;
     sendBtn.disabled = false;
@@ -267,9 +282,9 @@ if (strip) {
     panel.classList.add('open');
     trigger.classList.add('open');
     trigger.setAttribute('aria-label', 'Close UrPay Assistant');
-    // Remove badge
     const badge = trigger.querySelector('.chat-badge');
     if (badge) badge.remove();
+    sessionStorage.setItem(OPEN_KEY, '1');
     inputEl.focus();
   }
 
@@ -278,6 +293,7 @@ if (strip) {
     panel.classList.remove('open');
     trigger.classList.remove('open');
     trigger.setAttribute('aria-label', 'Open UrPay Assistant');
+    sessionStorage.removeItem(OPEN_KEY);
   }
 
   trigger.addEventListener('click', () => isOpen ? close() : open());
@@ -295,10 +311,29 @@ if (strip) {
   });
   sendBtn.addEventListener('click', () => sendMessage(inputEl.value));
 
-  // ── Welcome message on load ─────────────
-  setTimeout(() => {
-    addMessage('assistant', 'Hi! I\'m the UrPay assistant. I can answer questions about our payment platform, terminals, integrations, and partner program. What can I help you with?', false);
-    setQuickReplies(QUICK_REPLIES_DEFAULT);
-  }, 500);
+  // ── Restore history or show welcome ────
+  if (history.length > 0) {
+    // Restore previous conversation silently
+    history.forEach(m => renderMessage(m.role, m.content, m.time || '', false));
+    // Reopen panel if it was open on previous page
+    if (sessionStorage.getItem(OPEN_KEY)) {
+      const badge = trigger.querySelector('.chat-badge');
+      if (badge) badge.remove();
+      panel.classList.add('open');
+      trigger.classList.add('open');
+      trigger.setAttribute('aria-label', 'Close UrPay Assistant');
+      isOpen = true;
+    }
+  } else {
+    // Fresh session — show welcome message
+    setTimeout(() => {
+      const t = now();
+      const welcomeText = 'Hi! I\'m the UrPay assistant. I can answer questions about our payment platform, terminals, integrations, and partner program. What can I help you with?';
+      addMessage('assistant', welcomeText, false);
+      history.push({ role: 'assistant', content: welcomeText, time: t });
+      saveHistory();
+      setQuickReplies(QUICK_REPLIES_DEFAULT);
+    }, 500);
+  }
 
 })();
