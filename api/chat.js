@@ -106,7 +106,7 @@ Pricing is tailored to your business — we don't publish a rate card here, but 
 ## KEY FACTS
 - PAYFAC-licensed — works across multiple independent payment switches
 - T+1 settlement for all payment types — one consolidated daily report
-- 2,000+ payment touchpoints across Australia and New Zealand
+- 1,000+ payment touchpoints across Australia and New Zealand
 - 99.9% platform uptime
 - 24/7 Australian support — 1800 008 772
 - Brisbane HQ, Australian-hosted data
