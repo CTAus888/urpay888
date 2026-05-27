@@ -412,15 +412,16 @@ Use these when relevant. Example: someone asks about POS integrations → "You c
 
 // --- Desk365 lead capture helpers ---
 
-const DESK365_CHAT_BASE = 'https://urpay.desk365.io/api/v3';
+const DESK365_CHAT_BASE = 'https://urpay.desk365.io/apis/v3';
 
+// priority: 1=Urgent, 5=High, 10=Medium, 20=Low
 const CHAT_GROUPS = {
-  sales:    { label: 'Sales',                priority: 2 },
-  terminal: { label: 'Terminal Support',     priority: 1 },
-  gateway:  { label: 'Gateway Support',      priority: 2 },
-  billing:  { label: 'Settlement & Accounts',priority: 2 },
-  partner:  { label: 'Partnerships',         priority: 2 },
-  general:  { label: 'General Enquiry',      priority: 3 },
+  sales:    { label: 'Sales',                priority: 10 },
+  terminal: { label: 'Terminal Support',     priority: 5  },
+  gateway:  { label: 'Gateway Support',      priority: 10 },
+  billing:  { label: 'Settlement & Accounts',priority: 10 },
+  partner:  { label: 'Partnerships',         priority: 10 },
+  general:  { label: 'General Enquiry',      priority: 20 },
 };
 
 function detectLeadReady(messages) {
@@ -482,7 +483,7 @@ async function fireLeadTicket(messages, apiKey) {
   ].filter(Boolean).join('\n');
 
   try {
-    const resp = await fetch(`${DESK365_CHAT_BASE}/tickets`, {
+    const resp = await fetch(`${DESK365_CHAT_BASE}/tickets/create`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
@@ -492,16 +493,16 @@ async function fireLeadTicket(messages, apiKey) {
       body: JSON.stringify({
         subject,
         description,
-        contact_email: 'chatbot@urpay.com.au',
+        email: 'chatbot@urpay.com.au',
+        status: 'Open',
         priority: group.priority,
         type: 'Question',
-        tags: ['chatbot', topicKey],
       }),
       signal: AbortSignal.timeout(5000),
     });
     const ct = resp.headers.get('content-type') || '';
     if (!ct.includes('application/json')) {
-      console.error('[desk365-chat] Non-JSON response — API may not be activated on this account');
+      console.error('[desk365-chat] Non-JSON response from Desk365 API');
       return;
     }
     if (!resp.ok) {

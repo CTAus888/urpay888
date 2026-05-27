@@ -2,7 +2,7 @@
 // Handles contact/partner/dev form submissions → Desk365 ticket, Formspree fallback
 // Deploy to Vercel. Set DESK365_API_KEY in Vercel environment variables.
 
-const DESK365_BASE = 'https://urpay.desk365.io/api/v3';
+const DESK365_BASE = 'https://urpay.desk365.io/apis/v3';
 
 const FORMSPREE = {
   contact: 'https://formspree.io/f/mbdbkpzp',
@@ -10,17 +10,18 @@ const FORMSPREE = {
   dev:     'https://formspree.io/f/xvzyqvda',
 };
 
+// priority: 1=Urgent, 5=High, 10=Medium, 20=Low
 const GROUPS = {
-  sales:    { label: 'Sales',                priority: 2 },
-  terminal: { label: 'Terminal Support',     priority: 1 },
-  gateway:  { label: 'Gateway Support',      priority: 2 },
-  billing:  { label: 'Settlement & Accounts',priority: 2 },
-  partner:  { label: 'Partnerships',         priority: 2 },
-  general:  { label: 'General Enquiry',      priority: 3 },
+  sales:    { label: 'Sales',                priority: 10 },
+  terminal: { label: 'Terminal Support',     priority: 5  },
+  gateway:  { label: 'Gateway Support',      priority: 10 },
+  billing:  { label: 'Settlement & Accounts',priority: 10 },
+  partner:  { label: 'Partnerships',         priority: 10 },
+  general:  { label: 'General Enquiry',      priority: 20 },
 };
 
 async function tryDesk365(apiKey, ticket) {
-  const resp = await fetch(`${DESK365_BASE}/tickets`, {
+  const resp = await fetch(`${DESK365_BASE}/tickets/create`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${apiKey}`,
@@ -32,7 +33,7 @@ async function tryDesk365(apiKey, ticket) {
   });
   const ct = resp.headers.get('content-type') || '';
   if (!ct.includes('application/json')) {
-    throw new Error(`Desk365 returned non-JSON (HTTP ${resp.status}) — API may not be activated`);
+    throw new Error(`Desk365 returned non-JSON (HTTP ${resp.status})`);
   }
   const data = await resp.json();
   if (!resp.ok) throw new Error(JSON.stringify(data));
@@ -98,10 +99,10 @@ export default async function handler(req, res) {
       await tryDesk365(apiKey, {
         subject,
         description,
-        contact_email: email,
+        email,
+        status: 'Open',
         priority: group.priority,
         type: 'Question',
-        tags: ['website', formType],
       });
       via = 'desk365';
     } catch (err) {
