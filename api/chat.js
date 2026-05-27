@@ -410,6 +410,111 @@ Use these when relevant. Example: someone asks about POS integrations → "You c
 - Merchant dashboard access issue: 1800 008 772 or support@urpay.com.au
 `;
 
+// --- Desk365 lead capture helpers ---
+
+const DESK365_CHAT_BASE = 'https://urpay.desk365.io/api/v3';
+
+const CHAT_GROUPS = {
+  sales:    { label: 'Sales',                priority: 2 },
+  terminal: { label: 'Terminal Support',     priority: 1 },
+  gateway:  { label: 'Gateway Support',      priority: 2 },
+  billing:  { label: 'Settlement & Accounts',priority: 2 },
+  partner:  { label: 'Partnerships',         priority: 2 },
+  general:  { label: 'General Enquiry',      priority: 3 },
+};
+
+function detectLeadReady(messages) {
+  // True when: last bot message asked for name/number AND current user message has contact info
+  const bots  = messages.filter(m => m.role === 'assistant');
+  const users = messages.filter(m => m.role === 'user');
+  if (!bots.length || !users.length) return false;
+
+  const lastBot  = bots[bots.length - 1]?.content || '';
+  const lastUser = users[users.length - 1]?.content || '';
+
+  const botAsked = /grab your (name|number)|best number|have someone.*call|arrange.*call/i.test(lastBot);
+  const hasPhone = /\b(04\d[\d\s\-]{6,}|\+614[\d\s]{8,}|0[2-9][\d\s]{7,})\b/.test(lastUser);
+  const hasEmail = /@[\w.-]+\.\w+/.test(lastUser);
+
+  return botAsked && (hasPhone || hasEmail);
+}
+
+function detectChatTopic(messages) {
+  const text = messages.map(m => m.content).join(' ');
+  if (/terminal|printer|hardware|a920|a930|dx8000|charge|paper roll|nfc|contactless|pairing/i.test(text)) return 'terminal';
+  if (/gateway|api|online|cnp|integration|webhook|sandbox|developer|rest/i.test(text)) return 'gateway';
+  if (/settlement|billing|invoice|reconcil|account/i.test(text)) return 'billing';
+  if (/partner|iso|reseller|white.label|embed|commission|sub.payfac/i.test(text)) return 'partner';
+  if (/price|pricing|fee|rate|cost|sign.?up|onboard|new merchant/i.test(text)) return 'sales';
+  return 'general';
+}
+
+async function fireLeadTicket(messages, apiKey) {
+  if (!apiKey) return;
+
+  const topicKey = detectChatTopic(messages);
+  const group    = CHAT_GROUPS[topicKey];
+
+  const lastUserMsg = messages.filter(m => m.role === 'user').slice(-1)[0]?.content || '';
+  const prevUserMsg = messages.filter(m => m.role === 'user').slice(-2, -1)[0]?.content || '';
+  const combined    = `${prevUserMsg} ${lastUserMsg}`;
+
+  const phoneMatch = combined.match(/\b(04\d[\d\s\-]{6,12}|\+614[\d\s]{8,9}|0[2-9][\d\s]{7,9})\b/);
+  const nameMatch  = combined.match(/\b([A-Z][a-z]+(?: [A-Z][a-z]+)?)\b/) ||
+                     combined.match(/(?:name is|i'm|i am)\s+([A-Za-z]+(?: [A-Za-z]+)?)/i);
+
+  const phone = phoneMatch?.[0]?.replace(/[\s\-]/g, '') || '';
+  const name  = nameMatch?.[1] || 'Chat visitor';
+
+  const transcript = messages.slice(-8).map(m =>
+    `${m.role === 'user' ? 'Visitor' : 'UrPay Bot'}: ${m.content}`
+  ).join('\n\n');
+
+  const subject     = `Chat lead: ${group.label} — ${name}`;
+  const description = [
+    'Source: UrPay website chatbot',
+    `Name: ${name}`,
+    phone && `Phone: ${phone}`,
+    `Topic: ${group.label}`,
+    '',
+    '--- Conversation ---',
+    transcript,
+  ].filter(Boolean).join('\n');
+
+  try {
+    const resp = await fetch(`${DESK365_CHAT_BASE}/tickets`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        subject,
+        description,
+        contact_email: 'chatbot@urpay.com.au',
+        priority: group.priority,
+        type: 'Question',
+        tags: ['chatbot', topicKey],
+      }),
+      signal: AbortSignal.timeout(5000),
+    });
+    const ct = resp.headers.get('content-type') || '';
+    if (!ct.includes('application/json')) {
+      console.error('[desk365-chat] Non-JSON response — API may not be activated on this account');
+      return;
+    }
+    if (!resp.ok) {
+      const err = await resp.text();
+      console.error('[desk365-chat] Ticket creation failed:', err);
+    }
+  } catch (err) {
+    console.error('[desk365-chat] Error:', err.message);
+  }
+}
+
+// --- Main handler ---
+
 export default async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -452,6 +557,12 @@ export default async function handler(req, res) {
 
     const data = await response.json();
     const content = data.content?.[0]?.text ?? '';
+
+    // Silent lead capture — fires when bot collected name/number, non-blocking
+    if (detectLeadReady(messages)) {
+      fireLeadTicket(messages, process.env.DESK365_API_KEY).catch(() => {});
+    }
+
     return res.status(200).json({ content });
 
   } catch (err) {

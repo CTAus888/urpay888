@@ -617,10 +617,12 @@
     const btn = form.querySelector('.form-submit');
     btn.textContent = 'Sending…';
     btn.disabled = true;
-    fetch('https://formspree.io/f/xnjrzogl', {
+    const data = {};
+    new FormData(form).forEach(function(v, k) { data[k] = v; });
+    fetch('/api/desk365?type=partner', {
       method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     }).then(function(res) {
       if (res.ok) {
         document.getElementById('partnerSuccess').style.display = 'block';
@@ -644,10 +646,12 @@
     const btn = form.querySelector('.form-submit');
     btn.textContent = 'Sending…';
     btn.disabled = true;
-    fetch('https://formspree.io/f/xvzyqvda', {
+    const data = {};
+    new FormData(form).forEach(function(v, k) { data[k] = v; });
+    fetch('/api/desk365?type=dev', {
       method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     }).then(function(res) {
       if (res.ok) {
         document.getElementById('devSuccess').style.display = 'block';
