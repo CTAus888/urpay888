@@ -1,6 +1,8 @@
 // UrPay — Desk365 ticket creation endpoint
-// Handles contact/partner/dev form submissions → Desk365 ticket, Formspree fallback
-// Deploy to Vercel. Set DESK365_API_KEY in Vercel environment variables.
+// Handles contact/partner/dev form submissions → Desk365 ticket, Formspree fallback, Monday.com lead
+// Deploy to Vercel. Set DESK365_API_KEY + MONDAY_API_KEY in Vercel environment variables.
+
+import { createInboundLead } from '../lib/monday.js';
 
 const DESK365_BASE = 'https://urpay.desk365.io/apis/v3';
 
@@ -126,6 +128,14 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Submission failed. Please call 1800 008 772.' });
     }
   }
+
+  // Monday.com — create inbound lead (non-blocking, never delays response)
+  createInboundLead({
+    name, email, phone, business,
+    formType,
+    groupLabel: group.label,
+    message,
+  }).catch(err => console.error('[desk365] Monday lead creation failed:', err.message));
 
   return res.status(200).json({ ok: true, via });
 }
