@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/proposals", "destination": "/pages/proposals.html" },
+    { "source": "/p/:id",     "destination": "/api/proposals/:id"   }
+  ]
+}

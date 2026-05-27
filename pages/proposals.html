@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UrPay — Proposal Generator</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#0B1029;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:#fff;border-radius:12px;padding:36px 40px;width:100%;max-width:480px;box-shadow:0 8px 40px rgba(0,0,0,0.35)}
+.logo{font-size:18pt;font-weight:700;color:#0B1029;letter-spacing:.02em;margin-bottom:6px}
+.subtitle{font-size:9pt;color:#888;margin-bottom:28px}
+.form-group{margin-bottom:18px}
+label{display:block;font-size:8.5pt;font-weight:600;color:#333;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+input,select{width:100%;padding:10px 14px;border:1.5px solid #e4e4f5;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:9.5pt;color:#1a1a1a;background:#fff;outline:none;transition:border-color .15s}
+input:focus,select:focus{border-color:#8D8DFF}
+input::placeholder{color:#bbb}
+.rate-hint{font-size:7.5pt;color:#999;margin-top:5px}
+.btn{width:100%;background:#8D8DFF;color:#fff;border:none;border-radius:8px;padding:13px;font-family:'DM Sans',sans-serif;font-size:10.5pt;font-weight:700;cursor:pointer;margin-top:6px;transition:background .15s}
+.btn:hover{background:#7070e8}
+.btn:disabled{background:#ccc;cursor:not-allowed}
+/* PIN gate */
+#pin-gate{text-align:center}
+#pin-gate h2{font-size:16pt;font-weight:700;color:#0B1029;margin-bottom:8px}
+#pin-gate p{font-size:9pt;color:#666;margin-bottom:22px}
+#pin-input{text-align:center;font-size:18pt;letter-spacing:.3em;padding:12px;width:180px;margin:0 auto 16px;display:block}
+/* Result */
+#result{display:none;margin-top:20px;border:1px solid #e4e4f5;border-radius:8px;padding:18px}
+#result h3{font-size:10pt;font-weight:700;color:#0B1029;margin-bottom:6px}
+#result-url{font-size:9pt;color:#8D8DFF;word-break:break-all;line-height:1.5;margin-bottom:12px}
+.copy-btn{background:#0B1029;color:#fff;border:none;border-radius:6px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:8.5pt;font-weight:600;cursor:pointer;margin-right:8px}
+.copy-btn.copied{background:#1ED69A;color:#0B1029}
+.open-btn{background:transparent;color:#8D8DFF;border:1.5px solid #8D8DFF;border-radius:6px;padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:8.5pt;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.error{background:#fff0f0;border:1px solid #ffcccc;border-radius:6px;padding:10px 14px;font-size:8.5pt;color:#c00;margin-top:12px;display:none}
+</style>
+</head>
+<body>
+
+<!-- PIN GATE -->
+<div class="card" id="pin-gate">
+  <div class="logo">UrPay</div>
+  <div class="subtitle">Proposal Generator — Team Access</div>
+  <p>Enter your team PIN to access the proposal generator.</p>
+  <input type="password" id="pin-input" placeholder="••••" maxlength="8" />
+  <button class="btn" onclick="checkPin()">Continue</button>
+  <div class="error" id="pin-error">Incorrect PIN. Please try again.</div>
+</div>
+
+<!-- PROPOSAL FORM (hidden until PIN correct) -->
+<div class="card" id="proposal-form" style="display:none">
+  <div class="logo">UrPay</div>
+  <div class="subtitle">Generate a tracked merchant proposal</div>
+
+  <div class="form-group">
+    <label>Merchant / Business Name</label>
+    <input type="text" id="merchantName" placeholder="e.g. Journey Ceramics" />
+  </div>
+
+  <div class="form-group">
+    <label>Business Type</label>
+    <select id="businessType">
+      <option value="Hospitality">Hospitality (Restaurant / Café / Bar)</option>
+      <option value="Retail">Retail / Boutique / Markets</option>
+      <option value="Professional Services">Professional Services</option>
+      <option value="Health & Beauty">Health &amp; Beauty</option>
+      <option value="Accommodation">Accommodation / Hotel</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Proposal Template</label>
+    <select id="template">
+      <option value="complete-solution">Complete Payments Solution (POS + Payments)</option>
+      <option value="terminal-proposal">Terminal Payments Proposal</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Custom In-Store Rate (optional)</label>
+    <input type="text" id="customRate" placeholder="e.g. 1.3% — leave blank for standard" />
+    <div class="rate-hint">If left blank, proposal shows "From 1.4%". Enter a specific rate to personalise.</div>
+  </div>
+
+  <div class="form-group">
+    <label>Your Name (Salesperson)</label>
+    <input type="text" id="salesperson" placeholder="e.g. Rosie" />
+  </div>
+
+  <button class="btn" id="generate-btn" onclick="generateProposal()">Generate Proposal Link</button>
+
+  <div id="result">
+    <h3>✓ Proposal ready — share this link with the merchant</h3>
+    <div id="result-url"></div>
+    <button class="copy-btn" id="copy-btn" onclick="copyLink()">Copy Link</button>
+    <a id="open-btn" class="open-btn" target="_blank">Preview</a>
+    <div style="font-size:7.5pt;color:#888;margin-top:12px;line-height:1.5">
+      Opens + PDF downloads are tracked automatically and recorded in Monday.com.
+    </div>
+  </div>
+  <div class="error" id="form-error"></div>
+</div>
+
+<script>
+let sessionPin = '';
+let proposalUrl = '';
+
+function checkPin() {
+  const pin = document.getElementById('pin-input').value;
+  sessionPin = pin;
+  // Validate by attempting a lightweight check — just show the form
+  // Real PIN validation happens server-side on generate
+  if (pin.length >= 4) {
+    document.getElementById('pin-gate').style.display = 'none';
+    document.getElementById('proposal-form').style.display = 'block';
+  } else {
+    document.getElementById('pin-error').style.display = 'block';
+  }
+}
+
+document.getElementById('pin-input')?.addEventListener('keydown', e => {
+  if (e.key === 'Enter') checkPin();
+});
+
+async function generateProposal() {
+  const btn = document.getElementById('generate-btn');
+  const err = document.getElementById('form-error');
+  err.style.display = 'none';
+  document.getElementById('result').style.display = 'none';
+
+  const merchantName = document.getElementById('merchantName').value.trim();
+  const businessType = document.getElementById('businessType').value;
+  const template     = document.getElementById('template').value;
+  const customRate   = document.getElementById('customRate').value.trim();
+  const salesperson  = document.getElementById('salesperson').value.trim();
+
+  if (!merchantName) {
+    err.textContent = 'Please enter the merchant or business name.';
+    err.style.display = 'block';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Generating…';
+
+  try {
+    const resp = await fetch('/api/proposals/create', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin: sessionPin, merchantName, businessType, template, customRate, salesperson }),
+    });
+    const data = await resp.json();
+
+    if (!resp.ok) {
+      if (resp.status === 401) {
+        document.getElementById('proposal-form').style.display = 'none';
+        document.getElementById('pin-gate').style.display = 'block';
+        document.getElementById('pin-error').style.display = 'block';
+      } else {
+        throw new Error(data.error || 'Generation failed');
+      }
+      return;
+    }
+
+    proposalUrl = data.url;
+    document.getElementById('result-url').textContent = data.url;
+    document.getElementById('open-btn').href = data.url;
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('copy-btn').textContent = 'Copy Link';
+    document.getElementById('copy-btn').classList.remove('copied');
+    btn.textContent = 'Generate Another';
+
+  } catch(e) {
+    err.textContent = e.message || 'Something went wrong. Please try again.';
+    err.style.display = 'block';
+    btn.textContent = 'Generate Proposal Link';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(proposalUrl).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy Link'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
