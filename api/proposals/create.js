@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { pin, merchantName, businessType, template, customRate, salesperson } = req.body || {};
+  const { pin, merchantName, businessType, template, customRate, salesperson, personalNote } = req.body || {};
 
   // PIN check
   if (pin !== process.env.PROPOSAL_PIN) {
@@ -39,6 +39,7 @@ export default async function handler(req, res) {
     template,
     customRate:    customRate?.trim() || null,
     salesperson:   salesperson?.trim() || 'UrPay Team',
+    personalNote:  personalNote?.trim() || null,
     createdAt:     now,
     mondayItemId:  null,
     views:         [],

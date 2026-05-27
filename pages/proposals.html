@@ -13,8 +13,9 @@ body{font-family:'DM Sans',sans-serif;background:#0B1029;min-height:100vh;displa
 .subtitle{font-size:9pt;color:#888;margin-bottom:28px}
 .form-group{margin-bottom:18px}
 label{display:block;font-size:8.5pt;font-weight:600;color:#333;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
-input,select{width:100%;padding:10px 14px;border:1.5px solid #e4e4f5;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:9.5pt;color:#1a1a1a;background:#fff;outline:none;transition:border-color .15s}
-input:focus,select:focus{border-color:#8D8DFF}
+input,select,textarea{width:100%;padding:10px 14px;border:1.5px solid #e4e4f5;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:9.5pt;color:#1a1a1a;background:#fff;outline:none;transition:border-color .15s}
+input:focus,select:focus,textarea:focus{border-color:#8D8DFF}
+textarea{resize:vertical;min-height:80px;line-height:1.5}
 input::placeholder{color:#bbb}
 .rate-hint{font-size:7.5pt;color:#999;margin-top:5px}
 .btn{width:100%;background:#8D8DFF;color:#fff;border:none;border-radius:8px;padding:13px;font-family:'DM Sans',sans-serif;font-size:10.5pt;font-weight:700;cursor:pointer;margin-top:6px;transition:background .15s}
@@ -88,6 +89,12 @@ input::placeholder{color:#bbb}
     <input type="text" id="salesperson" placeholder="e.g. Rosie" />
   </div>
 
+  <div class="form-group">
+    <label>Personal Note (optional)</label>
+    <textarea id="personalNote" placeholder="e.g. Great to meet you Tuesday Sarah — as discussed, here's what we can do for The Loft…"></textarea>
+    <div class="rate-hint">Appears as a personal intro on the proposal cover. Leave blank for a standard opening.</div>
+  </div>
+
   <button class="btn" id="generate-btn" onclick="generateProposal()">Generate Proposal Link</button>
 
   <div id="result">
@@ -129,11 +136,12 @@ async function generateProposal() {
   err.style.display = 'none';
   document.getElementById('result').style.display = 'none';
 
-  const merchantName = document.getElementById('merchantName').value.trim();
-  const businessType = document.getElementById('businessType').value;
-  const template     = document.getElementById('template').value;
-  const customRate   = document.getElementById('customRate').value.trim();
-  const salesperson  = document.getElementById('salesperson').value.trim();
+  const merchantName  = document.getElementById('merchantName').value.trim();
+  const businessType  = document.getElementById('businessType').value;
+  const template      = document.getElementById('template').value;
+  const customRate    = document.getElementById('customRate').value.trim();
+  const salesperson   = document.getElementById('salesperson').value.trim();
+  const personalNote  = document.getElementById('personalNote').value.trim();
 
   if (!merchantName) {
     err.textContent = 'Please enter the merchant or business name.';
@@ -148,7 +156,7 @@ async function generateProposal() {
     const resp = await fetch('/api/proposals/create', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ pin: sessionPin, merchantName, businessType, template, customRate, salesperson }),
+      body: JSON.stringify({ pin: sessionPin, merchantName, businessType, template, customRate, salesperson, personalNote }),
     });
     const data = await resp.json();
 
