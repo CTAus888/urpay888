@@ -68,6 +68,8 @@ export default async function handler(req, res) {
     groupKey = 'partner';
   } else if (formType === 'dev') {
     groupKey = 'gateway';
+  } else if (formType === 'joe') {
+    groupKey = 'sales';
   } else if (body.enquiry_type && GROUPS[body.enquiry_type]) {
     groupKey = body.enquiry_type;
   }
@@ -75,7 +77,8 @@ export default async function handler(req, res) {
 
   // Build contact fields
   const name     = [body.first_name, body.last_name].filter(Boolean).join(' ') || body.name || 'Website visitor';
-  const email    = body.email || 'noreply@urpay.com.au';
+  const email    = body.email || '';
+  const emailForTicket = email || 'noreply@urpay.com.au';
   const phone    = body.phone || '';
   const business = body.business_name || body.company || '';
   const message  = body.message || '';
@@ -101,7 +104,7 @@ export default async function handler(req, res) {
       await tryDesk365(apiKey, {
         subject,
         description,
-        email,
+        email: emailForTicket,
         status: 'Open',
         priority: group.priority,
         type: 'Question',
@@ -117,10 +120,10 @@ export default async function handler(req, res) {
     const fsUrl = FORMSPREE[formType] || FORMSPREE.contact;
     try {
       await tryFormspree(fsUrl, {
-        name, email, phone, business, message,
+        name, email: emailForTicket, phone, business, message,
         enquiry_type: groupKey,
         _subject: subject,
-        _replyto: email,
+        _replyto: emailForTicket,
       });
       via = 'formspree';
     } catch (err) {
