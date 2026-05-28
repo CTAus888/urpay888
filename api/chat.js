@@ -463,10 +463,12 @@ async function fireLeadTicket(messages, apiKey) {
   const combined    = `${prevUserMsg} ${lastUserMsg}`;
 
   const phoneMatch = combined.match(/\b(04\d[\d\s\-]{6,12}|\+614[\d\s]{8,9}|0[2-9][\d\s]{7,9})\b/);
+  const emailMatch = combined.match(/[\w.+-]+@[\w.-]+\.\w+/);
   const nameMatch  = combined.match(/\b([A-Z][a-z]+(?: [A-Z][a-z]+)?)\b/) ||
                      combined.match(/(?:name is|i'm|i am)\s+([A-Za-z]+(?: [A-Za-z]+)?)/i);
 
   const phone = phoneMatch?.[0]?.replace(/[\s\-]/g, '') || '';
+  const email = emailMatch?.[0] || '';
   const name  = nameMatch?.[1] || 'Chat visitor';
 
   const transcript = messages.slice(-8).map(m =>
@@ -519,6 +521,7 @@ async function fireLeadTicket(messages, apiKey) {
   createInboundLead({
     name,
     phone,
+    email,
     formType: 'chatbot',
     groupLabel: group.label,
     message:   transcript,
