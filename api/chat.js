@@ -524,15 +524,10 @@ async function fireLeadTicket(messages, apiKey) {
     console.error('[desk365-chat] Error:', err.message);
   }
 
-  // Monday.com lead — non-blocking, mirrors the desk365.js pattern
-  createInboundLead({
-    name,
-    phone,
-    email,
-    formType: 'chatbot',
-    groupLabel: group.label,
-    message:   transcript,
-  }).catch(() => {});
+  // Monday.com lead — awaited to prevent Vercel from freezing the function mid-call
+  try {
+    await createInboundLead({ name, phone, email, formType: 'chatbot', groupLabel: group.label, message: transcript });
+  } catch (_) {}
 }
 
 // --- Main handler ---
