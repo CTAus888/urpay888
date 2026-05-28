@@ -32,8 +32,9 @@ UrPay is a PAYFAC-licensed omni-channel payments company headquartered in Brisba
 
 ## DEFLECTION RULE — USE THIS WHENEVER UNCERTAIN OR COMMERCIAL
 If a question is about pricing, fees, contracts, specific rates, settlements, compliance, or anything you are not 100% certain of: stop answering and say exactly this (adapt naturally to the conversation):
-"That's something I'd want to get right for you — let me have someone from our team give you a call. Can I grab your name and best number?"
+"That's something I'd want to get right for you — let me have someone from our team give you a call. Can I grab your name, business name, and best contact number?"
 Then stop. Do not attempt to answer the question. Do not guess.
+If someone offers their business name at any point — even after you already have their number — say "Yes, that's helpful, go ahead." and capture it. Never tell someone their business name isn't needed or that the team will get it later.
 
 ## YOUR ROLE
 - Answer questions about UrPay's products, platform, terminals, merchant dashboard, and partner program
@@ -435,7 +436,7 @@ function detectLeadReady(messages) {
   const lastBot  = bots[bots.length - 1]?.content || '';
   const lastUser = users[users.length - 1]?.content || '';
 
-  const botAsked = /grab your (name|number)|best.{0,10}number|contact number|your name and|name and.*number|have someone.*call|arrange.*call|reach out/i.test(lastBot);
+  const botAsked = /grab your (name|number|business)|best.{0,10}number|contact number|your name and|name and.*number|have someone.*call|arrange.*call|reach out|business name/i.test(lastBot);
   const hasPhone = /\b(04\d[\d\s\-]{6,}|\+614[\d\s]{8,}|0[2-9][\d\s]{7,})\b/.test(lastUser);
   const hasEmail = /@[\w.-]+\.\w+/.test(lastUser);
 
@@ -465,28 +466,36 @@ async function fireLeadTicket(messages, apiKey) {
   const phoneMatch = combined.match(/\b(04\d[\d\s\-]{6,12}|\+614[\d\s]{8,9}|0[2-9][\d\s]{7,9})\b/);
   const emailMatch = combined.match(/[\w.+-]+@[\w.-]+\.\w+/);
 
-  // Name: check explicit statements first, then first words of the reply before phone/email
+  // Name: explicit statements first, then first words of reply before phone/email
   const explicitName = combined.match(/(?:name is|i'm|i am|this is|it's|its)\s+([A-Za-z]+(?: [A-Za-z]+)?)/i);
   const replyStripped = lastUserMsg
-    .replace(/\b(04\d[\d\s\-]{6,12}|\+614[\d\s]{8,9}|0[2-9][\d\s]{7,9})\b/, '')
-    .replace(/[\w.+-]+@[\w.-]+\.\w+/, '')
+    .replace(/\b(04\d[\d\s\-]{6,12}|\+614[\d\s]{8,9}|0[2-9][\d\s]{7,9})\b/g, '')
+    .replace(/[\w.+-]+@[\w.-]+\.\w+/g, '')
     .replace(/[,.\-|]/g, ' ')
     .trim();
   const firstWords = replyStripped.match(/^([A-Za-z][a-z]*(?: [A-Za-z][a-z]*){0,2})/)?.[1];
 
-  const phone = phoneMatch?.[0]?.replace(/[\s\-]/g, '') || '';
-  const email = emailMatch?.[0] || '';
-  const name  = explicitName?.[1] || firstWords || 'Website Enquiry';
+  // Business: explicit mention or second comma-group in the reply
+  const bizExplicit = combined.match(/(?:business(?:\s+(?:is|name(?:\s+is)?)?)?|company\s+(?:is\s+)?|from\s+|trading\s+(?:as\s+)?)\s*([A-Za-z][A-Za-z0-9 '&.-]{1,50}?)(?:\s*[,.]|\s+and\s|\s+on\s|\d|$)/i);
+  const commaGroups = replyStripped.split(/[,;]/).map(s => s.trim()).filter(Boolean);
+  const bizFromComma = commaGroups.length >= 2 ? commaGroups[1] : '';
+
+  const phone    = phoneMatch?.[0]?.replace(/[\s\-]/g, '') || '';
+  const email    = emailMatch?.[0] || '';
+  const name     = explicitName?.[1] || firstWords || 'Website Enquiry';
+  const business = bizExplicit?.[1]?.trim() || bizFromComma || '';
 
   const transcript = messages.slice(-8).map(m =>
     `${m.role === 'user' ? 'Visitor' : 'UrPay Bot'}: ${m.content}`
   ).join('\n\n');
 
-  const subject     = `Chat lead: ${group.label} — ${name}`;
+  const subject     = `Chat lead: ${group.label} — ${name}${business ? ' (' + business + ')' : ''}`;
   const description = [
     'Source: UrPay website chatbot',
     `Name: ${name}`,
-    phone && `Phone: ${phone}`,
+    business  && `Business: ${business}`,
+    phone     && `Phone: ${phone}`,
+    email     && `Email: ${email}`,
     `Topic: ${group.label}`,
     '',
     '--- Conversation ---',
@@ -509,7 +518,7 @@ async function fireLeadTicket(messages, apiKey) {
         priority: group.priority,
         type: 'Question',
       }),
-      signal: AbortSignal.timeout(5000),
+      signal: AbortSignal.timeout(8000),
     });
     const ct = resp.headers.get('content-type') || '';
     if (!ct.includes('application/json')) {
@@ -526,7 +535,7 @@ async function fireLeadTicket(messages, apiKey) {
 
   // Monday.com lead — awaited to prevent Vercel from freezing the function mid-call
   try {
-    await createInboundLead({ name, phone, email, formType: 'chatbot', groupLabel: group.label, message: transcript });
+    await createInboundLead({ name, phone, email, business, formType: 'chatbot', groupLabel: group.label, message: transcript });
   } catch (_) {}
 }
 
@@ -559,10 +568,10 @@ export default async function handler(req, res) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',  // Fast + cost-effective for chat
+        model: 'claude-haiku-4-5-20251001',
         max_tokens: 512,
         system: SYSTEM_PROMPT,
-        messages: messages.slice(-12),  // Keep last 12 turns to manage context
+        messages: messages.slice(-12),
       }),
     });
 
@@ -575,15 +584,18 @@ export default async function handler(req, res) {
     const data = await response.json();
     const content = data.content?.[0]?.text ?? '';
 
-    // Silent lead capture — fires when bot collected name/number, non-blocking
-    if (detectLeadReady(messages)) {
-      fireLeadTicket(messages, process.env.DESK365_API_KEY).catch(() => {});
-    }
+    // Start lead capture before responding — await after so Vercel doesn't kill mid-call
+    const leadWork = detectLeadReady(messages)
+      ? fireLeadTicket(messages, process.env.DESK365_API_KEY).catch(() => {})
+      : null;
 
-    return res.status(200).json({ content });
+    res.status(200).json({ content });
+
+    // Await here keeps the function alive until Desk365 + Monday complete
+    if (leadWork) await leadWork;
 
   } catch (err) {
     console.error('Chat handler error:', err);
-    return res.status(500).json({ error: 'Internal error' });
+    res.status(500).json({ error: 'Internal error' });
   }
 }
