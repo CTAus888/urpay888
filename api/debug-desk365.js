@@ -8,13 +8,13 @@ export default async function handler(req, res) {
     'Accept': 'application/json',
   };
 
-  const [groupsResp, agentsResp] = await Promise.all([
-    fetch('https://urpay.desk365.io/apis/v3/groups', { headers, signal: AbortSignal.timeout(10000) }),
-    fetch('https://urpay.desk365.io/apis/v3/agents', { headers, signal: AbortSignal.timeout(10000) }),
-  ]);
+  const endpoints = ['groups', 'teams', 'agent_groups', 'ticket_groups', 'departments'];
+  const results = {};
 
-  const groups = groupsResp.ok ? await groupsResp.json() : { error: groupsResp.status };
-  const agents = agentsResp.ok ? await agentsResp.json() : { error: agentsResp.status };
+  await Promise.all(endpoints.map(async (ep) => {
+    const r = await fetch(`https://urpay.desk365.io/apis/v3/${ep}`, { headers, signal: AbortSignal.timeout(8000) }).catch(e => ({ ok: false, status: 'timeout' }));
+    results[ep] = r.ok ? await r.json() : { error: r.status };
+  }));
 
-  res.status(200).json({ groups, agents });
+  res.status(200).json(results);
 }
