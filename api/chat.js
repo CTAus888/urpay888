@@ -464,12 +464,19 @@ async function fireLeadTicket(messages, apiKey) {
 
   const phoneMatch = combined.match(/\b(04\d[\d\s\-]{6,12}|\+614[\d\s]{8,9}|0[2-9][\d\s]{7,9})\b/);
   const emailMatch = combined.match(/[\w.+-]+@[\w.-]+\.\w+/);
-  const nameMatch  = combined.match(/\b([A-Z][a-z]+(?: [A-Z][a-z]+)?)\b/) ||
-                     combined.match(/(?:name is|i'm|i am)\s+([A-Za-z]+(?: [A-Za-z]+)?)/i);
+
+  // Name: check explicit statements first, then first words of the reply before phone/email
+  const explicitName = combined.match(/(?:name is|i'm|i am|this is|it's|its)\s+([A-Za-z]+(?: [A-Za-z]+)?)/i);
+  const replyStripped = lastUserMsg
+    .replace(/\b(04\d[\d\s\-]{6,12}|\+614[\d\s]{8,9}|0[2-9][\d\s]{7,9})\b/, '')
+    .replace(/[\w.+-]+@[\w.-]+\.\w+/, '')
+    .replace(/[,.\-|]/g, ' ')
+    .trim();
+  const firstWords = replyStripped.match(/^([A-Za-z][a-z]*(?: [A-Za-z][a-z]*){0,2})/)?.[1];
 
   const phone = phoneMatch?.[0]?.replace(/[\s\-]/g, '') || '';
   const email = emailMatch?.[0] || '';
-  const name  = nameMatch?.[1] || 'Chat visitor';
+  const name  = explicitName?.[1] || firstWords || 'Website Enquiry';
 
   const transcript = messages.slice(-8).map(m =>
     `${m.role === 'user' ? 'Visitor' : 'UrPay Bot'}: ${m.content}`
