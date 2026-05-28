@@ -128,6 +128,7 @@ export default async function handler(req, res) {
         status: 'Open',
         priority: group.priority,
         type: 'Question',
+        group: group.label,
       });
       via = 'desk365';
     } catch (err) {

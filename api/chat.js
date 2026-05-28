@@ -517,6 +517,7 @@ async function fireLeadTicket(messages, apiKey) {
         status: 'Open',
         priority: group.priority,
         type: 'Question',
+        group: group.label,
       }),
       signal: AbortSignal.timeout(15000),
     });
