@@ -152,11 +152,14 @@ export default async function handler(req, res) {
     }
   }
 
-  // Monday.com — awaited before response to prevent Vercel from freezing the function mid-call
-  try {
-    await createInboundLead({ name, email, phone, business, formType, groupLabel: group.label, message });
-  } catch (err) {
-    console.error('[desk365] Monday lead creation failed:', err.message);
+  // Monday.com — JOE only sends leads for sales inquiries, not support tickets
+  const sendToMonday = formType !== 'joe' || body.lead_type === 'sales';
+  if (sendToMonday) {
+    try {
+      await createInboundLead({ name, email, phone, business, formType, groupLabel: group.label, message });
+    } catch (err) {
+      console.error('[desk365] Monday lead creation failed:', err.message);
+    }
   }
 
   return res.status(200).json({ ok: true, via });
