@@ -76,24 +76,44 @@ export default async function handler(req, res) {
   const group = GROUPS[groupKey];
 
   // Build contact fields
-  const name     = [body.first_name, body.last_name].filter(Boolean).join(' ') || body.name || 'Website visitor';
-  const email    = body.email || '';
-  const emailForTicket = email || 'noreply@urpay.com.au';
-  const phone    = body.phone || '';
-  const business = body.business_name || body.company || '';
-  const message  = body.message || '';
+  let name, email, emailForTicket, phone, business, message, subject, description;
 
-  const subject = `${group.label}: ${name}${business ? ' (' + business + ')' : ''}`;
-  const description = [
-    `Source: UrPay website — ${formType} form`,
-    `Name: ${name}`,
-    phone    && `Phone: ${phone}`,
-    business && `Business: ${business}`,
-    `Email: ${email}`,
-    `Topic: ${group.label}`,
-    '',
-    message,
-  ].filter(Boolean).join('\n');
+  if (formType === 'joe') {
+    // JOE sends pre-formatted subject + structured description — parse caller details for Monday.com
+    const desc = body.description || '';
+    const nm = desc.match(/Caller Name:\s*([^\n]+)/i);
+    const bm = desc.match(/Business Name:\s*([^\n]+)/i);
+    const pm = desc.match(/Callback Number:\s*([^\n]+)/i);
+    const em = desc.match(/Email:\s*([^\n]+)/i);
+    name          = nm?.[1]?.trim() || 'JOE Caller';
+    business      = bm?.[1]?.trim() || '';
+    phone         = pm?.[1]?.trim() || '';
+    if (/not provided/i.test(phone)) phone = '';
+    const rawEmail = em?.[1]?.trim() || '';
+    email          = /not provided/i.test(rawEmail) ? '' : rawEmail;
+    emailForTicket = body.email || 'agentjoe@urpay.com.au';
+    subject        = body.subject || `Sales: ${name}${business ? ' (' + business + ')' : ''}`;
+    description    = desc;
+    message        = desc;
+  } else {
+    name          = [body.first_name, body.last_name].filter(Boolean).join(' ') || body.name || 'Website visitor';
+    email         = body.email || '';
+    emailForTicket = email || 'noreply@urpay.com.au';
+    phone         = body.phone || '';
+    business      = body.business_name || body.company || '';
+    message       = body.message || '';
+    subject       = `${group.label}: ${name}${business ? ' (' + business + ')' : ''}`;
+    description   = [
+      `Source: UrPay website — ${formType} form`,
+      `Name: ${name}`,
+      phone    && `Phone: ${phone}`,
+      business && `Business: ${business}`,
+      `Email: ${email}`,
+      `Topic: ${group.label}`,
+      '',
+      message,
+    ].filter(Boolean).join('\n');
+  }
 
   // Try Desk365 first
   const apiKey = process.env.DESK365_API_KEY;
