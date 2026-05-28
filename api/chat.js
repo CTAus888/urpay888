@@ -1,6 +1,8 @@
 // UrPay AI Assistant — Vercel Serverless Function
 // Deploy to Vercel. Set ANTHROPIC_API_KEY in Vercel environment variables.
 
+import { createInboundLead } from '../lib/monday.js';
+
 const SYSTEM_PROMPT = `You are the UrPay Assistant on the UrPay website chat widget.
 
 UrPay is a PAYFAC-licensed omni-channel payments company headquartered in Brisbane, operating across Australia and New Zealand. Phone: 1800 008 772 (24/7).
@@ -512,6 +514,15 @@ async function fireLeadTicket(messages, apiKey) {
   } catch (err) {
     console.error('[desk365-chat] Error:', err.message);
   }
+
+  // Monday.com lead — non-blocking, mirrors the desk365.js pattern
+  createInboundLead({
+    name,
+    phone,
+    formType: 'chatbot',
+    groupLabel: group.label,
+    message:   transcript,
+  }).catch(() => {});
 }
 
 // --- Main handler ---
