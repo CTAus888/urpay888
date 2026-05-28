@@ -419,12 +419,12 @@ const DESK365_CHAT_BASE = 'https://urpay.desk365.io/apis/v3';
 
 // priority: 1=Urgent, 5=High, 10=Medium, 20=Low
 const CHAT_GROUPS = {
-  sales:    { label: 'Sales',                priority: 10 },
-  terminal: { label: 'Terminal Support',     priority: 5  },
-  gateway:  { label: 'Gateway Support',      priority: 10 },
-  billing:  { label: 'Settlement & Accounts',priority: 10 },
-  partner:  { label: 'Partnerships',         priority: 10 },
-  general:  { label: 'General Enquiry',      priority: 20 },
+  sales:    { label: 'Sales',                          priority: 10 },
+  terminal: { label: 'Terminal Support',               priority: 5  },
+  gateway:  { label: 'Gateway Support',                priority: 10 },
+  billing:  { label: 'Accounts and Settlements Support',priority: 10 },
+  partner:  { label: 'Partnerships',                   priority: 10 },
+  general:  { label: 'Support - General Enquiries',    priority: 20 },
 };
 
 function detectLeadReady(messages) {
