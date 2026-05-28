@@ -8,13 +8,24 @@ export default async function handler(req, res) {
     'Accept': 'application/json',
   };
 
-  const [deptResp, agentsResp] = await Promise.all([
-    fetch('https://urpay.desk365.io/apis/v3/departments', { headers, signal: AbortSignal.timeout(10000) }),
+  const [ticketsResp, agentsResp] = await Promise.all([
+    fetch('https://urpay.desk365.io/apis/v3/tickets?page=1&page_size=25', { headers, signal: AbortSignal.timeout(10000) }),
     fetch('https://urpay.desk365.io/apis/v3/agents', { headers, signal: AbortSignal.timeout(10000) }),
   ]);
 
-  const departments = deptResp.ok ? await deptResp.json() : { error: deptResp.status };
+  const ticketsRaw = ticketsResp.ok ? await ticketsResp.json() : { error: ticketsResp.status };
   const agents = agentsResp.ok ? await agentsResp.json() : { error: agentsResp.status };
 
-  res.status(200).json({ departments, agents });
+  // Summarise: ticket id, subject, group, status, created_at
+  const tickets = Array.isArray(ticketsRaw?.content)
+    ? ticketsRaw.content.map(t => ({
+        id: t.ticket_id || t.id,
+        subject: t.subject,
+        group: t.group,
+        status: t.status,
+        created: t.created_at,
+      }))
+    : ticketsRaw;
+
+  res.status(200).json({ tickets, agents });
 }
