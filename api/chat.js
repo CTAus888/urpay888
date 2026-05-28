@@ -518,7 +518,7 @@ async function fireLeadTicket(messages, apiKey) {
         priority: group.priority,
         type: 'Question',
       }),
-      signal: AbortSignal.timeout(8000),
+      signal: AbortSignal.timeout(15000),
     });
     const ct = resp.headers.get('content-type') || '';
     if (!ct.includes('application/json')) {
@@ -573,6 +573,7 @@ export default async function handler(req, res) {
         system: SYSTEM_PROMPT,
         messages: messages.slice(-12),
       }),
+      signal: AbortSignal.timeout(45000),
     });
 
     if (!response.ok) {

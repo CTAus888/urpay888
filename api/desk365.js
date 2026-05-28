@@ -31,7 +31,7 @@ async function tryDesk365(apiKey, ticket) {
       'Accept': 'application/json',
     },
     body: JSON.stringify(ticket),
-    signal: AbortSignal.timeout(8000),
+    signal: AbortSignal.timeout(15000),
   });
   const ct = resp.headers.get('content-type') || '';
   if (!ct.includes('application/json')) {
@@ -47,7 +47,7 @@ async function tryFormspree(url, payload) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify(payload),
-    signal: AbortSignal.timeout(8000),
+    signal: AbortSignal.timeout(10000),
   });
   if (!resp.ok) throw new Error(`Formspree HTTP ${resp.status}`);
 }
