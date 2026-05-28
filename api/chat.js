@@ -435,7 +435,7 @@ function detectLeadReady(messages) {
   const lastBot  = bots[bots.length - 1]?.content || '';
   const lastUser = users[users.length - 1]?.content || '';
 
-  const botAsked = /grab your (name|number)|best number|have someone.*call|arrange.*call/i.test(lastBot);
+  const botAsked = /grab your (name|number)|best.{0,10}number|contact number|your name and|name and.*number|have someone.*call|arrange.*call|reach out/i.test(lastBot);
   const hasPhone = /\b(04\d[\d\s\-]{6,}|\+614[\d\s]{8,}|0[2-9][\d\s]{7,})\b/.test(lastUser);
   const hasEmail = /@[\w.-]+\.\w+/.test(lastUser);
 
